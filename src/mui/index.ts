@@ -21,7 +21,7 @@ const commonConfigs = createTheme({
   },
 });
 
-export const muiDarkTheme: ThemeOptions = {
+export const muiDarkThemeConfig: ThemeOptions = {
   ...commonConfigs,
   palette: {
     mode: "dark",
@@ -45,7 +45,7 @@ export const muiDarkTheme: ThemeOptions = {
     },
   },
 };
-export const muiLightTheme: ThemeOptions = {
+export const muiLightThemeConfig: ThemeOptions = {
   ...commonConfigs,
   palette: {
     mode: "light",
