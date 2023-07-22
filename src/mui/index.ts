@@ -1,5 +1,3 @@
-"use client";
-
 import { muiDarkTheme, muiLightTheme } from "./theme";
 import { ThemeProvider, useThemeToggler } from "./context";
 
