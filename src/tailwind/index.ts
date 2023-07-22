@@ -17,10 +17,7 @@ export const tailwindColors = Object.entries(colors).reduce<RecursiveKeyValuePai
 export const tailwindConfig: Config = {
   content: ["./pages/**/*.{js,ts,jsx,tsx,mdx}", "./components/**/*.{js,ts,jsx,tsx,mdx}", "./src/**/*.{js,ts,jsx,tsx,mdx}", "./app/**/*.{js,ts,jsx,tsx,mdx}"],
   theme: {
-    colors: {
-      ...tailwindColors,
-      ...catppuccinColors
-    },
+    colors: tailwindColors,
   },
   plugins: [],
 };
