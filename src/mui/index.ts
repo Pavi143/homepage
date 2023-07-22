@@ -1,4 +1,4 @@
-import { Shadows, ThemeOptions, createTheme } from "@mui/material/styles";
+import { Shadows, ThemeOptions } from "@mui/material/styles";
 import { catppuccinColors } from "../catppuccin";
 import colorsea from "colorsea";
 
@@ -8,7 +8,7 @@ const secondaryLight = catppuccinColors.light.red;
 const primaryDark = catppuccinColors.dark.flamingo;
 const secondaryDark = catppuccinColors.dark.red;
 
-const commonConfigs = createTheme({
+const commonConfigs: ThemeOptions = {
   shadows: new Array(25).fill("none") as Shadows,
   shape: {
     borderRadius: 0,
@@ -19,7 +19,7 @@ const commonConfigs = createTheme({
       textTransform: "none",
     },
   },
-});
+};
 
 export const muiDarkThemeConfig: ThemeOptions = {
   ...commonConfigs,
