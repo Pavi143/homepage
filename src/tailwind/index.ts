@@ -5,7 +5,7 @@ import { catppuccinColors } from "../catppuccin";
 
 export const tailwindColors = Object.entries(colors).reduce<RecursiveKeyValuePair<string, string>>(
   (_colors, [colorName, colorPalette]) =>
-    ["lightBlue", "warmGray", "trueGray", "coolGray", "blueGray"].indexOf(colorName.toString()) > 0
+    ["lightBlue", "warmGray", "trueGray", "coolGray", "blueGray"].indexOf(colorName.toString()) >= 0
       ? _colors
       : {
           ..._colors,
