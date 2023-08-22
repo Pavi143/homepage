@@ -2,11 +2,11 @@ import { Shadows, ThemeOptions } from "@mui/material/styles";
 import { catppuccinColors } from "../catppuccin";
 import colorsea from "colorsea";
 
-const primaryLight = catppuccinColors.light.flamingo;
-const secondaryLight = catppuccinColors.light.red;
+const primaryLight = catppuccinColors.light.mauve;
+const secondaryLight = catppuccinColors.light.pink;
 
-const primaryDark = catppuccinColors.dark.flamingo;
-const secondaryDark = catppuccinColors.dark.red;
+const primaryDark = catppuccinColors.dark.mauve;
+const secondaryDark = catppuccinColors.dark.pink;
 
 const commonConfigs: ThemeOptions = {
   shadows: new Array(25).fill("none") as Shadows,
@@ -36,7 +36,7 @@ export const muiDarkThemeConfig: ThemeOptions = {
       dark: colorsea(secondaryDark).darken(5).hex(),
     },
     background: {
-      default: catppuccinColors.dark.crust,
+      default: catppuccinColors.dark.base,
       paper: catppuccinColors.dark.mantle,
     },
     text: {
@@ -60,7 +60,7 @@ export const muiLightThemeConfig: ThemeOptions = {
       dark: colorsea(secondaryLight).darken(5).hex(),
     },
     background: {
-      default: catppuccinColors.light.crust,
+      default: catppuccinColors.light.base,
       paper: catppuccinColors.light.mantle,
     },
     text: {
