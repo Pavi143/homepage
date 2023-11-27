@@ -18,7 +18,7 @@ const commonConfigs: ThemeOptions = {
     button: {
       textTransform: "none",
     },
-  },
+  }
 };
 
 export const muiDarkThemeConfig: ThemeOptions = {
