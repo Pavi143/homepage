@@ -1,0 +1,13 @@
+p,
+a,
+span {
+    @apply my-0 py-0
+}
+
+a {
+    @apply text-blue
+}
+
+i {
+    @apply text-inherit
+}
