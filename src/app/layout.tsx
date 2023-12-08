@@ -6,42 +6,13 @@ import { CatppuccinProvider } from "@/context/catppuccin";
 import dirTree from "directory-tree";
 import { join } from "path";
 import { cwd } from "process";
-import Link from "next/link";
-import { Container } from "@mui/material";
+import { Container, Divider } from "@mui/material";
+import Navbar from "@/components/navbar";
+import DarkModeSwitcher from "@/components/darkmodeSwitcher";
 
 export const tree = dirTree(join(cwd(), "src/app/"), {
   extensions: /\page.mdx/
 })
-
-function Navbar({ tree }: { tree: dirTree.DirectoryTree<Record<string, any>> }) {
-  if (!tree) {
-    return null;
-  }
-  return (
-    <ul>
-      {tree.children?.map((item, key) => (
-        <li key={key}>
-          {item.children?.length ? (
-            <>
-              <Link className="text-inherit" href={"/" + item.path.split("src/app/")[1]}>
-                <p style={{ whiteSpace: 'nowrap' }}>
-                  {item.name}
-                </p>
-              </Link>
-              <Navbar tree={item} />
-            </>
-          ) : (
-            <Link className="text-inherit w-full" href={"/" + item.path.split("src/app/")[1]}>
-              <p style={{ whiteSpace: 'nowrap' }}>
-                {item.name}
-              </p>
-            </Link>
-          )}
-        </li>
-      ))}
-    </ul>
-  );
-}
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -50,14 +21,21 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <DarkModeProvider>
           <ThemeProvider>
             <CatppuccinProvider>
-              <Container className="flex gap-4 p-4">
-                <div className="md:block">
-                  <Navbar tree={tree} />
+              <div className="flex">
+                <div className="w-[300px] bg-mantle min-h-screen p-4">
+                  <div className="my-4">
+                    <DarkModeSwitcher />
+                  </div>
+                  <Divider className="my-4" />
+                  <p> Directory </p>
+                  <Navbar tree={tree} pl={6} />
                 </div>
-                <div>
-                  {children}
-                </div>
-              </Container>
+                <Container className="flex gap-4 p-4">
+                  <div className="w-full h-full">
+                    {children}
+                  </div>
+                </Container>
+              </div>
             </CatppuccinProvider>
           </ThemeProvider>
         </DarkModeProvider>

@@ -8,7 +8,7 @@ export const DarkModeContext = createContext({
 });
 
 export function DarkModeProvider({ children }: { children: ReactNode }) {
-    const [darkMode, setDarkMode] = useState(true);
+    const [darkMode, setDarkMode] = useState(false);
     useEffect(() => {
         document.querySelector("body")?.setAttribute("data-theme", darkMode ? "dark" : "light")
     }, [darkMode])
