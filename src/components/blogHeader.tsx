@@ -3,6 +3,7 @@ import { Divider } from "@mui/material"
 import Link from "next/link"
 import { headers } from "next/headers";
 import { faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
+import Image from "next/image";
 
 async function getProfileFromUsername(username: string) {
     const profile = await fetch(`https://api.github.com/users/${username}`, {
@@ -60,7 +61,7 @@ export const BlogHeader = async ({ hideAuthor }: { hideAuthor?: boolean }) => {
     const { name: committerName } = await getProfileFromUsername(committer.login)
     return <div className="w-full flex flex-col gap-4 mt-4 mb-8">
         {!Boolean(hideAuthor) && <div className="w-full flex flex-col md:flex-row md:items-center gap-4">
-            <img className="rounded-full w-20 h-20 object-contain shadow" src={author.avatar_url} alt="" />
+            <Image className="rounded-full w-20 h-20 object-contain shadow" src={author.avatar_url} alt="" />
             <div className="flex flex-col justify-between">
                 <p> {name} </p>
                 <div className="flex gap-2 text-sm">
@@ -75,7 +76,7 @@ export const BlogHeader = async ({ hideAuthor }: { hideAuthor?: boolean }) => {
             <div className="text-sm">
                 <p> Last edited by, </p>
                 <div className="flex items-center gap-2">
-                    <img className="w-8 h-8 object-contain rounded-full" src={committer.avatar_url} alt="" />
+                    <Image className="w-8 h-8 object-contain rounded-full" src={committer.avatar_url} alt="" />
                     <p> {committerName} </p>
                 </div>
                 <p className="text-subtext1"> {getTimeString(resp[resp.length - 1].commit.committer.date)} </p>
