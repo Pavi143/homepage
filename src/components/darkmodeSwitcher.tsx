@@ -9,6 +9,7 @@ export default function DarkModeSwitcher() {
     const { darkMode, toggleDarkMode } = useContext(DarkModeContext)
     const catppuccinColor = useContext(CatppuccinContext)
     return <DarkModeSwitch
+        size={"18px"}
         sunColor={catppuccinColor.peach}
         moonColor={catppuccinColor.yellow}
         checked={darkMode}
