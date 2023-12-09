@@ -25,12 +25,12 @@ export default function Sidebar({ tree }: { tree: dirTree.DirectoryTree<Record<s
 
 function Tray({ tree, pl }: { tree?: dirTree.DirectoryTree<Record<string, any>>, pl: number }) {
     const router = useRouter()
+    const [clicked, setClicked] = useState(false);
+
     if (!tree) {
         return null;
     }
-
-    const [clicked, setClicked] = useState(false);
-
+    
     const handleItemClick = () => {
         if (tree.children?.length) {
             setClicked(!clicked);
