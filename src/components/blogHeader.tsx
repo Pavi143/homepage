@@ -4,7 +4,7 @@ import Link from "next/link"
 import { headers } from "next/headers";
 import { faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
 
-async function getNameFromUsername(username: string) {
+async function getProfileFromUsername(username: string) {
     const profile = await fetch(`https://api.github.com/users/${username}`, {
         method: "GET",
         headers: {
@@ -56,8 +56,8 @@ export const BlogHeader = async ({ hideAuthor }: { hideAuthor?: boolean }) => {
     }
     const { author } = resp[0]
     const { committer } = resp[resp.length - 1]
-    const { name, blog, html_url, email } = await getNameFromUsername(author.login)
-    const { name: committerName } = await getNameFromUsername(committer.login)
+    const { name, blog, html_url, email } = await getProfileFromUsername(author.login)
+    const { name: committerName } = await getProfileFromUsername(committer.login)
     return <div className="w-full flex flex-col gap-4 mt-4 mb-8">
         {!Boolean(hideAuthor) && <div className="w-full flex flex-col md:flex-row md:items-center gap-4">
             <img className="rounded-full w-20 h-20 object-contain shadow" src={author.avatar_url} alt="" />
