@@ -1,4 +1,3 @@
-import { faGithub } from "@fortawesome/free-brands-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { Divider } from "@mui/material"
 import Link from "next/link"
@@ -39,7 +38,7 @@ function Chip({ textColor, text, href }: { textColor: string, href: string, text
     </Link >
 }
 
-export const BlogHeader = async () => {
+export const BlogHeader = async ({ hideAuthor }: { hideAuthor?: boolean }) => {
     const headersList = headers();
     const pathname = headersList.get("next-url")
     const filePathName = `src/app${pathname}/page.mdx`
@@ -60,7 +59,7 @@ export const BlogHeader = async () => {
     const { name, blog, html_url, email } = await getNameFromUsername(author.login)
     const { name: committerName } = await getNameFromUsername(committer.login)
     return <div className="w-full flex flex-col gap-4 mt-4 mb-8">
-        <div className="w-full flex flex-col md:flex-row md:items-center gap-4">
+        {!Boolean(hideAuthor) && <div className="w-full flex flex-col md:flex-row md:items-center gap-4">
             <img className="rounded-full w-20 h-20 object-contain shadow" src={author.avatar_url} alt="" />
             <div className="flex flex-col justify-between">
                 <p> {name} </p>
@@ -70,7 +69,7 @@ export const BlogHeader = async () => {
                     {email && <Chip textColor="text-lavender" text="Email" href={email} />}
                 </div>
             </div>
-        </div>
+        </div>}
         <Divider />
         <div className="flex justify-end items-center">
             <div className="text-sm">
