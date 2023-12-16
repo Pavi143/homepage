@@ -31,12 +31,11 @@ function getTimeString(timestamp: string) {
 }
 
 function Chip({ textColor, text, href }: { textColor: string, href: string, text: string }) {
-    // return <Link href={href} className={`rounded flex gap-2 items-center bg-mantle p-1 no-underline ${textColor}`
-    // }>
-    //     {text}
-    //     <FontAwesomeIcon className={textColor} icon={faArrowUpRightFromSquare} />
-    // </Link >
-    return <></>
+    return <a href={href} className={`rounded flex gap-2 items-center bg-mantle p-1 no-underline ${textColor}`
+    }>
+        {text}
+        <FontAwesomeIcon className={textColor} icon={faArrowUpRightFromSquare} />
+    </a>
 }
 
 export const BlogHeader = async ({ hideAuthor }: { hideAuthor?: boolean }) => {
