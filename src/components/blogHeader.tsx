@@ -8,7 +8,7 @@ async function getProfileFromUsername(username: string) {
     const profile = await fetch(`https://api.github.com/users/${username}`, {
         method: "GET",
         headers: {
-            "Authorization": `Bearer ${process.env.NEXT_PUBLIC_GITHUB_PAT}`,
+            "Authorization": process.env.NEXT_PUBLIC_GITHUB_PAT!,
             "Content-Type": "application/json"
         },
         cache: "force-cache"
@@ -31,7 +31,7 @@ function getTimeString(timestamp: string) {
 }
 
 function Chip({ textColor, text, href }: { textColor: string, href: string, text: string }) {
-    return <a href={href} className={`rounded flex gap-2 items-center bg-mantle p-1 no-underline ${textColor}`
+    return <a href={href} className={`rounded flex gap-2 items-center bg-mantle p-1 no-underline ${textColor} cursor-pointer`
     }>
         {text}
         <FontAwesomeIcon className={textColor} icon={faArrowUpRightFromSquare} />
