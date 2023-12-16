@@ -40,6 +40,9 @@ function Chip({ textColor, text, href }: { textColor: string, href: string, text
 
 export const BlogHeader = async ({ hideAuthor }: { hideAuthor?: boolean }) => {
     const headersList = headers();
+    if(!headersList) {
+        return <></>
+    }
     const pathname = headersList.get("x-pathname")
     const filePathName = `src/app${pathname}/page.mdx`
     const apiUrl = `https://api.github.com/repos/coding-club-gct/blogs/commits?path=${filePathName}`
