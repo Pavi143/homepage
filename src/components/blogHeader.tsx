@@ -31,18 +31,16 @@ function getTimeString(timestamp: string) {
 }
 
 function Chip({ textColor, text, href }: { textColor: string, href: string, text: string }) {
-    return <Link href={href || "https://google.com"} className={`rounded flex gap-2 items-center bg-mantle p-1 no-underline ${textColor}`
-    }>
-        {text}
-        <FontAwesomeIcon className={textColor} icon={faArrowUpRightFromSquare} />
-    </Link >
+    // return <Link href={href} className={`rounded flex gap-2 items-center bg-mantle p-1 no-underline ${textColor}`
+    // }>
+    //     {text}
+    //     <FontAwesomeIcon className={textColor} icon={faArrowUpRightFromSquare} />
+    // </Link >
+    return <></>
 }
 
 export const BlogHeader = async ({ hideAuthor }: { hideAuthor?: boolean }) => {
     const headersList = headers();
-    if(!headersList) {
-        return <></>
-    }
     const pathname = headersList.get("x-pathname")
     const filePathName = `src/app${pathname}/page.mdx`
     const apiUrl = `https://api.github.com/repos/coding-club-gct/blogs/commits?path=${filePathName}`
