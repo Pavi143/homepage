@@ -34,9 +34,8 @@ function Tray({ tree, pl }: { tree?: dirTree.DirectoryTree<Record<string, any>>,
     const handleItemClick = () => {
         if (tree.children?.length) {
             setClicked(!clicked);
-        } else {
-            router.push(tree.path.split("src/app")[1])
         }
+        router.push(tree.path.split("src/app")[1])
     };
     const renderTree = (node: dirTree.DirectoryTree<Record<string, any>>, pl: number) => {
         const isDir = Boolean(node.children?.length)

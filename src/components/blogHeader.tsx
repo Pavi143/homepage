@@ -1,6 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { Divider } from "@mui/material"
-import Link from "next/link"
 import { headers } from "next/headers";
 import { faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
 
@@ -8,7 +7,7 @@ async function getProfileFromUsername(username: string) {
     const profile = await fetch(`https://api.github.com/users/${username}`, {
         method: "GET",
         headers: {
-            "Authorization": process.env.NEXT_PUBLIC_GITHUB_PAT!,
+            "Authorization": `token ${process.env.NEXT_PUBLIC_GITHUB_PAT!}`,
             "Content-Type": "application/json"
         },
         cache: "force-cache"
@@ -31,7 +30,7 @@ function getTimeString(timestamp: string) {
 }
 
 function Chip({ textColor, text, href }: { textColor: string, href: string, text: string }) {
-    return <a href={href} className={`rounded flex gap-2 items-center bg-mantle p-1 no-underline ${textColor} cursor-pointer`
+    return <a target="_blank" href={href} className={`rounded flex gap-2 items-center bg-mantle p-1 no-underline cursor-pointer text-sm ${textColor}`
     }>
         {text}
         <FontAwesomeIcon className={textColor} icon={faArrowUpRightFromSquare} />
@@ -46,13 +45,13 @@ export const BlogHeader = async ({ hideAuthor }: { hideAuthor?: boolean }) => {
     const resp = await fetch(apiUrl, {
         method: "GET",
         headers: {
-            "Authorization": process.env.NEXT_PUBLIC_GITHUB_PAT!,
-            "Content-Type": "application/json"
+            "Authorization": `token ${process.env.NEXT_PUBLIC_GITHUB_PAT!}`,
+            "X-GitHub-Api-Version": "2022-11-28"
         },
         cache: "force-cache"
     }).then(res => res.json())
     if (!resp.length) {
-        return <div> {JSON.stringify(resp)} </div>
+        return <div className="text-red mb-8"> {JSON.stringify(resp)} </div>
     }
     const { author } = resp[0]
     const { committer } = resp[resp.length - 1]
@@ -63,10 +62,10 @@ export const BlogHeader = async ({ hideAuthor }: { hideAuthor?: boolean }) => {
             <img className="rounded-full w-20 h-20 object-contain" src={author.avatar_url} alt="" />
             <div className="flex flex-col justify-between">
                 <p> {name} </p>
-                <div className="flex gap-2 text-sm">
-                    <Chip textColor="text-lavender" text="GitHub" href={html_url} />
-                    {blog && <Chip textColor="text-rosewater" text="Website" href={blog} />}
-                    {email && <Chip textColor="text-lavender" text="Email" href={email} />}
+                <div className="flex gap-2">
+                    <Chip textColor="text-yellow" text="GitHub" href={html_url} />
+                    {blog && <Chip textColor="text-pink" text="Website" href={blog} />}
+                    {email && <Chip textColor="text-rosewater" text="Email" href={email} />}
                 </div>
             </div>
         </div>}
