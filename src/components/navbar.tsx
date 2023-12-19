@@ -1,25 +1,38 @@
 "use client"
 
-import dirTree from "directory-tree"
-import { useState } from "react";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faFolderOpen, faFolderClosed, faBars, faClose } from '@fortawesome/free-solid-svg-icons'
+import { faArrowLeft, faArrowRight, faFolderClosed, faFolderOpen } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Collapse, Container, Divider } from "@mui/material";
+import dirTree from "directory-tree";
 import { useRouter } from "next/navigation";
+import { ReactNode, useState } from "react";
 import DarkModeSwitcher from "./darkmodeSwitcher";
-import { Divider } from "@mui/material";
 
-export default function Sidebar({ tree }: { tree: dirTree.DirectoryTree<Record<string, any>> }) {
-    const [show, setShow] = useState(false)
-    return <div style={{ width: show ? undefined : "3rem", alignItems: show ? undefined : "center" }} className="w-screen absolute md:static md:w-[200px] bg-mantle flex flex-col min-h-screen p-4 gap-4">
-        <FontAwesomeIcon onClick={() => setShow(!show)} className="ml-auto mr-4 cursor-pointer" icon={show ? faClose : faBars} />
-        <DarkModeSwitcher />
-        {show && <>
-            <Divider />
-            <div>
-                <p> Directory </p>
-                <Tray tree={tree} pl={6} />
+export default function View({ tree, children }: { tree: dirTree.DirectoryTree<Record<string, any>>, children: ReactNode }) {
+    const [open, setOpen] = useState(false)
+    return <div className='flex relative'>
+        <div className=''>
+            <Collapse orientation='horizontal' in={open}>
+                <div className='w-[300px] h-screen py-6 px-4 flex flex-col gap-4 bg-mantle'>
+                    <div className='flex items-center justify-start gap-4'>
+                        <FontAwesomeIcon onClick={() => setOpen(!open)} className=" cursor-pointer" icon={open ? faArrowLeft : faArrowRight} />
+                        <DarkModeSwitcher />
+                    </div>
+                    <p> Directory </p>
+                    <Divider />
+                    <Tray tree={tree} pl={6} />
+                </div>
+            </Collapse>
+        </div>
+        <div className='relative w-full p-4'>
+            {!open && <div className='flex absolute items-center justify-start gap-4 my-2'>
+                <FontAwesomeIcon onClick={() => setOpen(!open)} className=" cursor-pointer" icon={open ? faArrowLeft : faArrowRight} />
+                <DarkModeSwitcher />
+            </div>}
+            <div className='mt-16'>
+                {children}
             </div>
-        </>}
+        </div>
     </div >
 }
 

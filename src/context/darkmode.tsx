@@ -1,6 +1,7 @@
 "use client";
 
-import { ReactNode, createContext, useEffect, useState } from "react";
+import { ReactNode, createContext, useEffect } from "react";
+import useLocalStorageState from "use-local-storage-state";
 
 export const DarkModeContext = createContext({
     darkMode: true,
@@ -8,7 +9,9 @@ export const DarkModeContext = createContext({
 });
 
 export function DarkModeProvider({ children }: { children: ReactNode }) {
-    const [darkMode, setDarkMode] = useState(false);
+    const [darkMode, setDarkMode] = useLocalStorageState("darkMode", {
+        defaultValue: false
+    });
     useEffect(() => {
         document.querySelector("body")?.setAttribute("data-theme", darkMode ? "dark" : "light")
     }, [darkMode])

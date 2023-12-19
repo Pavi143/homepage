@@ -1,6 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { Divider } from "@mui/material"
-import { headers } from "next/headers";
 import { faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
 
 async function getProfileFromUsername(username: string) {
@@ -26,7 +25,7 @@ function getTimeString(timestamp: string) {
         day: 'numeric',
         hour: 'numeric',
         minute: 'numeric',
-    });
+    }).replaceAll(",", " ");
 }
 
 function Chip({ textColor, text, href }: { textColor: string, href: string, text: string }) {
@@ -37,10 +36,8 @@ function Chip({ textColor, text, href }: { textColor: string, href: string, text
     </a>
 }
 
-export const BlogHeader = async ({ hideAuthor }: { hideAuthor?: boolean }) => {
-    const headersList = headers();
-    const pathname = headersList.get("x-pathname")
-    const filePathName = `src/app${pathname}/page.mdx`
+export const BlogHeader = async ({ pathname, hideAuthor }: { pathname: string, hideAuthor?: boolean }) => {
+    const filePathName = `src/blogs/${pathname}.mdx`
     const apiUrl = `https://api.github.com/repos/coding-club-gct/blogs/commits?path=${filePathName}`
     const resp = await fetch(apiUrl, {
         method: "GET",
@@ -74,7 +71,7 @@ export const BlogHeader = async ({ hideAuthor }: { hideAuthor?: boolean }) => {
             <div className="text-sm">
                 <p> Last edited by, </p>
                 <div className="flex items-center gap-2">
-                    <img className="w-8 h-8 object-contain rounded-full" src={committer.avatar_url} alt="" />
+                    <img className="w-6 h-6 object-contain rounded-full" src={committer.avatar_url} alt="" />
                     <p> {committerName} </p>
                 </div>
                 <p className="text-subtext1"> {getTimeString(resp[resp.length - 1].commit.committer.date)} </p>

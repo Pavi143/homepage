@@ -11,7 +11,7 @@ export default function DarkModeSwitcher() {
     return <DarkModeSwitch
         size={"18px"}
         sunColor={catppuccinColor.peach}
-        moonColor={catppuccinColor.yellow}
+        moonColor={catppuccinColor.sky}
         checked={darkMode}
         onChange={toggleDarkMode}
     />
