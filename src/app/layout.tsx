@@ -16,7 +16,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <ThemeProvider>
             <CatppuccinProvider>
               <Container className="min-h-screen">
-                <View tree={normalizePaths(allBlogs.map(blog => blog.url))} children={children} />
+                <View tree={normalizePaths(allBlogs.map(blog => blog.url))}>
+                  {children}
+                </View>
               </Container>
             </CatppuccinProvider>
           </ThemeProvider>
