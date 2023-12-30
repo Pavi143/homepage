@@ -1,0 +1,16 @@
+{
+  "body": {
+    "raw": "",
+    "code": ""
+  },
+  "_id": "design-patterns/foo/bar.mdx",
+  "_raw": {
+    "sourceFilePath": "design-patterns/foo/bar.mdx",
+    "sourceFileName": "bar.mdx",
+    "sourceFileDir": "design-patterns/foo",
+    "contentType": "mdx",
+    "flattenedPath": "design-patterns/foo/bar"
+  },
+  "type": "Blog",
+  "url": "design-patterns/foo/bar"
+}

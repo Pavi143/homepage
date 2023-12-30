@@ -3,15 +3,10 @@ import "./tailwind.css";
 import "./global.css"
 import { DarkModeProvider } from "@/context/darkmode";
 import { CatppuccinProvider } from "@/context/catppuccin";
-import dirTree from "directory-tree";
-import { join } from "path";
-import { cwd } from "process";
-import { Box, Container, Typography } from "@mui/material";
-import View from "@/components/navbar";
-
-const tree = dirTree(join(cwd(), "src/app/"), {
-  extensions: /\page.mdx/
-})
+import { Container } from "@mui/material";
+import View from "@/components/view";
+import { allBlogs } from "contentlayer/generated";
+import { normalizePaths } from "@/lib/normalize-path";
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -21,7 +16,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <ThemeProvider>
             <CatppuccinProvider>
               <Container className="min-h-screen">
-                <View tree={tree} children={children} />
+                <View tree={normalizePaths(allBlogs.map(blog => blog.url))} children={children} />
               </Container>
             </CatppuccinProvider>
           </ThemeProvider>

@@ -7,36 +7,9 @@ import dirTree from "directory-tree";
 import { useRouter } from "next/navigation";
 import { ReactNode, useState } from "react";
 import DarkModeSwitcher from "./darkmodeSwitcher";
+import { FolderNode } from '@/lib/normalize-path';
 
-export default function View({ tree, children }: { tree: dirTree.DirectoryTree<Record<string, any>>, children: ReactNode }) {
-    const [open, setOpen] = useState(false)
-    return <div className='flex relative'>
-        <div className=''>
-            <Collapse orientation='horizontal' in={open}>
-                <div className='w-[300px] h-screen py-6 px-4 flex flex-col gap-4 bg-mantle'>
-                    <div className='flex items-center justify-start gap-4'>
-                        <FontAwesomeIcon onClick={() => setOpen(!open)} className=" cursor-pointer" icon={open ? faArrowLeft : faArrowRight} />
-                        <DarkModeSwitcher />
-                    </div>
-                    <p> Directory </p>
-                    <Divider />
-                    <Tray tree={tree} pl={6} />
-                </div>
-            </Collapse>
-        </div>
-        <div className='relative w-full p-4'>
-            {!open && <div className='flex absolute items-center justify-start gap-4 my-2'>
-                <FontAwesomeIcon onClick={() => setOpen(!open)} className=" cursor-pointer" icon={open ? faArrowLeft : faArrowRight} />
-                <DarkModeSwitcher />
-            </div>}
-            <div className='mt-16'>
-                {children}
-            </div>
-        </div>
-    </div >
-}
-
-function Tray({ tree, pl }: { tree?: dirTree.DirectoryTree<Record<string, any>>, pl: number }) {
+export function Tray({ tree, pl }: { tree?: FolderNode | null, pl: number }) {
     const router = useRouter()
     const [clicked, setClicked] = useState(false);
 
@@ -48,9 +21,9 @@ function Tray({ tree, pl }: { tree?: dirTree.DirectoryTree<Record<string, any>>,
         if (tree.children?.length) {
             setClicked(!clicked);
         }
-        router.push(tree.path.split("src/app")[1])
+        router.push(tree.path)
     };
-    const renderTree = (node: dirTree.DirectoryTree<Record<string, any>>, pl: number) => {
+    const renderTree = (node: FolderNode, pl: number) => {
         const isDir = Boolean(node.children?.length)
         return (
             <div key={node.path}>

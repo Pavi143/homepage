@@ -11,8 +11,8 @@ const mdxComponents: MDXComponents = {
     BlogHeader
 }
 
-export default async function Page({ params }: { params: { slug: string } }) {
-    const blog: Blog | undefined = allBlogs.find((blog) => blog.url === params.slug);
+export default async function Page({ params }: { params: { slug: string[] } }) {
+    const blog: Blog | undefined = allBlogs.find((blog) => blog.url === params.slug.join("/"));
     if (!blog) notFound()
     const MDXContent = getMDXComponent(blog.body.code)
     return <>
