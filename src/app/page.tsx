@@ -15,10 +15,10 @@ import Sidebar from "@/components/sidebar"
 export default function Head() {
   return <div className="w-full h-full">
     <DarkModeSwitcher />
-    <Sidebar/>
     <div className="flex justify-evenly">
       <Header/>
       <div className="flex  space-x-20 ">
+              <Sidebar/>
               <Home/>
               <Team/>
               <Activities/>
@@ -28,12 +28,10 @@ export default function Head() {
               <Joinus/>
               <Main/>
       </div>
-      
     </div>
     <div style={{position: 'absolute', bottom:0, width:'100%'}}>
         <Footer/>
     </div>
-
-   
   </div>
+  
 }
