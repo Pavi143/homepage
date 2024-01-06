@@ -26,11 +26,11 @@ const Sidebar : React.FC = () => {
   ];
 
   return (
-    <div className="flex">
+    <div className="flex flex-col">
       <div
         className={`${
           open ? "w-72" : "w-20 "
-        } bg-dark-purple h-screen p-5 pt-8 relative duration-300`}
+        } bg-yellow h-screen p-5 pt-8 relative duration-300`}
       >
         <Image
           src={controlImage} 
@@ -53,16 +53,16 @@ const Sidebar : React.FC = () => {
             Menu
           </h1>
         </div>
-        <ul className="pt-6">
+        <ul className="pt-0 ">
           {Menus.map((Menu, index) => (
             <li
               key={index}
-              className={`flex rounded-md p-2 cursor-pointer hover:bg-light-white text-black text-sm items-center gap-x-4 
-              ${Menu.gap ? "mt-9" : "mt-2"} ${
+              className={`flex rounded-md p-2 cursor-pointer hover:bg-light-white text-sm  gap-x-4 mt-9 text-black
+              } ${
                 index === 0 && "bg-light-white"
               }  `}
             >
-              <Image src={Menu.src} alt={Menu.title} width={20} height={20} />
+              <Image src={Menu.src} alt={Menu.title} width={20} height={20}/>
               <span className={`${!open && "hidden"} origin-left duration-200`}>
                 {Menu.title}
               </span>

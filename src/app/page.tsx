@@ -14,24 +14,13 @@ import Sidebar from "@/components/sidebar"
 
 export default function Head() {
   return <div className="w-full h-full">
-    <DarkModeSwitcher />
-    <div className="flex justify-evenly">
-      <Header/>
-      <div className="flex  space-x-20 ">
-              <Sidebar/>
-              <Home/>
-              <Team/>
-              <Activities/>
-              <Resources/>
-              <Blog/>
-              <Contact/>
-              <Joinus/>
-              <Main/>
-      </div>
+    <div className="flex flex-col">
+      <div className="flex justify-between ">
+      <Sidebar/>
+      <DarkModeSwitcher/>
+      </div> 
     </div>
-    <div style={{position: 'absolute', bottom:0, width:'100%'}}>
-        <Footer/>
-    </div>
+   <Footer/>
   </div>
   
 }
