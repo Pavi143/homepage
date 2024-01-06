@@ -1,6 +1,6 @@
 import React from 'react';
 import Image from 'next/image'; // Import the Next.js Image component
-import logo from '@/codingclublogo.png';
+import logo from '@/assets/codingclublogo.png';
 
 const Main: React.FC = () => {
   return (
