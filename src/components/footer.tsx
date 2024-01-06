@@ -1,6 +1,6 @@
 import React from 'react';
 import Image from 'next/image'; // Import the Next.js Image component
-import logo from '/home/joelsamuel/coding_club/codingclublogo.png';
+import logo from '@/codingclublogo.png';
 
 const Footer: React.FC = () => {
   return (
