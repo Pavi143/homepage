@@ -1,12 +1,9 @@
 "use client"
 
-import { faArrowLeft, faArrowRight, faFolderClosed, faFolderOpen } from '@fortawesome/free-solid-svg-icons';
+import { faFolderClosed, faFolderOpen } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Collapse, Container, Divider } from "@mui/material";
-import dirTree from "directory-tree";
 import { useRouter } from "next/navigation";
-import { ReactNode, useState } from "react";
-import DarkModeSwitcher from "./darkmodeSwitcher";
+import { useState } from "react";
 import { FolderNode } from '@/lib/normalize-path';
 
 export function Tray({ tree, pl }: { tree?: FolderNode | null, pl: number }) {

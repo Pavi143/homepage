@@ -4,7 +4,7 @@ import "./global.css"
 import { DarkModeProvider } from "@/context/darkmode";
 import { CatppuccinProvider } from "@/context/catppuccin";
 import { Container } from "@mui/material";
-import View from "@/components/view";
+import View from "@/views/view";
 import { allBlogs } from "contentlayer/generated";
 import { normalizePaths } from "@/lib/normalize-path";
 

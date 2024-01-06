@@ -71,13 +71,28 @@ const BlogHeader = async ({ pathname, hideAuthor }: { pathname: string, hideAuth
     </div>
 }
 
+const TOC = ({ blog }: { blog: Blog }) => {
+    return <div className="w-[150px] flex flex-col gap-4">
+        <p> Table of Contents </p>
+        {blog.headings.map(({ text, slug }: { text: string, slug: string }, i: number) => 
+            <a key={i} className="text-sm" href={`#${slug}`}>{text}</a>
+        )}
+    </div>
+}
+
 export default async function Page({ params }: { params: { slug: string[] } }) {
     const blog: Blog | undefined = allBlogs.find((blog) => blog.url === params.slug.join("/"));
     if (!blog) notFound()
     const MDXContent = getMDXComponent(blog.body.code)
     return <>
-        {/* @ts-expect-error Async Server Component */}
-        <BlogHeader pathname={params.slug}/>
-        <MDXContent />
+        <div className="flex gap-4 w-full h-auto">
+            <div className="w-[calc(100%-150px)]">
+                {/* @ts-expect-error Async Server Component */}
+                <BlogHeader pathname={params.slug} />
+                <MDXContent />
+            </div>
+            <Divider orientation="vertical"/>
+            <TOC blog={blog} />
+        </div>
     </>
 }
