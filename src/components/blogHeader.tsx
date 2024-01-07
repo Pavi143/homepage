@@ -12,8 +12,8 @@ async function getProfileFromUsername(username: string) {
         cache: "force-cache"
     }).then(res => res.json())
     return profile
+    
 }
-
 function getTimeString(timestamp: string) {
     const utcDate = new Date(timestamp);
     const istDate = new Date(utcDate.getTime());

@@ -19,11 +19,12 @@ async function getProfileFromUsername(username: string) {
 }
 
 function Chip({ textColor, text, href }: { textColor: string, href: string, text: string }) {
-    return <a target="_blank" href={href} className={`rounded flex gap-2 items-center bg-mantle p-1 no-underline cursor-pointer text-sm ${textColor}`
-    }>
-        {text}
-        <FontAwesomeIcon className={textColor} icon={faArrowUpRightFromSquare} />
-    </a>
+    return <div className={`${textColor} text-sm rounded flex gap-2 items-center bg-mantle p-1 cursor-pointer`}>
+        <a target="_blank" href={href} className="text-inherit no-underline">
+            {text}
+        </a>
+        <FontAwesomeIcon className="text-inherit w-4 h-4" icon={faArrowUpRightFromSquare} />
+    </div>
 }
 
 const BlogHeader = async ({ pathname, hideAuthor }: { pathname: string, hideAuthor?: boolean }) => {
@@ -57,7 +58,6 @@ const BlogHeader = async ({ pathname, hideAuthor }: { pathname: string, hideAuth
                 </div>
             </div>
         </div>}
-        <Divider />
         <div className="flex justify-end items-center">
             <div className="text-sm">
                 <p> Last edited by, </p>
@@ -72,11 +72,14 @@ const BlogHeader = async ({ pathname, hideAuthor }: { pathname: string, hideAuth
 }
 
 const TOC = ({ blog }: { blog: Blog }) => {
-    return <div className="w-[150px] flex flex-col gap-4">
-        <p> Table of Contents </p>
-        {blog.headings.map(({ text, slug }: { text: string, slug: string }, i: number) => 
-            <a key={i} className="text-sm" href={`#${slug}`}>{text}</a>
-        )}
+    return <div className="flex gap-4">
+        <Divider orientation="vertical"></Divider>
+        <div className="w-[300px] flex flex-col gap-4 py-4 overflow-y-scroll scrollbar-hide">
+            <p> Table of Contents </p>
+            {blog.headings.map(({ text, slug }: { text: string, slug: string }, i: number) =>
+                <a key={i} className="text-sm" href={`#${slug}`}>{text}</a>
+            )}
+        </div>
     </div>
 }
 
@@ -85,13 +88,12 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
     if (!blog) notFound()
     const MDXContent = getMDXComponent(blog.body.code)
     return <>
-        <div className="flex gap-4 w-full h-auto">
-            <div className="w-[calc(100%-150px)]">
+        <div className="flex gap-4 w-full h-screen">
+            <div className="w-[calc(100%-300px)]  overflow-y-scroll scrollbar-hide">
                 {/* @ts-expect-error Async Server Component */}
                 <BlogHeader pathname={params.slug} />
                 <MDXContent />
             </div>
-            <Divider orientation="vertical"/>
             <TOC blog={blog} />
         </div>
     </>
