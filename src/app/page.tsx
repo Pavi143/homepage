@@ -1,26 +1,27 @@
-import DarkModeSwitcher from "@/components/darkmodeswitcher";
-import Header from "@/components/header";
-import Activities from "@/components/activities";
-import Blog from "@/components/blog";
-import Contact from "@/components/contact";
-import Joinus from "@/components/joinus";
-import Home from "@/components/home";
+import Sidebar from "@/components/sidebar";
+import Footer from "@/components/footer"
+import logo from "@/assets/codingclublogo.png"
 import { Button } from "@mui/material";
-import Resources from "@/components/resources";
-import Team from "@/components/team";
-import Main from "@/components/main";
-import Footer from "@/components/footer";
-import Sidebar from "@/components/sidebar"
+export default function Page() {
+  return <div>
+    <div className="flex">
+      <Sidebar />
+      <div className="flex justify-center items-center">
+        <div className="w-1/3">
+          <img src={logo.src} className="object-contain w-full">
+          </img>
+        </div>
+        <div className="h-full w-2/3">
+          <p className="text-2xl">Lorem ipsum dolor sit amet.</p>
+          <p className="text-lg w-3/4">Lorem ipsum dolor sit amet consectetur adipisicing elit. At, similique!</p>
+          <div className="flex justify-center w-3/4">
+            <Button>Github</Button>
+            <Button>Discord</Button>
+          </div>
+        </div>
 
-export default function Head() {
-  return <div className="w-full h-full">
-    <div className="flex flex-col">
-      <div className="flex justify-between ">
-      <Sidebar/>
-      <DarkModeSwitcher/>
-      </div> 
+      </div>
     </div>
-   <Footer/>
+    <Footer />
   </div>
-  
 }

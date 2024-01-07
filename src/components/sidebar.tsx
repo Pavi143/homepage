@@ -1,77 +1,29 @@
-
 "use client"
+import { Divider } from "@mui/material";
+import Link from "next/link";
 import { useState } from "react";
-import Image from 'next/image'
-import controlImage from "@/assets/control.png";
-import logoImage from "@/assets/logo.webp";
-import homeImage from "@/assets/home.png";
-import teamImage from "@/assets/team.png";
-import blogImage from "@/assets/blog.png";
-import activitiesImage from "@/assets/activities.png";
-import resourcesImage from "@/assets/resources.png";
-import joinImage from "@/assets/join.png";
-import contactImage from "@/assets/contact.png";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faBars, faH, faHome } from "@fortawesome/free-solid-svg-icons";
 
-const Sidebar : React.FC = () => {
-  const [open, setOpen] = useState(true);
 
-  const Menus = [
-    { title: "Home", src: homeImage },
-    { title: "Team", src: teamImage },
-    { title: "Activities", src: activitiesImage },
-    { title: "Resources", src: resourcesImage },
-    { title: "Blog", src: blogImage },
-    { title: "Contact", src: contactImage },
-    { title: "Join Us", src: joinImage },
-  ];
+const sidebarItems = [
+    { label: 'Home', href: 'home', icon: faHome },
+    { label: 'Activities', href: 'activities', icon: faHome },
+    { label: 'Teams', href: 'teams', icon: faHome },
+    { label: 'Blogs', href: 'blogs', icon: faHome },
+    { label: 'Contact', href: 'contact', icon: faHome },
+    { label: 'Join Us', href: 'join', icon: faHome }
 
-  return (
-    <div className="flex flex-col">
-      <div
-        className={`${
-          open ? "w-72" : "w-20 "
-        } bg-yellow h-screen p-5 pt-8 relative duration-300`}
-      >
-        <Image
-          src={controlImage} 
-          className={`absolute cursor-pointer -right-3 top-9 w-7 border-dark-purple
-           border-2 rounded-full  ${!open && "rotate-180"}`}
-          onClick={() => setOpen(!open)}
-          alt="Control"
-        />
-        <div className="flex gap-x-4 items-center">
-          <Image 
-          src={logoImage} width={20} height={20}
-            className={`cursor-pointer duration-500 ${open && "rotate-[360deg]"}`}
-            alt="Logo"
-          />
-          <h1
-            className={`text-black origin-left font-medium text-2xl duration-200 ${
-              !open && "scale-0"
-            }`}
-          >
-            Menu
-          </h1>
+]
+export default function Sidebar() {
+    const [open, setOpen] = useState(true)
+    return <div className="h-screen  bg-mantle p-4" style={{width:open?'10rem': '4rem'}}>
+        <FontAwesomeIcon icon={faBars} className="cursor-pointer m-1 " onClick={() => setOpen(!open)}></FontAwesomeIcon>
+        <div className="flex flex-col gap-4 mt-12">
+            {sidebarItems.map((item, i) => <div key={i} className=" flex h-8  items-center gap-2  hover:bg-crust p-1 rounded cursor-pointer">
+                <FontAwesomeIcon icon={item.icon} className="text-blue "></FontAwesomeIcon>
+                {open && <Link href={item.href} className="text-blue no-underline  "> {item.label}</Link>}
+            </div>)}
         </div>
-        <ul className="pt-0 ">
-          {Menus.map((Menu, index) => (
-            <li
-              key={index}
-              className={`flex rounded-md p-2 cursor-pointer hover:bg-light-white text-sm  gap-x-4 mt-9 text-black
-              } ${
-                index === 0 && "bg-light-white"
-              }  `}
-            >
-              <Image src={Menu.src} alt={Menu.title} width={20} height={20}/>
-              <span className={`${!open && "hidden"} origin-left duration-200`}>
-                {Menu.title}
-              </span>
-            </li>
-          ))}
-        </ul>
-      </div>
     </div>
-  );
-};
-
-export default Sidebar;
+}
