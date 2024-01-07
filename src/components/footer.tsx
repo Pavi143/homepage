@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBars, faH, faHome } from "@fortawesome/free-solid-svg-icons";
+import { faBars, faH, faHome,faBlog,faPeopleGroup,faPhone,faUserPlus,faPersonChalkboard } from "@fortawesome/free-solid-svg-icons";
 import { faTwitter, faDiscord, faInstagram, faGithub, faYoutube, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import Link from 'next/link';
 import logo from "@/assets/codingclublogo.png"
@@ -8,11 +8,11 @@ const footerItems = [
     {
         title: 'Quick links', items: [
             { label: 'Home', href: 'home', icon: faHome },
-            { label: 'Activities', href: 'activities', icon: faHome },
-            { label: 'Teams', href: 'teams', icon: faHome },
-            { label: 'Blogs', href: 'blogs', icon: faHome },
-            { label: 'Contact', href: 'contact', icon: faHome },
-            { label: 'Join Us', href: 'join', icon: faHome }
+            { label: 'Activities', href: 'activities', icon: faPersonChalkboard },
+            { label: 'Teams', href: 'teams', icon: faPeopleGroup },
+            { label: 'Blogs', href: 'blogs', icon: faBlog },
+            { label: 'Contact', href: 'contact', icon: faPhone },
+            { label: 'Join Us', href: 'join', icon: faUserPlus}
         ]
     }
 
@@ -27,7 +27,7 @@ const footerElements = [{
 }]
 
 export default function Footer() {
-    return <div className='flex justify-between p-4  '>
+    return <div className='flex justify-between p-4 '>
         <div className='flex flex-col w-1/2 ml-10 '>
             <div className='flex '>
                 <img src={logo.src} className='w-10 h-10 mt-4'></img>
