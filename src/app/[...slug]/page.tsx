@@ -1,12 +1,10 @@
-import { faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
+import CommentBox from "@/components/commentBox";
+import { faArrowUpRightFromSquare, faBookOpenReader, faBookReader, faClock } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Divider } from "@mui/material";
 import { Blog, allBlogs } from "contentlayer/generated";
 import { getMDXComponent } from "next-contentlayer/hooks";
 import { notFound } from "next/navigation";
-import { GithubDataForBlog } from "../../../contentlayer.config";
-
-
 
 function Chip({ textColor, text, href }: { textColor: string, href: string, text: string }) {
     return <div className={`${textColor} text-sm rounded flex gap-2 items-center bg-mantle p-1 cursor-pointer`}>
@@ -24,8 +22,16 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
     const { githubData } = blog
     return <>
         <div className="flex gap-4 w-full h-screen">
-            <div className="w-[calc(100%-300px)]  overflow-y-scroll scrollbar-hide">
-                {githubData ? <div className="w-full flex flex-col gap-4 mt-4 mb-8">
+            <div className="w-[calc(100%-300px)]  overflow-y-scroll scrollbar-hide flex flex-col gap-8 py-4">
+                <img className="w-full object-contain" src={blog.coverImage} alt="" />
+                <div className="flex flex-col gap-4">
+                    <p className="text-6xl font-bold"> {blog.title} </p>
+                    <div className="text-subtext0 flex items-center gap-2"> <FontAwesomeIcon className="w-4 h-4" icon={faClock}></FontAwesomeIcon> <p> {blog.read} </p> </div>
+                    {blog.tags ? <div>
+                        {blog.tags.map((tag, i) => <span className="text-sm rounded bg-mantle p-1" key={i}> {tag} </span>)}
+                    </div> : <></>}
+                </div>
+                {githubData ? <div className="w-full flex flex-col gap-4">
                     {!Boolean(blog.hideAuthor) && <div className="w-full flex flex-col md:flex-row md:items-center gap-4">
                         <img className="rounded-full w-20 h-20 object-contain" src={githubData.author.avatar_url} alt="" />
                         <div className="flex flex-col justify-between">
@@ -49,13 +55,14 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
                     </div>
                 </div> : <></>}
                 <MDXContent />
+                <CommentBox pathname={blog.url} />
             </div>
             <div className="flex gap-4">
                 <Divider orientation="vertical"></Divider>
                 <div className="w-[300px] flex flex-col gap-4 py-4 overflow-y-scroll scrollbar-hide">
                     <p> Table of Contents </p>
                     {blog.headings.map(({ text, slug }: { text: string, slug: string }, i: number) =>
-                        <a key={i} className="text-sm" href={`#${slug}`}>{text}</a>
+                        <a key={i} className="text-sm no-underline" href={`#${slug}`}>{text}</a>
                     )}
                 </div>
             </div>

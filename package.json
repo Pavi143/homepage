@@ -21,6 +21,7 @@
     "@mdx-js/react": "^3.0.0",
     "@mui/material": "5.14.13",
     "@next/mdx": "^14.0.3",
+    "@octokit/types": "^12.4.0",
     "@types/mdx": "^2.0.10",
     "contentlayer": "^0.3.4",
     "directory-tree": "^3.5.1",

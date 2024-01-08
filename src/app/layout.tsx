@@ -7,6 +7,7 @@ import { Container } from "@mui/material";
 import View from "@/views/view";
 import { allBlogs } from "contentlayer/generated";
 import { normalizePaths } from "@/lib/normalize-path";
+import { IssuesProvider } from "@/context/issues";
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -15,9 +16,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <DarkModeProvider>
           <ThemeProvider>
             <CatppuccinProvider>
-              <View tree={normalizePaths(allBlogs.map(blog => blog.url))}>
-                {children}
-              </View>
+              <IssuesProvider>
+                <View tree={normalizePaths(allBlogs.map(blog => blog.url))}>
+                  {children}
+                </View>
+              </IssuesProvider>
             </CatppuccinProvider>
           </ThemeProvider>
         </DarkModeProvider>
