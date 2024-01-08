@@ -1,9 +1,7 @@
 "use client"
 
 import { FolderNode } from "@/lib/normalize-path"
-import { faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { Collapse, Container, Divider } from "@mui/material"
+import { Collapse, Divider } from "@mui/material"
 import { ReactNode, useState } from "react"
 import DarkModeSwitcher from "../components/darkmodeSwitcher"
 import { Tray } from "../components/navbar"
@@ -14,8 +12,8 @@ export default function View({ tree, children }: { tree: FolderNode | null, chil
     return <div>
         <div className='flex justify-center relative w-full'>
             <Collapse orientation='horizontal' in={open}>
-                <div className="flex w-[300px] h-screen p-4 overflow-y-scroll scrollbar-hide">
-                    <div className='w-full h-full py-6 flex flex-col gap-4'>
+                <div className="flex w-[300px] h-screen overflow-y-scroll scrollbar-hide mr-4">
+                    <div className='w-full h-full p-4 flex flex-col gap-4'>
                         <div className='flex items-center justify-between'>
                             <DarkModeSwitcher />
                             <div className="flex gap-4 pr-4 items-center">

@@ -1,7 +1,0 @@
-{
-  "version": 3,
-  "sources": ["../../../contentlayer.config.ts"],
-  "sourcesContent": ["import { defineDocumentType, makeSource } from 'contentlayer/source-files'\r\n\r\nexport const Blog = defineDocumentType(() => ({\r\n    name: \"Blog\",\r\n    contentType: \"mdx\",\r\n    filePathPattern: \"**/*.mdx\",\r\n    fields: {\r\n        tags: {\r\n            type: \"list\",\r\n            of: {\r\n                type: \"string\"\r\n            }\r\n        }\r\n    },\r\n    computedFields: {\r\n        url: {\r\n            type: 'string', resolve: (blogs) => blogs._raw.sourceFilePath.replace(/\\.mdx$/, \"\"),\r\n        },\r\n    }\r\n}))\r\n\r\nexport default makeSource({ contentDirPath: 'src/blogs', documentTypes: [Blog] })"],
-  "mappings": ";AAAA,SAAS,oBAAoB,kBAAkB;AAExC,IAAM,OAAO,mBAAmB,OAAO;AAAA,EAC1C,MAAM;AAAA,EACN,aAAa;AAAA,EACb,iBAAiB;AAAA,EACjB,QAAQ;AAAA,IACJ,MAAM;AAAA,MACF,MAAM;AAAA,MACN,IAAI;AAAA,QACA,MAAM;AAAA,MACV;AAAA,IACJ;AAAA,EACJ;AAAA,EACA,gBAAgB;AAAA,IACZ,KAAK;AAAA,MACD,MAAM;AAAA,MAAU,SAAS,CAAC,UAAU,MAAM,KAAK,eAAe,QAAQ,UAAU,EAAE;AAAA,IACtF;AAAA,EACJ;AACJ,EAAE;AAEF,IAAO,8BAAQ,WAAW,EAAE,gBAAgB,aAAa,eAAe,CAAC,IAAI,EAAE,CAAC;",
-  "names": []
-}
