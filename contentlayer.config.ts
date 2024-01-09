@@ -86,7 +86,7 @@ export const Blog = defineDocumentType(() => ({
         headings: {
             type: "json",
             resolve: async (doc) => {
-                const regXHeader = /\n(?<flag>#{1,6})\s*(?<content>.+)/g;
+                const regXHeader = /\n(?<flag>#{1,6})\s+(?<content>.+)/g;
                 const slugger = new GithubSlugger()
                 const headings = Array.from(doc.body.raw.matchAll(regXHeader)).map(
                     ({ groups }) => {
