@@ -5,4 +5,10 @@
 @tailwind utilities;
 * {
     font-family: 'Poppins' !important;
+   
+}
+p,
+a,
+span {
+    @apply my-0 py-0
 }

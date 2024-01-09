@@ -1,3 +1,4 @@
+"use client"
 import { ThemeProvider } from "@/context/mui";
 import "./globals.css"
 import { DarkModeProvider } from "@/context/darkmode";
