@@ -2,6 +2,7 @@ import { defineDocumentType, makeSource } from 'contentlayer/source-files'
 import GithubSlugger from "github-slugger"
 import rehypeSlug from "rehype-slug"
 import { getTimeString } from './src/lib/getTimeString'
+import path from 'path'
 
 async function getProfileFromUsername(username: string) {
     const profile = await fetch(`https://api.github.com/users/${username}`, {
@@ -30,9 +31,7 @@ export type GithubDataForBlog = {
 }
 
 async function getGithubDataforBlog(pathname: string): Promise<GithubDataForBlog | undefined> {
-    console.log(pathname)
     const filePathName = `src/blogs/${pathname}.mdx`
-    console.log(filePathName)
     const apiUrl = `https://api.github.com/repos/coding-club-gct/blogs/commits?path=${filePathName}`
     const resp = await fetch(apiUrl, {
         method: "GET",
