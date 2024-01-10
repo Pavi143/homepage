@@ -1,12 +1,13 @@
-import fullstack from '../assets/fullStack.webp'
-import app from '../assets/app.webp'
-import network from '../assets/network.webp'
-import ai from '../assets/ai.webp'
-import software from '../assets/software.webp'
+
+"use client"
+import fullstack from '@/assets/fullStack.webp'
+import app from '@/assets/app.webp'
+import network from '@/assets/network.webp'
+import ai from '@/assets/ai.webp'
+import software from '@/assets/software.webp'
 import { useState, useEffect, useRef } from 'react'
 import classnames from 'classnames'
 import Image from 'next/image';
-
 
 const service = [
     {
@@ -33,7 +34,7 @@ const service = [
 ]
 
 export default function Services() {
-    const [activeItem, setActiveItem] = useState(5);
+    const [activeItem, setActiveItem] = useState(3);
     const wrapperRef = useRef<HTMLUListElement | null>(null);
     const timeoutRef = useRef<number | null>(null);
 
@@ -82,8 +83,6 @@ export default function Services() {
                                 <Image
                                     className="absolute right-0 top-1/2 h-auto w-24 max-w-none -translate-y-1/2 object-cover grayscale md:left-1/2 md:h-[640px] md:w-[590px] md:-translate-x-1/2"
                                     src={item.photo}
-                                    width={50}
-                                    object-contain
                                     alt='item.name'
                                 />
                                 <div
