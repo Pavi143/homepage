@@ -17,8 +17,6 @@ const footerItems = {
     ]
 }
 
-
-
 const footerElements = {
     title: 'Social Media', items: [
         { label: 'Discord', href: 'home', icon: faDiscord },
