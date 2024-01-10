@@ -75,7 +75,7 @@ export default function Services() {
                                 "md:[transition:width_var(--transition,200ms_ease-in)]",
                                 "md:before-block before:absolute before:bottom-0 before:left-[-10px] before:right-[-10px] before:top-0 before:hidden before:bg-white",
                                 "md:[&:not(:hover),&:not(:first),&:not(:last)]:group-hover:w-[7%] md:hover:w-[12%]",
-                                "first:pointer-events-none last:pointer-events-none md:[&_img]:first:opacity-0 md:[&_img]:last:opacity-0"
+                                
                             )}
                             key={i}
                         >
@@ -84,12 +84,6 @@ export default function Services() {
                                     className="absolute right-0 top-1/2 h-auto w-24 max-w-none -translate-y-1/2 object-cover grayscale md:left-1/2 md:h-[640px] md:w-[590px] md:-translate-x-1/2"
                                     src={item.photo}
                                     alt='item.name'
-                                />
-                                <div
-                                    className={classnames(
-                                        "inset-0 opacity-25 duration-300 before:absolute before:bottom-0 before:left-[-546px] before:right-0 before:top-[-148px] before:z-10 before:bg-texture  after:bottom-[28px] after:left-0 after:right-[-434px] after:top-0 after:z-10 after:bg-texture md:absolute md:transition-opacity",
-                                        activeItem === i ? "md:opacity-25" : "md:opacity-0"
-                                    )}
                                 />
                                 <div
                                     className={classnames(
