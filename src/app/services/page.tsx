@@ -1,6 +1,6 @@
 
 "use client"
-import fullstack from '@/assets/fullStack.svg'
+import fullstack from '@/assets/fullstack.svg'
 import app from '@/assets/app.svg'
 import network from '@/assets/network.svg'
 import ai from '@/assets/ai.svg'
@@ -87,7 +87,7 @@ export default function Services() {
                         >
                             <div className="relative h-full w-full overflow-hidden rounded-2xl bg-mantle">
                                 <Image
-                                    className="absolute right-0 top-1/2 h-auto w-24 max-w-none -translate-y-1/2 object-cover md:left-1/2 md:h-[640px] md:w-[590px] md:-translate-x-1/2"
+                                    className="absolute right-0 top-1/2 h-auto w-24 max-w-none -translate-y-1/2 object-contain md:left-1/2 md:h-[640px] md:w-[590px] md:-translate-x-1/2"
                                     style={{ filter: activeItem !== i ? "grayscale(100%)" : undefined }}
                                     src={item.photo}
                                     alt='item.name'
