@@ -1,5 +1,6 @@
 import CommentBox from "@/components/commentBox";
-import { faArrowUpRightFromSquare, faBookOpenReader, faBookReader, faClock } from "@fortawesome/free-solid-svg-icons";
+import ReactReactions from "@/components/reactReactions";
+import { faArrowUpRightFromSquare, faClock } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Divider } from "@mui/material";
 import { Blog, allBlogs } from "contentlayer/generated";
@@ -19,15 +20,19 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
     const blog: Blog | undefined = allBlogs.find((blog) => blog.url === params.slug.join("/"));
     if (!blog) notFound()
     const MDXContent = getMDXComponent(blog.body.code)
-    const { githubData } = blog
+    const { githubData, issueNumber } = blog
     return <>
         <div className="flex gap-4 w-full h-screen">
             <div className="w-[calc(100%-300px)]  overflow-y-scroll scrollbar-hide flex flex-col gap-8 py-4">
                 <img className="w-full object-contain" src={blog.coverImage} alt="" />
-                <div className="flex flex-col gap-4">
+                <div className="">
                     <p className="text-6xl font-bold"> {blog.title} </p>
-                    <div className="text-subtext0 flex items-center gap-2"> <FontAwesomeIcon className="w-4 h-4" icon={faClock}></FontAwesomeIcon> <p> {blog.read} </p> </div>
-                    {blog.tags ? <div>
+                    <div className="flex gap-2 items-center">
+                        <FontAwesomeIcon className="" icon={faClock}></FontAwesomeIcon>
+                        <p> {blog.read} Read</p>
+                    </div>
+                    <ReactReactions slug={`issues/${issueNumber}`} />
+                    {blog.tags ? <div className="flex gap-2 items-center">
                         {blog.tags.map((tag, i) => <span className="text-sm rounded bg-mantle p-1" key={i}> {tag} </span>)}
                     </div> : <></>}
                 </div>

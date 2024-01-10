@@ -3,12 +3,13 @@
 import { IssuesContext } from "@/context/issues"
 import { CircularProgress } from "@mui/material"
 import { useContext, useEffect, useState } from "react"
+import ReactReactions from "./reactReactions"
 
 export default function CommentBox({ pathname }: { pathname: string }) {
     const { issues, refreshIssues, status } = useContext(IssuesContext)
     const [issue, setIssue] = useState<any>({})
     async function createInitialIssue() {
-        await fetch("https://api.github.com/coding-club-gct/blogs/issues", {
+        await fetch("https://api.github.com/repos/coding-club-gct/blogs/issues", {
             method: "POST",
             headers: {
                 "Accept": "application/vnd.github+json",
@@ -17,17 +18,22 @@ export default function CommentBox({ pathname }: { pathname: string }) {
                 title: pathname,
                 body: ""
             })
-        }).then(() => refreshIssues())
+        }).then((res) => {
+            refreshIssues()
+        })
     }
     useEffect(() => {
-        console.log(issues)
+        if (!issues) return
         const found = issues.find(({title}) => title === pathname)
         if(!found) {
             createInitialIssue()
+        } else {
+            setIssue(found)
         }
-    }, [])
+    }, [issues])
     return <div className="w-full">
-        {Object.keys(issue).length ? <></>: <div className="w-full h-80 flex justify-center items-center"> {status === 403 && <div>
+        {true ? <div>
+        </div>: <div className="w-full h-80 flex justify-center items-center"> {status === 403 && <div>
             <p className="font-semibold"> Comment Section temporarily closed</p>
             <p> We have been hit by the GitHub API Rate Limit </p>
             <p> Try again after sometime D: </p>

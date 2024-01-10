@@ -2,7 +2,7 @@ import { defineDocumentType, makeSource } from 'contentlayer/source-files'
 import GithubSlugger from "github-slugger"
 import rehypeSlug from "rehype-slug"
 import { getTimeString } from './src/lib/getTimeString'
-import path from 'path'
+import { Issue } from './src/types/issues'
 
 async function getProfileFromUsername(username: string) {
     const profile = await fetch(`https://api.github.com/users/${username}`, {
@@ -14,6 +14,40 @@ async function getProfileFromUsername(username: string) {
         cache: "force-cache"
     }).then(res => res.json())
     return profile
+}
+
+async function getIssueNumber(title: string) {
+    const issues: Issue[] = await fetch("https://api.github.com/repos/coding-club-gct/blogs/issues", {
+        headers: {
+            "Accept": "application/vnd.github+json",
+            "Authorization": `Bearer ${process.env.NEXT_PUBLIC_GITHUB_PAT}`,
+        },
+    }).then(res => res.json());
+    const found = issues.find(issue => issue.title === title)
+    if (!found) {
+        const { id } = await fetch("https://api.github.com/user", {
+            method: "GET",
+            headers: {
+                "Authorization": `token ${process.env.NEXT_PUBLIC_GITHUB_PAT!}`,
+                "Content-Type": "application/json"
+            }
+        }).then(res => res.json())
+        if (id === 80976002) {
+            const resp: Issue = await fetch("https://api.github.com/repos/coding-club-gct/blogs/issues", {
+                method: "POST",
+                headers: {
+                    "Accept": "application/vnd.github+json",
+                    "Authorization": `Bearer ${process.env.NEXT_PUBLIC_GITHUB_PAT}`
+                }, body: JSON.stringify({
+                    title,
+                    body: "Using this space as comment section for the blog post of above pathname",
+                })
+            }).then(res => res.json())
+            return resp.number
+        }
+        return 20
+    }
+    return found.number
 }
 
 export type GithubDataForBlog = {
@@ -104,6 +138,13 @@ export const Blog = defineDocumentType(() => ({
             resolve: async (doc) => {
                 const pathname = doc._raw.sourceFilePath.replace(/\.mdx$/, "")
                 return await getGithubDataforBlog(pathname)
+            }
+        },
+        issueNumber: {
+            type: "number",
+            resolve: async (doc) => {
+                const pathname = doc._raw.sourceFilePath.replace(/\.mdx$/, "")
+                return await getIssueNumber(pathname)
             }
         }
     }

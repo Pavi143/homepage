@@ -1,10 +1,10 @@
 "use client"
 
+import { FolderNode } from '@/lib/normalize-path';
 import { faFolderClosed, faFolderOpen } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import { FolderNode } from '@/lib/normalize-path';
 
 export function Tray({ tree, pl }: { tree?: FolderNode | null, pl: number }) {
     const router = useRouter()

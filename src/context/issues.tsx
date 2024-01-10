@@ -15,29 +15,27 @@ export const IssuesContext = createContext<IssuesContextProps>({
 });
 
 export function IssuesProvider({ children }: { children: ReactNode }) {
-    const [issues, setIssues] = useState<any[]>([]);
+    const [issues, setIssues] = useState<any>(null);
     const [status, setStatus] = useState<number>(NaN)
 
     async function fetchAllIssues() {
         try {
-            const data = await fetch("https://api.github.com/repos/coding-club-gct/blogs/issues", {
+            fetch("https://api.github.com/repos/coding-club-gct/blogs/issues", {
                 headers: {
                     "Accept": "application/vnd.github+json",
                     "Authorization": `Bearer ${process.env.NEXT_PUBLIC_GITHUB_PAT}`,
                 },
             }).then(res => {
                 setStatus(res.status)
-                return res.json()
+                if(res.status === 200) {
+                    res.json().then(data => setIssues(data))
+                }
             });
-            if (data.length) {
-                setIssues(data);
-            }
             return true;
         } catch (error) {
             return false;
         }
     }
-
     useEffect(() => {
         fetchAllIssues();
     }, []);
