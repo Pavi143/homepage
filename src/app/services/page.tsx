@@ -1,10 +1,11 @@
 
 "use client"
-import fullstack from '@/assets/fullStack.webp'
-import app from '@/assets/app.webp'
-import network from '@/assets/network.webp'
-import ai from '@/assets/ai.webp'
-import software from '@/assets/software.webp'
+import fullstack from '@/assets/fullStack.svg'
+import app from '@/assets/app.svg'
+import network from '@/assets/network.svg'
+import ai from '@/assets/ai.svg'
+import software from '@/assets/software.svg'
+import devops from '@/assets/devops.svg'
 import { useState, useEffect, useRef } from 'react'
 import classnames from 'classnames'
 import Image from 'next/image';
@@ -29,14 +30,19 @@ const service = [
     {
         name: 'Network Engineering ',
         photo: network
+    },
+    {
+        name: 'Devops ',
+        photo: devops
     }
+
 
 ]
 
 export default function Services() {
     const [activeItem, setActiveItem] = useState(3);
     const wrapperRef = useRef<HTMLUListElement | null>(null);
-    const timeoutRef = useRef<number | null>(null);
+    const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
     useEffect(() => {
         if (!wrapperRef.current) return;
@@ -75,13 +81,14 @@ export default function Services() {
                                 "md:[transition:width_var(--transition,200ms_ease-in)]",
                                 "md:before-block before:absolute before:bottom-0 before:left-[-10px] before:right-[-10px] before:top-0 before:hidden before:bg-white",
                                 "md:[&:not(:hover),&:not(:first),&:not(:last)]:group-hover:w-[7%] md:hover:w-[12%]",
-                                
+
                             )}
                             key={i}
                         >
                             <div className="relative h-full w-full overflow-hidden rounded-2xl bg-mantle">
                                 <Image
-                                    className="absolute right-0 top-1/2 h-auto w-24 max-w-none -translate-y-1/2 object-cover grayscale md:left-1/2 md:h-[640px] md:w-[590px] md:-translate-x-1/2"
+                                    className="absolute right-0 top-1/2 h-auto w-24 max-w-none -translate-y-1/2 object-cover md:left-1/2 md:h-[640px] md:w-[590px] md:-translate-x-1/2"
+                                    style={{ filter: activeItem !== i ? "grayscale(100%)" : undefined }}
                                     src={item.photo}
                                     alt='item.name'
                                 />
