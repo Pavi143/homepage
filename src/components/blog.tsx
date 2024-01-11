@@ -98,6 +98,7 @@ type BlogItem = {
     }
 }
 export default  function Blog() {
+
     const [blogItems, setBlogItems] = useState<BlogItem[]>([])
     useEffect(() => {
         async function fetchBlogs() {
