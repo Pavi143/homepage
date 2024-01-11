@@ -1,19 +1,54 @@
 "use client"
 
+import DarkModeSwitcher from "@/components/darkmodeSwitcher"
+import { Logo } from "@/components/logo"
+import { Tray } from "@/components/navbar"
 import { FolderNode } from "@/lib/normalize-path"
-import { faGithub } from "@fortawesome/free-brands-svg-icons"
+import { faDiscord, faGithub, faInstagram, faLinkedin } from "@fortawesome/free-brands-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { Button, Divider } from "@mui/material"
+import { Button, Divider, Link } from "@mui/material"
 import { signIn, useSession } from "next-auth/react"
-import Link from "next/link"
 import { ReactNode } from "react"
-import DarkModeSwitcher from "../components/darkmodeSwitcher"
-import { Tray } from "../components/navbar"
+
+const links = [
+    {
+        label: "Homepage",
+        href: "https://codingclubgct.in"
+    }, {
+        label: "GitHub",
+        href: "https://github.com/coding-club-gct"
+    }, {
+        label: "Coding Club App",
+        href: "https://play.google.com/store/apps/details?id=com.codingclubgct.app&pcampaignid=web_share"
+    }
+]
+
+const socials = [
+    {
+        icon: faDiscord,
+        href: ""
+    }, {
+        icon: faLinkedin,
+        href: ""
+    }, {
+        icon: faInstagram,
+        href: ""
+    },
+]
+
+const howTo = [
+    {
+        label: "How to blog?",
+        href: "/how-to-blog"
+    }, {
+        label: "License",
+        href: ""
+    }
+]
 
 export default function View({ tree, children }: { tree: FolderNode | null, children: ReactNode }) {
     const { data: session } = useSession();
-    console.log(session)
-    return <div>
+    return <div className="w-full">
         <div className='flex justify-center relative w-full'>
             <div className="w-[300px] h-screen mr-4 flex">
                 <div className="flex flex-col w-[300px] h-full">
@@ -41,6 +76,33 @@ export default function View({ tree, children }: { tree: FolderNode | null, chil
             <div className='container w-[calc(100%-300px)]'>
                 {children}
             </div>
+        </div>
+        <Divider />
+        <div className="p-4 pt-12 mx-auto container flex justify-evenly" id="#about">
+            <Logo />
+            <div className="flex flex-col gap-4">
+                <p> Useful links </p>
+                {links.map(({ href, label }, i) => <a key={i} href={href} target="_blank" className="text-subtext0 no-underline text-sm">
+                    {label}
+                </a>)}
+            </div>
+            <div className="flex flex-col gap-4">
+                <p> Connect with us </p>
+                <div className="flex gap-4">
+                    {socials.map(({ icon, href }, i) => <a className="text-subtext0 no-underline" key={i} href="">
+                        <FontAwesomeIcon icon={icon} />
+                    </a>)}
+                </div>
+            </div>
+            <div className="flex flex-col gap-4">
+                <p> Support </p>
+                {howTo.map(({ href, label }, i) => <a key={i} href={href} target="_blank" className="text-subtext0 no-underline text-sm">
+                    {label}
+                </a>)}
+            </div>
+        </div>
+        <div className="flex justify-center my-4">
+            <a className="text-center no-underline" href="https://github.com/coding-club-gct/blogs"> Source Code </a>
         </div>
     </div>
 }

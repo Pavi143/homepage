@@ -25,7 +25,7 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
         <div className="flex gap-4 w-full h-screen">
             <div className="w-[calc(100%-300px)]  overflow-y-scroll scrollbar-hide flex flex-col gap-8 py-4">
                 <img className="w-full object-contain" src={blog.coverImage} alt="" />
-                <div className="">
+                <div className="flex flex-col gap-2">
                     <p className="text-6xl font-bold"> {blog.title} </p>
                     <div className="flex gap-2 items-center">
                         <FontAwesomeIcon className="" icon={faClock}></FontAwesomeIcon>
@@ -60,7 +60,12 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
                     </div>
                 </div> : <></>}
                 <MDXContent />
-                <CommentBox pathname={blog.url} />
+                <Divider />
+                <div>
+                    <p className="text-xl font-medium"> Comment Section </p>
+                    <a href={`https://github.com/coding-club-gct/blogs/issues/${issueNumber}`} target="_blank" className="text-blue no-underline text-sm"> issues/{issueNumber} </a>
+                </div>
+                <CommentBox slug={`issues/${issueNumber}`} />
             </div>
             <div className="flex gap-4">
                 <Divider orientation="vertical"></Divider>

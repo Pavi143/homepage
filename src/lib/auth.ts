@@ -2,13 +2,20 @@ import NextAuth, { NextAuthOptions, Session } from "next-auth";
 import GithubProvider from "next-auth/providers/github";
 
 export const authOptions: NextAuthOptions = {
+    secret: process.env.NEXTAUTH_SECRET!,
     session: {
-        strategy: "jwt"
+        strategy: "jwt",
+        maxAge: 30 * 24 * 60 * 60
     },
     providers: [
         GithubProvider({
             clientId: process.env.NEXT_PUBLIC_GITHUB_ID!,
             clientSecret: process.env.NEXT_PUBLIC_GITHUB_SECRET!,
+            authorization: {
+                params: {
+                    scope: "read:user user:email repo"
+                }
+            }
         }),
     ],
     callbacks: {

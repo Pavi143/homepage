@@ -135,7 +135,7 @@ export default function ReactReactions({ slug }: { slug: string }) {
     }, [session])
 
     return reactions ? <div className="flex gap-4 h-8 items-center">
-        <div className="flex gap-1 items-center"> <p> {issue?.comments} </p> <FontAwesomeIcon icon={faCommentDots} /> </div>
+        {(issue?.comments || issue?.comments === 0) && <div className="flex gap-1 items-center"> <p> {issue?.comments} </p> <FontAwesomeIcon icon={faCommentDots} /> </div>}
         <div className="flex gap-1 items-center cursor-pointer" onClick={() => setOpen(prev => !prev)}>
             <p> {reactions.total_count} </p>
             {getReactionsToDisplay().length ? <div className="flex gap-1 items-center">
