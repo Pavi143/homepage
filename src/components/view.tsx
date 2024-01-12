@@ -12,12 +12,15 @@ export default function View({ children }: { children: ReactNode }) {
             <Sidebar open={open} setOpen={setOpen} />
             <Container style={{ paddingLeft: isMobile ? "0rem" : open ? "10rem" : "4rem" }}>
 
-                {( isMobile || !open ) && <>
-                    <div>
-                        {children}
-                    </div>
-                    <Footer />
-                </>
+                {isMobile ? open ? <> </> : <>
+                <div>
+                    {children}
+                </div>
+                <Footer />
+            </> :<>  <div>
+                {children}
+            </div>
+                <Footer /> </>
                 }
             </Container>
         </div>
