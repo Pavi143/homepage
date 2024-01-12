@@ -8,6 +8,7 @@ import imgSoftware from "@/assets/software.svg";
 import { AnimatePresence, motion } from "framer-motion";
 import Image from 'next/image';
 import { useEffect, useState } from "react";
+import { Button } from "@mui/material";
 
 type AllItems = { category: string; title: string; photo: string };
 
@@ -128,17 +129,17 @@ export default function Filter() {
 
   return (
     <div className="flex flex-col w-full gap-2">
-      <div className="flex gap-4 m-4 p-1">
-        <button onClick={() => filterItems('All')} >All</button>
+      <div className="flex flex-wrap gap-4 m-4 p-1">
+        <Button onClick={() => filterItems('All')} >All</Button>
         {Array.from(new Set(all.map((val) => val.category))).map((val, i) => (
           <div key={i}>
-            <button onClick={() => filterItems(val)} >{val}</button>
+            <Button onClick={() => filterItems(val)} >{val}</Button>
           </div>
         ))}
       </div>
       < motion.div layout >
         <AnimatePresence>
-          <div className="grid grid-cols-3 gap-4 p-4">
+          <div className="md:grid grid-cols-3 gap-4 p-4">
             {items.map((item, i) => (
               <motion.div animate={{ opacity: 1 }} initial={{ opacity: 0 }} exit={{ opacity: 0 }} layout key={getKey(item)} className="flex justify-center">
                 <div className="flex flex-col items-center bg-mantle p-2 m-4">

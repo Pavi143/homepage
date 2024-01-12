@@ -27,63 +27,63 @@ const footerElements = {
 
 export default function Footer() {
     return <div className=' bg-mantle w-full '>
-        <div className='flex justify-between p-4 text-sm mb-20 '>
-            <div className='flex flex-col w-1/5 ml-10 '>
+        <div className='flex flex-col md:flex-row justify-between p-4 text-sm mb-20 '>
+            <div className='flex flex-col md:w-1/5  text-subtext0 my-4 '>
                 <div className='flex'>
-                    <h4 className='ml-2'>Coding Club GCT</h4>
+                    <p className=''>Coding Club GCT</p>
                 </div>
-                <p>Rudra Block first floor,<br></br>GCT Coimbatore - 641 013, Tamil Nadu.</p>
-                <a href='mailto:codingclubgct@gmail.com' className='text-text no-underline mt-8' >codingclubgct@gmail.com</a>
+                <p >Rudra Block first floor,<br></br>GCT Coimbatore - 641 013, Tamil Nadu.</p>
+                <a href='mailto:codingclubgct@gmail.com' className='text-subtext0 no-underline mt-8' >codingclubgct@gmail.com</a>
             </div>
-            <div className=' flex justify-center w-1/5'>
+            <div className=' flex md:justify-center md:w-1/5'>
                 <div>
-                    <h4> {footerItems.title}</h4>
-                    <div className='flex flex-col gap-4'>
+                    <p className='my-4'> {footerItems.title}</p>
+                    <div className='flex flex-col gap-2'>
 
-                        {footerItems.items.map(({ label, href, icon }, j) => <div key={j} className='flex justify-between w-28 mr-10' >
-                            <Link href={href} className='text-text no-underline'>{label}</Link>
-                            <FontAwesomeIcon icon={icon} className='w-4'></FontAwesomeIcon>
+                        {footerItems.items.map(({ label, href, icon }, j) => <div key={j} className='flex justify-between w-28 mr-10 text-sm text-subtext0' >
+                            <Link href={href} className=' text-sm text-subtext0 no-underline'>{label}</Link>
+                            <FontAwesomeIcon icon={icon} className='w-4 text-subtext0'></FontAwesomeIcon>
                         </div>)}
                     </div>
                 </div>
             </div>
 
-            <div className='flex justify-center w-1/5 '>
+            <div className='flex md:justify-center md:w-1/5 '>
                 <div>
-                    <h4>Services</h4>
-                    <div className='flex flex-col gap-4'>
-                    <li>Fullstack Developement</li>
-                    <li>App Developement</li>
-                    <li>Ai Engineering</li>
-                    <li>Software Developement</li>
-                    <li>Network Engineering</li>
+                    <p className='my-4 '>Services</p>
+                    <div className='flex flex-col gap-2 text-sm text-subtext0'>
+                        <p>Fullstack Developement</p>
+                        <p>App Developement</p>
+                        <p>Ai Engineering</p>
+                        <p>Software Developement</p>
+                        <p>Network Engineering</p>
                     </div>
                 </div>
             </div>
 
-            <div className='flex justify-center w-1/5 '>
+            <div className='flex md:justify-center  md:w-1/5 '>
                 <div className='flex flex-col'>
-                    <h4>Community</h4>
-                    <div className='flex justify-between w-28 mr-10'>
-                        <Link href='https://github.com/coding-club-gct' className='text-text no-underline ml-2'>Github</Link>
+                    <p className='my-4'>Community</p>
+                    <div className='flex justify-between w-28 mr-10 text-sm text-subtext0'>
+                        <Link href='https://github.com/coding-club-gct' className='text-subtext0 no-underline md:ml-2'>Github</Link>
                         <FontAwesomeIcon icon={faGithub} className='w-4 '></FontAwesomeIcon>
                     </div>
                 </div>
             </div>
 
-            <div className=' flex justify-center w-1/5'>
+            <div className=' flex md:justify-center md:w-1/5'>
                 <div className='flex flex-col'>
-                    <h4> {footerElements.title}</h4>
-                    <div className='flex'>
+                    <p className='my-4'> {footerElements.title}</p>
+                    <div className='flex text-sm text-subtext0'>
                         {footerElements.items.map(({ label, href, icon }, j) => <div key={j} className=' flex justify-center' >
-                            <Link href={href} className='text-textno-underline p-1'>{<FontAwesomeIcon icon={icon} className='w-4'></FontAwesomeIcon>}</Link>
+                            <Link href={href} className='text-subtext0 no-underline p-1'>{<FontAwesomeIcon icon={icon} className='w-4 text-subtext0'></FontAwesomeIcon>}</Link>
                         </div>)}
                     </div>
                 </div>
             </div>
         </div>
         <Divider></Divider>
-        <p className='text-center p-4'>Made with ❤️ by <a href='https://pavithra.tech' target='_blank' className='text-blue no-underline'>Pavithra </a>
+        <p className='text-center text-sm p-4'>Made with ❤️ by <a href='https://pavithra.tech' target='_blank' className='text-blue no-underline'>Pavithra </a>
             (Executive member second gen)
         </p>
     </div>

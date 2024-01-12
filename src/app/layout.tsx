@@ -3,6 +3,7 @@ import { ThemeProvider } from "@/context/mui";
 import "./globals.css"
 import { DarkModeProvider } from "@/context/darkmode";
 import { CatppuccinProvider } from "@/context/catppuccin";
+import View from "@/components/view"
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -11,7 +12,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <DarkModeProvider>
           <ThemeProvider>
             <CatppuccinProvider>
-             {children} 
+              <View>
+                {children}
+              </View>
             </CatppuccinProvider>
           </ThemeProvider>
         </DarkModeProvider>

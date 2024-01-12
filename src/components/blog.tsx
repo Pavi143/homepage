@@ -4,78 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Container, Divider } from "@mui/material";
 import React, { useEffect, useState } from "react";
 
-const blogItems = [
-    {
-        "tags": [
-            "tutorial",
-        ],
-        "url": "how-to-blog",
-        "read": "5 mins",
-        "coverImage": "/how-to-blog.svg",
-        "title": "How to blog",
-        "githubData": {
-            "author": {
-                "name": "Aprilia",
-                "blog": "https://itzapril.tech",
-                "html_url": "https://github.com/useEffects",
-                "email": null,
-                "avatar_url": "https://avatars.githubusercontent.com/u/80976002?v=4"
-            },
-            "committer": {
-                "name": "Aprilia",
-                "avatar_url": "https://avatars.githubusercontent.com/u/80976002?v=4",
-                "committed_date": "Wed  20 Dec  23  12:53 am"
-            }
-        }
-    },
-    {
-        "tags": [
-            "tutorial",
 
-        ],
-        "url": "how-to-blog2",
-        "read": "5 mins",
-        "coverImage": "/how-to-blog.svg",
-        "title": "How to blog",
-        "githubData": {
-            "author": {
-                "name": "Aprilia",
-                "blog": "https://itzapril.tech",
-                "html_url": "https://github.com/useEffects",
-                "email": null,
-                "avatar_url": "https://avatars.githubusercontent.com/u/80976002?v=4"
-            },
-            "committer": {
-                "name": "Aprilia",
-                "avatar_url": "https://avatars.githubusercontent.com/u/80976002?v=4",
-                "committed_date": "Tue  9 Jan  24  10:48 am"
-            }
-        }
-    },
-    {
-        "tags": [
-            "tutorial",
-        ],
-        "url": "how-to-blog3",
-        "read": "5 mins",
-        "coverImage": "/how-to-blog.svg",
-        "title": "How to blog",
-        "githubData": {
-            "author": {
-                "name": "Aprilia",
-                "blog": "https://itzapril.tech",
-                "html_url": "https://github.com/useEffects",
-                "email": null,
-                "avatar_url": "https://avatars.githubusercontent.com/u/80976002?v=4"
-            },
-            "committer": {
-                "name": "Aprilia",
-                "avatar_url": "https://avatars.githubusercontent.com/u/80976002?v=4",
-                "committed_date": "Tue  9 Jan  24  10:48 am"
-            }
-        }
-    }
-];
 type BlogItem = {
     tags: string[],
     url: string,
@@ -109,9 +38,9 @@ export default  function Blog() {
         fetchBlogs()
     }, [])
     return (
-        <div className=" flex justify-between gap-12  mb-12 w-full ">
+        <div className=" flex  flex-col md:flex-row justify-between gap-12  mb-12 w-full ">
             {blogItems.map((blogItem, i) => (
-                <div key={i} className="flex flex-col   p-4 w-1/3 gap-2 bg-mantle rounded ">
+                <div key={i} className="flex flex-col   p-4 md:w-1/3 gap-2 bg-mantle rounded ">
                     <img src={`https://blogs.codingclubgct.in/${blogItem.coverImage}`} className="w-64 object-cover"></img>
                     <Divider className="my-4"></Divider>
                     <p className="text-text text-3xl font-medium">{blogItem.title}</p>
