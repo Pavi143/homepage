@@ -1,14 +1,16 @@
 "use client"
 
+import { OpenContext } from '@/context/open';
 import { FolderNode } from '@/lib/normalize-path';
 import { faFolderClosed, faFolderOpen } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useContext, useState } from "react";
 
 export function Tray({ tree, pl }: { tree?: FolderNode | null, pl: number }) {
     const router = useRouter()
     const [clicked, setClicked] = useState(false);
+    const { setClose } = useContext(OpenContext)
 
     if (!tree) {
         return null;
@@ -17,6 +19,8 @@ export function Tray({ tree, pl }: { tree?: FolderNode | null, pl: number }) {
     const handleItemClick = () => {
         if (tree.children?.length) {
             setClicked(!clicked);
+        } else {
+            setClose()
         }
         router.push(tree.path)
     };

@@ -3,13 +3,14 @@
 import DarkModeSwitcher from "@/components/darkmodeSwitcher"
 import { Logo } from "@/components/logo"
 import { Tray } from "@/components/navbar"
+import { OpenContext } from "@/context/open"
 import { FolderNode } from "@/lib/normalize-path"
 import { faDiscord, faGithub, faInstagram, faLinkedin } from "@fortawesome/free-brands-svg-icons"
 import { faBars, faClose } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { Button, Divider, Link, useMediaQuery } from "@mui/material"
 import { signIn, useSession } from "next-auth/react"
-import { ReactNode, useState } from "react"
+import { ReactNode, useContext } from "react"
 
 const links = [
     {
@@ -52,7 +53,7 @@ const howTo = [
 
 export default function View({ tree, children }: { tree: FolderNode | null, children: ReactNode }) {
     const { data: session } = useSession();
-    const [open, setOpen] = useState(false)
+    const { open, toggleOpen } = useContext(OpenContext)
     const isMobile = useMediaQuery('(max-width: 640px)')
 
     return <div className="w-full">
@@ -62,7 +63,7 @@ export default function View({ tree, children }: { tree: FolderNode | null, chil
                     <div style={{ height: (open || !isMobile) ? "calc(100% - 10rem)" : undefined }} className='w-full overflow-y-scroll srollbar-hide p-4 flex flex-col gap-4'>
                         <div className='flex items-center justify-between'>
                             <div className="flex gap-4">
-                                <FontAwesomeIcon icon={open ? faClose : faBars} className="text-text cursor-pointer md:hidden" onClick={() => setOpen(prev => !prev)} />
+                                <FontAwesomeIcon icon={open ? faClose : faBars} className="text-text cursor-pointer md:hidden" onClick={toggleOpen} />
                                 <DarkModeSwitcher />
                             </div>
                             <div className="flex gap-4 pr-4 items-center">
