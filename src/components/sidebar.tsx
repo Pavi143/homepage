@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useState, Dispatch, SetStateAction } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars, faH, faHome, faBlog, faPeopleGroup, faPhone, faUserPlus, faPersonChalkboard } from "@fortawesome/free-solid-svg-icons";
+import DarkModeSwitcher from "./darkmodeswitcher";
 
 
 const sidebarItems = [
@@ -18,8 +19,11 @@ const sidebarItems = [
 export default function Sidebar({ open, setOpen }: { open: boolean, setOpen: Dispatch<SetStateAction<boolean>> }) {
     const isMobile = useMediaQuery("(max-width:640px)")
 
-    return <div className="md:h-screen fixed left-0  bg-mantle p-4 " style={{ width: isMobile ? '100%' :  open ? "10rem" : "4rem" , right: open ? 0 : undefined , top : open ? 0 : undefined , bottom : open ? 0 : undefined}}>
-        <FontAwesomeIcon icon={faBars} className="cursor-pointer m-1 " onClick={() => setOpen(!open)}></FontAwesomeIcon>
+    return <div className="md:h-screen fixed left-0  bg-mantle p-4 " style={{ width: isMobile ? '100%' : open ? "10rem" : "4rem", right: open ? 0 : undefined, top: open ? 0 : undefined, bottom: open ? 0 : undefined }}>
+        <div className="flex gap-4" style={{flexDirection:open ? "row" : "column"}}>
+            <FontAwesomeIcon icon={faBars} className="cursor-pointer m-1 " onClick={() => setOpen(!open)}></FontAwesomeIcon>
+            <DarkModeSwitcher />
+        </div>
         {(!isMobile || open) && <div className="flex flex-col gap-4 mt-12">
             {sidebarItems.map((item, i) => <div key={i} className=" flex h-8  items-center gap-2  hover:bg-crust p-1 rounded cursor-pointer">
                 <FontAwesomeIcon icon={item.icon} className="text-sm" ></FontAwesomeIcon>

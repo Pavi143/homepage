@@ -23,7 +23,7 @@ export default function Page() {
           <p className="text-6xl">Not a <span className="text-yellow">Rocket</span> Science</p>
           <p className="text-lg md:w-3/4">Lorem ipsum dolor sit amet consectetur adipisicing elit. At, similique!</p>
           <div className="flex justify-center  md:w-3/4  gap-4 my-4">
-            <Button variant="contained" >Collab with GitHub </Button>
+            <Button variant="contained" >Collab on GitHub </Button>
             <Button variant="outlined"  >Join with Discord</Button>
           </div>
           <Divider></Divider>
