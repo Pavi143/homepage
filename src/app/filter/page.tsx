@@ -6,105 +6,104 @@ import imgAi from "@/assets/ai.svg";
 import imgSoftware from "@/assets/software.svg";
 import imgDevops from "@/assets/devops.svg";
 import { useState } from "react";
+import Image from 'next/image'
 
-const all = [
+type AllItems = { category: string; title: string; photo: string };
+
+const all: AllItems[] = [
   {
-    fullstack: [
-      {
-        title: "fullstack",
-        photo: imgFullstack,
-      },
-      {
-        title: "fullstack",
-        photo: imgFullstack,
-      },
-    ],
+    category: 'Fullstack',
+    title: "fullstack1",
+    photo: imgFullstack
   },
   {
-    ai: [
-      {
-        title: "ai",
-        photo: imgAi,
-      },
-      {
-        title: "ai",
-        photo: imgAi,
-      },
-    ],
+    category: 'Fullstack',
+    title: "fullstack2",
+    photo: imgFullstack
   },
   {
-    app: [
-      {
-        title: "app",
-        photo: imgApp,
-      },
-      {
-        title: "app",
-        photo: imgApp,
-      },
-    ],
+    category: 'Ai',
+    title: "ai1",
+    photo: imgAi
   },
   {
-    devops: [
-      {
-        title: "devops",
-        photo: imgDevops,
-      },
-      {
-        title: "devops",
-        photo: imgDevops,
-      },
-    ],
+    category: 'Ai',
+    title: "ai2",
+    photo: imgAi
   },
   {
-    software: [
-      {
-        title: "Software",
-        photo: imgSoftware,
-      },
-      {
-        title: "Software",
-        photo: imgSoftware,
-      },
-    ],
+    category: 'App',
+    title: "app1",
+    photo: imgApp
   },
   {
-    network: [
-      {
-        title: "network",
-        photo: imgNetwork,
-      },
-      {
-        title: "network",
-        photo: imgNetwork,
-      },
-    ],
+    category: 'App',
+    title: "app2",
+    photo: imgApp
+  },
+  {
+    category: 'Devops',
+    title: "devops1",
+    photo: imgDevops
+  },
+  {
+    category: 'Devops',
+    title: "devops2",
+    photo: imgDevops
+  },
+  {
+    category: 'Software',
+    title: "Software1",
+    photo: imgSoftware
+  },
+  {
+    category: 'Software',
+    title: "Software2",
+    photo: imgSoftware
+  },
+  {
+    category: 'Network',
+    title: "network1",
+    photo: imgNetwork
+  },
+  {
+    category: 'Network',
+    title: "network2",
+    photo: imgNetwork
   },
 ];
 
+const categories = Array.from(new Set(all.map((val) => val.category)));
+
 export default function Filter() {
-  const [selectedCategory, setSelectedCategory] = useState(all);
+  const [items, setItems] = useState(all);
+
+  const filterItems = (cat) => {
+    if (cat === 'All') {
+      setItems(all);
+    } else {
+      const newItems = all.filter((newval) => newval.category === cat);
+      setItems(newItems);
+    }
+  };
 
   return (
-    <div className="flex flex-col">
-      <div className="flex gap-4 m-4">
-        <button onClick={() => setSelectedCategory(all)}>All</button>
-        <button onClick={() => setSelectedCategory(all[0].fullstack)}>FullStack</button>
-        <button onClick={() => setSelectedCategory(all[1].ai)}>AI Engineering</button>
-        <button onClick={() => setSelectedCategory(all[2].app)}>App Development</button>
-        <button onClick={() => setSelectedCategory(all[3].devops)}>Devops</button>
-        <button onClick={() => setSelectedCategory(all[4].software)}>Software Development</button>
-        <button onClick={() => setSelectedCategory(all[5].network)}>Network Engineering</button>
-      </div>
-      <div>
-        {selectedCategory.map((category, i) => (
+    <div className="flex flex-col w-full gap-2">
+      <div className="flex gap-4 m-4 p-1">
+        <button onClick={() => filterItems('All')} >All</button>
+        {categories.map((val, i) => (
           <div key={i}>
-            {category.map((item, j) => (
-              <div key={j}>
-                <p>{item.title}</p>
-                <img src={item.photo} alt={item.title} />
-              </div>
-            ))}
+            <button onClick={() => filterItems(val)} >{val}</button>
+          </div>
+        ))}
+      </div>
+      <div className="grid grid-rows-2 grid-cols-3 gap-4 p-4">
+        {items.map((item, i) => (
+          <div key={i} className="flex justify-center">
+            <div className="flex flex-col items-center bg-mantle p-2 m-4">
+              <p className="text-xl m-1">{item.title}</p>
+              <Image src={item.photo} alt={item.title} className="w-64 h-64"></Image>
+            </div>
           </div>
         ))}
       </div>
