@@ -134,15 +134,13 @@ export default function Filter() {
         <AnimatePresence>
           <div className="grid grid-rows-2 grid-cols-3 gap-4 p-4">
             {items.map((item, i) => (
-              <div key={i} className="flex justify-center">
-                <motion.div
-                  animate={{ opacity: 1, scale: 1 }} initial={{ opacity: 0, scale: 0 }} exit={{ opacity: 0, scale: 0 }} layout >
+                <motion.div transition={{delay : i * 0.05}}
+                  animate={{ opacity: 1, scale: 1 }} initial={{ opacity: 0, scale: 0 }} exit={{ opacity: 0, scale: 0 }} layout key={Math.random()}  className="flex justify-center">
                   <div className="flex flex-col items-center bg-mantle p-2 m-4">
                     <p className="text-xl m-1">{item.title}</p>
                     <Image src={item.photo} alt={item.title} className="w-64 h-64"></Image>
                   </div>
                 </motion.div>
-              </div>
             ))}
           </div >
         </AnimatePresence>
