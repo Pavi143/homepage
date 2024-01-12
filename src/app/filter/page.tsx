@@ -8,6 +8,7 @@ import imgDevops from "@/assets/devops.svg";
 import { useState } from "react";
 import Image from 'next/image';
 import { motion, AnimatePresence } from "framer-motion"
+import { Button } from "@mui/material";
 
 type AllItems = { category: string; title: string; photo: string };
 
@@ -122,10 +123,10 @@ export default function Filter() {
   return (
     <div className="flex flex-col w-full gap-2">
       <div className="flex gap-4 m-4 p-1">
-        <button onClick={() => filterItems('All')} >All</button>
+        <Button onClick={() => filterItems('All')} >All</Button>
         {categories.map((val, i) => (
           <div key={i}>
-            <button onClick={() => filterItems(val)} >{val}</button>
+            <Button onClick={() => filterItems(val)} >{val}</Button>
           </div>
         ))}
       </div>
