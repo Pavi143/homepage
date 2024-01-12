@@ -6,7 +6,8 @@ import imgAi from "@/assets/ai.svg";
 import imgSoftware from "@/assets/software.svg";
 import imgDevops from "@/assets/devops.svg";
 import { useState } from "react";
-import Image from 'next/image'
+import Image from 'next/image';
+import { motion, AnimatePresence } from "framer-motion"
 
 type AllItems = { category: string; title: string; photo: string };
 
@@ -20,6 +21,16 @@ const all: AllItems[] = [
     category: 'Fullstack',
     title: "fullstack2",
     photo: imgFullstack
+  },
+  {
+    category: 'Ai',
+    title: "ai1",
+    photo: imgAi
+  },
+  {
+    category: 'Ai',
+    title: "ai1",
+    photo: imgAi
   },
   {
     category: 'Ai',
@@ -42,6 +53,16 @@ const all: AllItems[] = [
     photo: imgApp
   },
   {
+    category: 'App',
+    title: "app1",
+    photo: imgApp
+  },
+  {
+    category: 'App',
+    title: "app2",
+    photo: imgApp
+  },
+  {
     category: 'Devops',
     title: "devops1",
     photo: imgDevops
@@ -50,6 +71,17 @@ const all: AllItems[] = [
     category: 'Devops',
     title: "devops2",
     photo: imgDevops
+  },
+  
+  {
+    category: 'Software',
+    title: "Software1",
+    photo: imgSoftware
+  },
+  {
+    category: 'Software',
+    title: "Software1",
+    photo: imgSoftware
   },
   {
     category: 'Software',
@@ -97,16 +129,23 @@ export default function Filter() {
           </div>
         ))}
       </div>
-      <div className="grid grid-rows-2 grid-cols-3 gap-4 p-4">
-        {items.map((item, i) => (
-          <div key={i} className="flex justify-center">
-            <div className="flex flex-col items-center bg-mantle p-2 m-4">
-              <p className="text-xl m-1">{item.title}</p>
-              <Image src={item.photo} alt={item.title} className="w-64 h-64"></Image>
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
+      < motion.div layout >
+        <AnimatePresence>
+          <div className="grid grid-rows-2 grid-cols-3 gap-4 p-4">
+            {items.map((item, i) => (
+              <div key={i} className="flex justify-center">
+                <motion.div
+                  animate={{ opacity: 1, scale: 1 }} initial={{ opacity: 0, scale: 0 }} exit={{ opacity: 0, scale: 0 }} layout >
+                  <div className="flex flex-col items-center bg-mantle p-2 m-4">
+                    <p className="text-xl m-1">{item.title}</p>
+                    <Image src={item.photo} alt={item.title} className="w-64 h-64"></Image>
+                  </div>
+                </motion.div>
+              </div>
+            ))}
+          </div >
+        </AnimatePresence>
+      </motion.div>
+    </div >
   );
 }
