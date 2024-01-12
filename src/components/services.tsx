@@ -66,18 +66,18 @@ export default function Services() {
     }, [activeItem]);
 
     return (
-        <div className="flex h-full w-full items-center justify-center">
-            <div className="w-[1200px] max-w-full">
+        <div className="flex  items-center justify-center mb-16">
+            <div className="w-full ">
                 <ul
                     ref={wrapperRef}
-                    className="group flex flex-col gap-3 md:h-[640px] md:flex-row md:gap-[1.5%]"
+                    className="group flex flex-col gap-3 h-[300px] md:flex-row md:gap-[1.5%]"
                 >
                     {service.map((item, i) => (
                         <li
                             onClick={() => setActiveItem(i)}
                             aria-current={activeItem === i}
                             className={classnames(
-                                "relative cursor-pointer md:w-[8%] md:first:w-[1%] md:last:w-[1%] md:[&[aria-current='true']]:w-[48%]",
+                                "relative cursor-pointer md:w-[10%] md:first:w-[5%] md:last:w-[5%] md:[&[aria-current='true']]:w-[60%]",
                                 "md:[transition:width_var(--transition,200ms_ease-in)]",
                                 "md:before-block before:absolute before:bottom-0 before:left-[-10px] before:right-[-10px] before:top-0 before:hidden before:bg-white",
                                 "md:[&:not(:hover),&:not(:first),&:not(:last)]:group-hover:w-[7%] md:hover:w-[12%]",
@@ -85,22 +85,24 @@ export default function Services() {
                             )}
                             key={i}
                         >
-                            <div className="relative h-full w-full overflow-hidden rounded-2xl bg-mantle">
+                            <div className="relative h-full w-full overflow-hidden rounded-2xl bg-mantle ">
+
                                 <Image
-                                    className="absolute right-0 top-1/2 h-auto w-24 max-w-none -translate-y-1/2 object-contain md:left-1/2 md:h-[640px] md:w-[590px] md:-translate-x-1/2"
+                                    className="absolute  right-0 top-1/2 h-auto w-24 max-w-none -translate-y-1/2 object-contain md:left-1/2 md:h-[640px] md:w-[590px] md:-translate-x-1/2"
                                     style={{ filter: activeItem !== i ? "grayscale(100%)" : undefined }}
                                     src={item.photo}
                                     alt='item.name'
                                 />
                                 <div
                                     className={classnames(
-                                        "left-8 top-8 w-[590px] p-4 transition-[transform,opacity] md:absolute md:p-0",
+                                        "via-transparent left-0 top-0 bottom-0 right-0 transition-[transform,opacity] absolute bg-gradient-to-t from-black to-transparent z-10 flex items-end p-4",
                                         activeItem === i
-                                            ? "md:translate-x-0 md:opacity-100"
-                                            : "md:translate-x-4 md:opacity-0"
+                                            ? "md:translate-x-0 "
+                                            : "md:translate-x-4 "
                                     )}
                                 >
-                                    <p className="text-lg font-bold md:text-4xl">{item.name}</p>
+                                    <p className=" text-white text-lg font-bold md:text-4xl" style={{ opacity: activeItem === i ? "100%" : "0%"}}>{item.name}</p>
+
                                 </div>
                             </div>
                         </li>

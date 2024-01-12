@@ -5,6 +5,7 @@ import Blog from "@/components/blog";
 import logo from "@/assets/codingclublogo.png"
 import { Button, Divider, Container } from "@mui/material";
 import { useState } from "react";
+import Services from "@/components/services";
 
 
 export default function Page() {
@@ -33,6 +34,7 @@ export default function Page() {
         </div>
       </div>
       <p className="text-5xl my-12">Lorem ipsum dolor sit.</p>
+      <Services/>
       <Blog/>
       <Footer />
     </Container>
