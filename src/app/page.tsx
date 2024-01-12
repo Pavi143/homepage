@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className="flex w-full py-12 flex-col gap-4">
+    <div className="flex w-full min-h-[calc(100vh-3rem)] md:min-h-screen p-12 flex-col gap-4">
       <div className="flex flex-col md:flex-row justify-center md:w-2/3 items-center gap-4">
         <Logo />
         <div>

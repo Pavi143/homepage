@@ -2,7 +2,7 @@
 
 import { CatppuccinContext } from "@/context/catppuccin"
 import { Issue, Reaction } from "@/types/issues"
-import { faHeart } from "@fortawesome/free-solid-svg-icons"
+import { faHandsClapping } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { Session } from "next-auth"
 import { useSession } from "next-auth/react"
@@ -71,8 +71,6 @@ export default function ReactReactions({ slug }: { slug: string }) {
     const [open, setOpen] = useState(false)
     const ref = useDetectClickOutside({ onTriggered: () => setOpen(false) });
     const { data: session } = useSession() as { data: Session & { access_token: string, id: number } | null };
-    const [loading, setLoading] = useState(false)
-    const [issue, setIssue] = useState<Issue | null>()
 
     const getReactionsToDisplay = () => {
         if (!reactions) return []
@@ -80,7 +78,6 @@ export default function ReactReactions({ slug }: { slug: string }) {
     }
 
     const handleReact = async (content: keyof Reactions) => {
-        setLoading(true)
         const found = reactionsData?.find(c => c.content === content)
         if (found) {
             await fetch(`https://api.github.com/repos/coding-club-gct/blogs/${slug}/reactions/${found.id}`, {
@@ -91,7 +88,6 @@ export default function ReactReactions({ slug }: { slug: string }) {
             }).then(() => {
                 setReactions(prev => prev ? ({ ...prev, [content]: prev[content] - 1, total_count: prev.total_count - 1 }) : prev)
                 setCurrent(prev => prev.filter(p => p !== found.content))
-                setLoading(false)
             })
             setReactionsData(reactionData => reactionData?.filter(r => r.content !== content))
         } else {
@@ -105,7 +101,6 @@ export default function ReactReactions({ slug }: { slug: string }) {
             }).then((res) => {
                 setReactions(prev => prev ? ({ ...prev, [content]: prev[content] + 1, total_count: prev.total_count + 1 }) : prev)
                 setCurrent(prev => [...prev, content])
-                setLoading(false)
                 return res.json()
             })
             setReactionsData(prev => prev ? [...prev, resp] : prev)
@@ -119,7 +114,6 @@ export default function ReactReactions({ slug }: { slug: string }) {
                     "Authorization": `Bearer ${process.env.NEXT_PUBLIC_GITHUB_PAT}`
                 }
             }).then(res => res.json())
-            setIssue(resp)
             const githubReactionsData: Reaction[] = await fetch(resp.reactions.url, {
                 headers: {
                     "Authorization": `Bearer ${process.env.NEXT_PUBLIC_GITHUB_PAT}`
@@ -141,12 +135,12 @@ export default function ReactReactions({ slug }: { slug: string }) {
                 {getReactionsToDisplay().map((reactionMeta, i) => <span key={i}>
                     {reactionMeta.emoji}
                 </span>)}
-            </div> : <FontAwesomeIcon icon={faHeart} />}
+            </div> : <FontAwesomeIcon icon={faHandsClapping} />}
         </div>
-        {open && session && <div ref={ref} className="rounded-full relative z-10 shadow bg-mantle h-full p-1 flex gap-1 items-center"> {reactionsMeta.map((reactionMeta, i) => <div onClick={() => handleReact(reactionMeta.key)} style={{ background: current?.includes(reactionMeta.key) ? catppuccinColor.surface0 : undefined }} className="hover:bg-crust cursor-pointer rounded-full align-middle text-center flex justify-center items-center w-6 h-6 p-1" key={i}>
+        {open && (session ? <div ref={ref} className="rounded-full relative z-10 shadow bg-mantle h-full p-1 flex gap-1 items-center"> {reactionsMeta.map((reactionMeta, i) => <div onClick={() => handleReact(reactionMeta.key)} style={{ background: current?.includes(reactionMeta.key) ? catppuccinColor.surface0 : undefined }} className="hover:bg-crust cursor-pointer rounded-full align-middle text-center flex justify-center items-center w-6 h-6 p-1" key={i}>
             <span className="text-sm">
                 {reactionMeta.emoji}
             </span>
-        </div>)} </div>}
+        </div>)} </div> : <p ref={ref} className="text-sm text-red"> Login to react </p>)}
     </div> : <div className="h-8"></div>
 }

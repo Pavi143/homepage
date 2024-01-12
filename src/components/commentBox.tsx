@@ -70,7 +70,7 @@ export default function CommentBox({ slug }: { slug: string }) {
             <p className="text-xl font-medium"> Comment Section </p>
             <a href={`https://github.com/coding-club-gct/blogs/${slug}`} target="_blank" className="text-blue no-underline text-sm"> {slug} </a>
         </div>
-        {!session && <p className="text-subtext0"> Login to post a comment </p>}
+        {!session && <p className="text-red text-sm"> Login to post a comment </p>}
         {comments.map((comment, i) => <div key={i} className="flex gap-4">
             <img src={comment.user.avatar_url} className="h-8 object-contain rounded-full mt-2" alt="" />
             <div className="flex w-full flex-col gap-1 bg-mantle py-2 px-4">

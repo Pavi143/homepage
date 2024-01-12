@@ -21,9 +21,9 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
     if (!blog) notFound()
     const MDXContent = getMDXComponent(blog.body.code)
     const { githubData, issueNumber } = blog
-    return <>
+    return <div>
         <div className="flex gap-4 w-full">
-            <div className="w-[calc(100%-300px)] flex flex-col gap-8 py-4">
+            <div className="md:w-[calc(100%-300px)] flex flex-col gap-8 p-4 md:px-0">
                 <img className="w-full object-contain" src={blog.coverImage} alt="" />
                 <div className="flex flex-col gap-2">
                     <p className="text-6xl font-bold"> {blog.title} </p>
@@ -58,11 +58,20 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
                             <p className="text-subtext1"> {githubData.committer.committed_date} </p>
                         </div>
                     </div>
+                    <div className="relative md:hidden">
+                        <Divider />
+                        <div className="w-[300px] flex flex-col gap-4 py-4 overflow-y-scroll scrollbar-hide sticky top-0">
+                            <p> Table of Contents </p>
+                            {blog.headings.map(({ text, slug }: { text: string, slug: string }, i: number) =>
+                                <a key={i} className="text-sm no-underline" href={`#${slug}`}>{text}</a>
+                            )}
+                        </div>
+                    </div>
                 </div> : <></>}
                 <MDXContent />
                 <CommentBox slug={`issues/${issueNumber}`} />
             </div>
-            <div className="flex gap-4">
+            <div className="hidden md:flex gap-4">
                 <Divider orientation="vertical"></Divider>
                 <div className="relative">
                     <div className="w-[300px] flex flex-col gap-4 py-4 overflow-y-scroll scrollbar-hide sticky top-0">
@@ -74,5 +83,5 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
                 </div>
             </div>
         </div>
-    </>
+    </div>
 }
