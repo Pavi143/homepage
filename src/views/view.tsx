@@ -54,7 +54,6 @@ export default function View({ tree, children }: { tree: FolderNode | null, chil
     const { data: session } = useSession();
     const [open, setOpen] = useState(false)
     const isMobile = useMediaQuery('(max-width: 640px)')
-    console.log(isMobile)
 
     return <div className="w-full">
         <div className='flex flex-col md:flex-row justify-center relative w-full'>
@@ -63,7 +62,7 @@ export default function View({ tree, children }: { tree: FolderNode | null, chil
                     <div style={{ height: (open || !isMobile) ? "calc(100% - 10rem)" : undefined }} className='w-full overflow-y-scroll srollbar-hide p-4 flex flex-col gap-4'>
                         <div className='flex items-center justify-between'>
                             <div className="flex gap-4">
-                                <FontAwesomeIcon icon={open ? faClose : faBars} className="text-text cursor-pointer" onClick={() => setOpen(prev => !prev)} />
+                                <FontAwesomeIcon icon={open ? faClose : faBars} className="text-text cursor-pointer md:hidden" onClick={() => setOpen(prev => !prev)} />
                                 <DarkModeSwitcher />
                             </div>
                             <div className="flex gap-4 pr-4 items-center">
@@ -81,7 +80,7 @@ export default function View({ tree, children }: { tree: FolderNode | null, chil
                         {session?.user ? <div className="flex flex-col gap-4 w-full justify-center items-center">
                             <img className="h-[5rem] object-contain rounded-full" src={session.user.image!} alt="" />
                             <p> Logged in as <span className="text-green"> {session.user.name} </span> </p>
-                        </div> : <Button onClick={() => signIn()} className="flex items-center gap-2 w-full mt-auto mb-0"> <span> Login with </span> <FontAwesomeIcon icon={faGithub} /> </Button>}
+                        </div> : <Button onClick={() => signIn("github")} className="flex items-center gap-2 w-full mt-auto mb-0"> <span> Login with </span> <FontAwesomeIcon icon={faGithub} /> </Button>}
                     </div>}
                 </div>
                 <div className="hidden md:block">
@@ -109,7 +108,7 @@ export default function View({ tree, children }: { tree: FolderNode | null, chil
                 <div className="flex flex-col gap-4">
                     <p> Connect with us </p>
                     <div className="flex gap-4">
-                        {socials.map(({ icon, href }, i) => <a className="text-subtext0 no-underline" key={i} href="">
+                        {socials.map(({ icon, href }, i) => <a className="text-subtext0 no-underline" key={i} href={href}>
                             <FontAwesomeIcon icon={icon} />
                         </a>)}
                     </div>
