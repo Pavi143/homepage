@@ -22,16 +22,16 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
     const MDXContent = getMDXComponent(blog.body.code)
     const { githubData, issueNumber } = blog
     return <>
-        <div className="flex gap-4 w-full h-screen">
-            <div className="w-[calc(100%-300px)]  overflow-y-scroll scrollbar-hide flex flex-col gap-8 py-4">
+        <div className="flex gap-4 w-full">
+            <div className="w-[calc(100%-300px)] flex flex-col gap-8 py-4">
                 <img className="w-full object-contain" src={blog.coverImage} alt="" />
                 <div className="flex flex-col gap-2">
                     <p className="text-6xl font-bold"> {blog.title} </p>
                     <div className="flex gap-2 items-center">
                         <FontAwesomeIcon className="" icon={faClock}></FontAwesomeIcon>
-                        <p> {blog.read} Read</p>
+                        <p className="text-sm text-subtext0"> {blog.read} Read</p>
+                        <ReactReactions slug={`issues/${issueNumber}`} />
                     </div>
-                    <ReactReactions slug={`issues/${issueNumber}`} />
                     {blog.tags ? <div className="flex gap-2 items-center">
                         {blog.tags.map((tag, i) => <span className="text-sm rounded bg-mantle p-1" key={i}> {tag} </span>)}
                     </div> : <></>}
@@ -60,20 +60,17 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
                     </div>
                 </div> : <></>}
                 <MDXContent />
-                <Divider />
-                <div>
-                    <p className="text-xl font-medium"> Comment Section </p>
-                    <a href={`https://github.com/coding-club-gct/blogs/issues/${issueNumber}`} target="_blank" className="text-blue no-underline text-sm"> issues/{issueNumber} </a>
-                </div>
                 <CommentBox slug={`issues/${issueNumber}`} />
             </div>
             <div className="flex gap-4">
                 <Divider orientation="vertical"></Divider>
-                <div className="w-[300px] flex flex-col gap-4 py-4 overflow-y-scroll scrollbar-hide">
-                    <p> Table of Contents </p>
-                    {blog.headings.map(({ text, slug }: { text: string, slug: string }, i: number) =>
-                        <a key={i} className="text-sm no-underline" href={`#${slug}`}>{text}</a>
-                    )}
+                <div className="relative">
+                    <div className="w-[300px] flex flex-col gap-4 py-4 overflow-y-scroll scrollbar-hide sticky top-0">
+                        <p> Table of Contents </p>
+                        {blog.headings.map(({ text, slug }: { text: string, slug: string }, i: number) =>
+                            <a key={i} className="text-sm no-underline" href={`#${slug}`}>{text}</a>
+                        )}
+                    </div>
                 </div>
             </div>
         </div>

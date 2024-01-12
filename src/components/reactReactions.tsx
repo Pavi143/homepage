@@ -2,7 +2,7 @@
 
 import { CatppuccinContext } from "@/context/catppuccin"
 import { Issue, Reaction } from "@/types/issues"
-import { faCommentDots, faHeart } from "@fortawesome/free-solid-svg-icons"
+import { faHeart } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { Session } from "next-auth"
 import { useSession } from "next-auth/react"
@@ -135,7 +135,6 @@ export default function ReactReactions({ slug }: { slug: string }) {
     }, [session])
 
     return reactions ? <div className="flex gap-4 h-8 items-center">
-        {(issue?.comments || issue?.comments === 0) && <div className="flex gap-1 items-center"> <p> {issue?.comments} </p> <FontAwesomeIcon icon={faCommentDots} /> </div>}
         <div className="flex gap-1 items-center cursor-pointer" onClick={() => setOpen(prev => !prev)}>
             <p> {reactions.total_count} </p>
             {getReactionsToDisplay().length ? <div className="flex gap-1 items-center">

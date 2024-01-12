@@ -20,6 +20,9 @@ const links = [
     }, {
         label: "Coding Club App",
         href: "https://play.google.com/store/apps/details?id=com.codingclubgct.app&pcampaignid=web_share"
+    }, {
+        label: "Algolab",
+        href: "https://algolab.codingclubgct.in"
     }
 ]
 
@@ -50,7 +53,7 @@ export default function View({ tree, children }: { tree: FolderNode | null, chil
     const { data: session } = useSession();
     return <div className="w-full">
         <div className='flex justify-center relative w-full'>
-            <div className="w-[300px] h-screen mr-4 flex">
+            <div className="w-[300px] h-screen mr-4 flex sticky top-0 left-0 overflow-y-scroll scrollbar-hide">
                 <div className="flex flex-col w-[300px] h-full">
                     <div className='w-full h-[calc(100%-10rem)] overflow-y-scroll srollbar-hide p-4 flex flex-col gap-4'>
                         <div className='flex items-center justify-between'>
@@ -67,8 +70,8 @@ export default function View({ tree, children }: { tree: FolderNode | null, chil
                     <div className="flex h-[10rem] items-center p-4 justify-end">
                         {session?.user ? <div className="flex flex-col gap-4 w-full justify-center items-center">
                             <img className="h-[5rem] object-contain rounded-full" src={session.user.image!} alt="" />
-                            <p> User: <span className="text-green"> {session.user.name} </span> </p>
-                        </div> : <Button onClick={() => signIn()} className="flex items-center gap-2 w-full"> <span> Login with </span> <FontAwesomeIcon icon={faGithub} /> </Button>}
+                            <p> Logged in as <span className="text-green"> {session.user.name} </span> </p>
+                        </div> : <Button onClick={() => signIn()} className="flex items-center gap-2 w-full mt-auto mb-0"> <span> Login with </span> <FontAwesomeIcon icon={faGithub} /> </Button>}
                     </div>
                 </div>
                 <Divider orientation="vertical" />
@@ -79,7 +82,11 @@ export default function View({ tree, children }: { tree: FolderNode | null, chil
         </div>
         <Divider />
         <div className="p-4 pt-12 mx-auto container flex justify-evenly" id="#about">
-            <Logo />
+            <div className="flex flex-col justify-center">
+                <Logo />
+                <p> Blogs from <span className="text-yellow text-sm"> Coding Club GCT </span> </p>
+                <p className="text-subtext0 text-sm"> Ideas Unleashed</p>
+            </div>
             <div className="flex flex-col gap-4">
                 <p> Useful links </p>
                 {links.map(({ href, label }, i) => <a key={i} href={href} target="_blank" className="text-subtext0 no-underline text-sm">
