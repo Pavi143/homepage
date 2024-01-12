@@ -94,19 +94,19 @@ export default function View({ tree, children }: { tree: FolderNode | null, chil
         </div>
         {(!open || !isMobile) && <>
             <Divider />
-            <div className="p-4 mx-auto container flex flex-col h-[800px] md:h-auto md:flex-row justify-evenly" id="#about">
+            <div className="p-4 mx-auto container flex flex-col h-auto md:flex-row justify-evenly gap-8 md:gap-0 py-8" id="#about">
                 <div className="flex flex-col justify-center">
                     <p> Blogs from <span className="text-yellow text-sm"> Coding Club GCT </span> </p>
                     <p className="text-subtext0 text-sm"> Ideas Unleashed</p>
                     <Logo />
                 </div>
-                <div className="flex flex-col gap-4">
+                <div className="flex flex-col gap-2">
                     <p> Useful links </p>
                     {links.map(({ href, label }, i) => <a key={i} href={href} target="_blank" className="text-subtext0 no-underline text-sm">
                         {label}
                     </a>)}
                 </div>
-                <div className="flex flex-col gap-4">
+                <div className="flex flex-col gap-2">
                     <p> Connect with us </p>
                     <div className="flex gap-4">
                         {socials.map(({ icon, href }, i) => <a className="text-subtext0 no-underline" key={i} href={href}>
@@ -114,14 +114,14 @@ export default function View({ tree, children }: { tree: FolderNode | null, chil
                         </a>)}
                     </div>
                 </div>
-                <div className="flex flex-col gap-4">
+                <div className="flex flex-col gap-2">
                     <p> Support </p>
                     {howTo.map(({ href, label }, i) => <a key={i} href={href} target="_blank" className="text-subtext0 no-underline text-sm">
                         {label}
                     </a>)}
                 </div>
             </div>
-            <div className="flex justify-center my-4">
+            <div className="flex justify-center mb-4">
                 <a className="text-center no-underline" href="https://github.com/coding-club-gct/blogs"> Source Code </a>
             </div>
         </>}
