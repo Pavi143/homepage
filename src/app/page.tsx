@@ -32,26 +32,26 @@ export default function Page() {
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam, autem.</p>
         </div>
       </div>
-      <div className="flex flex-col md:flex-row  gap-8 m-4 pt-8 w-full bg-mantle">
+      <div className="flex flex-col md:flex-row  gap-8 m-4 pt-8 w-full bg-mantle p-4">
         <div className="flex flex-col gap-4 md:w-1/2 ml-4">
           <p className="text-3xl text-subtext0 font-medium text-center  mt-4">VISION</p>
           <p className="mt-6">To build a community that serves as a hub for young programmers to learn, develop and enrich their coding skills and also acts as a platform through which they can exhibit their skills to the technical world as talented programmers..</p>
         </div>
-        <div className="flex flex-col gap-4 md:w-1/2 ml-4 mb-4">
+        <div className="flex flex-col gap-4 md:w-1/2 ml-4 mb-4 ">
           <p className="text-3xl font-medium text-center mt-4 text-subtext0">MISSION</p>
           <div className="flex">
             <div className="flex flex-col gap-16 md:gap-8 mt-8 ml-2">
-              <div className="flex">
+              <div className="flex ">
                 <FontAwesomeIcon icon={faCode} className="m-1"></FontAwesomeIcon>
-                <p>To elevate the programming skills of future engineers which will help them learn new tactics to deal with dynamic technologies.</p>
+                <p className="pl-4">To elevate the programming skills of future engineers which will help them learn new tactics to deal with dynamic technologies.</p>
               </div>
               <div className="flex">
                 <FontAwesomeIcon icon={faCode} className="m-1"></FontAwesomeIcon>
-                <p>To enrich the competitive programming skills of students by participating in renowned competitions.</p>
+                <p className="pl-4">To enrich the competitive programming skills of students by participating in renowned competitions.</p>
               </div>
               <div className="flex ">
                 <FontAwesomeIcon icon={faCode} className="m-1"></FontAwesomeIcon>
-                <p>To enrich the competitive programming skills of students by participating in renowned competitions.</p>
+                <p className="pl-4">To enrich the competitive programming skills of students by participating in renowned competitions.</p>
               </div>
             </div>
           </div>

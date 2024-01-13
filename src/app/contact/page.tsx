@@ -33,9 +33,9 @@ const contactItems = [
 
 export default function Page() {
     return <Container>
-        <div className="flex flex-col items-center my-12">
-            <p className="text-6xl max-w-[800px] md:text-center p-12 md:p-0">Get in touch with us to get more information </p>
-            <p className="mt-12">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quod, distinctio.</p>
+        <div className="flex flex-col items-center mt-4 mb-12 md:mt-12 gap-4">
+            <p className="text-3xl max-w-[800px] md:text-center ">Get in touch with us to get more information </p>
+            <p >Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quod, distinctio.</p>
         </div>
         <div className="flex flex-col md:flex-row w-full justify-center gap-4 ">
             {contactItems.map((contactItem, i) => <div key={i} className="md:w-1/3">

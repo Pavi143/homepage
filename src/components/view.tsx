@@ -11,7 +11,7 @@ export default function View({ children }: { children: ReactNode }) {
         <div className="flex justify-center relative w-full">
             <Sidebar open={open} setOpen={setOpen} />
             <div className='flex flex-col w-full'>
-                <Container style={{ paddingLeft: isMobile ? "0rem" : open ? "10rem" : "4rem" }}>
+                <Container style={{  paddingTop: isMobile? '56px' : '0rem'}} className='pr-0'>
 
                     {isMobile ? open ? <> </> : <>
                         <div>
@@ -24,7 +24,7 @@ export default function View({ children }: { children: ReactNode }) {
                     </>
                     }
                 </Container>
-                <div style={{ paddingLeft: isMobile ? "0rem" : open ? "10rem" : "4rem" }} >
+                <div style={{}} >
                     <Footer />
                 </div>
             </div>
