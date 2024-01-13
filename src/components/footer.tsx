@@ -41,7 +41,7 @@ export default function Footer() {
                     <div className='flex flex-col gap-2'>
 
                         {footerItems.items.map(({ label, href, icon }, j) => <div key={j} className='flex justify-between w-28 mr-10 text-sm text-subtext0 ' >
-                            <Link href={href} className=' text-sm text-subtext0 no-underline'>
+                            <Link href={href} className=' flex justify-between text-sm text-subtext0 no-underline w-28'>
                                 <span>{label}</span>
                                 <FontAwesomeIcon icon={icon} className='w-4 text-subtext0 '></FontAwesomeIcon>
                             </Link>
@@ -67,7 +67,7 @@ export default function Footer() {
                 <div className='flex flex-col'>
                     <p className='my-4'>Community</p>
                     <div className='flex justify-between w-28 mr-10 text-sm text-subtext0'>
-                        <Link href='https://github.com/coding-club-gct' className='text-subtext0 no-underline md:ml-2 w-28'>
+                        <Link href='https://github.com/coding-club-gct' className=' flex justify-between text-subtext0 no-underline md:ml-2 w-28'>
                             <span>Github</span>
                             <FontAwesomeIcon icon={faGithub} className='w-4 '></FontAwesomeIcon>
                         </Link>
