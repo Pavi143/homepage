@@ -85,9 +85,9 @@ function Card(props: CardItem) {
 
 export default function Page() {
     return <div>
-        <div className="flex flex-col items-center bg-mantle">
-            <p className="text-3xl">Lorem ipsum dolor sit.</p>
-            <div className="flex flex-col md:flex-row gap-8 p-1">
+        <div className="flex flex-col items-center bg-mantle ">
+            <p className="text-3xl md:mt-4 ">Lorem ipsum dolor sit.</p>
+            <div className="flex flex-col md:flex-row gap-8 p-1 ">
                 {aboutItems.map((item, i) => <div key={i} className="flex flex-col w-full md:w-1/3 p-4 items-center gap-4">
                     <img src={item.photo} className="w-24 oject-contain rounded-full" ></img>
                     <p className="font-bold">{item.title}</p>

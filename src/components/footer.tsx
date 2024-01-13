@@ -6,6 +6,8 @@ import logo from "@/assets/codingclublogo.png"
 import { Divider } from '@mui/material';
 
 
+
+
 const footerItems = {
     title: 'Quick links', items: [
         { label: 'Home', href: 'home', icon: faHome },
@@ -26,7 +28,8 @@ const footerElements = {
 }
 
 export default function Footer() {
-    return <div className=' bg-mantle w-full mt-12 '>
+    return <div className=' bg-mantle w-full mt-12'>
+        <Divider />
         <div className='flex flex-col md:flex-row justify-between p-4 text-sm mb-20 '>
             <div className='flex flex-col md:w-1/5  text-subtext0 my-4 '>
                 <div className='flex'>

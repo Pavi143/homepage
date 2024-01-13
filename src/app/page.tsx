@@ -16,7 +16,7 @@ export default function Page() {
   return <div className="flex">
     {/* <Sidebar open={open} setOpen={setOpen} /> */}
     <div >
-      <div className="flex flex-col md:flex-row justify-around md:mt-28 mt-12 md:ml-10">
+      <div className="flex flex-col md:flex-row justify-around md:mt-28  md:ml-10">
         <div className="w-full mt-12 md:mt-0 md:w-1/3 md:h-1/3">
           <img src={logo.src} className="object-contain w-full">
           </img>

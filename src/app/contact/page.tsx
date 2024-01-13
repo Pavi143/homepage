@@ -33,7 +33,7 @@ const contactItems = [
 
 export default function Page() {
     return <Container>
-        <div className="flex flex-col items-center mt-4 mb-12 md:mt-12 gap-4">
+        <div className="flex flex-col items-center mb-12 md:mt-12 gap-4">
             <p className="text-3xl max-w-[800px] md:text-center ">Get in touch with us to get more information </p>
             <p >Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quod, distinctio.</p>
         </div>
