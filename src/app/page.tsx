@@ -15,7 +15,7 @@ export default function Page() {
     {/* <Sidebar open={open} setOpen={setOpen} /> */}
     <div >
       <div className="flex flex-col md:flex-row justify-around md:mt-28 mt-12 md:ml-10">
-        <div className="w-full md:w-1/3 md:h-1/3">
+        <div className="w-full mt-12 md:mt-0 md:w-1/3 md:h-1/3">
           <img src={logo.src} className="object-contain w-full">
           </img>
         </div>
@@ -30,11 +30,26 @@ export default function Page() {
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam, autem.</p>
         </div>
       </div>
+      <div className="flex flex-col md:flex-row  gap-8 m-4 pt-8">
+        <div className="flex flex-col gap-4">
+          <p className="text-3xl font-medium text-center  mt-4">VISION</p>
+          <Divider></Divider>
+          <p className="mt-6">To build a community that serves as a hub for young programmers to learn, develop and enrich their coding skills and also acts as a platform through which they can exhibit their skills to the technical world as talented programmers..</p>
+        </div>
+        <div className="flex flex-col gap-4">
+          <p className="text-3xl font-medium text-center mt-4">MISSION</p>
+          <Divider></Divider>
+          <div className="flex flex-col gap-4 m-4">
+            <p>To elevate the programming skills of future engineers which will help them learn new tactics to deal with dynamic technologies.</p>
+            <p>To enrich the competitive programming skills of students by participating in renowned competitions.</p>
+            <p>To enhance the coding skills of budding developers by encouraging and guiding them to build applications.</p>
+          </div>
+        </div>
+      </div>
 
-      <p className="text-4xl my-12">Lorem ipsum dolor sit.</p>
+      <p className="text-4xl md:my-12 mx-2  my-12 md:pt-8 ">Lorem ipsum dolor sit.</p>
       <Blog />
       {!isMobile && <Services />}
-      <Footer />
     </div>
   </div>
 }
