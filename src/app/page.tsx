@@ -6,6 +6,8 @@ import logo from "@/assets/codingclublogo.png"
 import { Button, Divider, Container, useMediaQuery } from "@mui/material";
 import { useState } from "react";
 import Services from "@/components/services";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCode } from "@fortawesome/free-solid-svg-icons";
 
 
 export default function Page() {
@@ -30,24 +32,29 @@ export default function Page() {
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam, autem.</p>
         </div>
       </div>
-      <div className="flex flex-col md:flex-row  gap-8 m-4 pt-8">
-        <div className="flex flex-col gap-4">
-          <p className="text-3xl font-medium text-center  mt-4">VISION</p>
-          <Divider></Divider>
+      <div className="flex flex-col md:flex-row  gap-8 m-4 pt-8 w-full">
+        <div className="flex flex-col gap-4 md:w-1/2">
+          <p className="text-3xl text-subtext0 font-medium text-center  mt-4">VISION</p>
           <p className="mt-6">To build a community that serves as a hub for young programmers to learn, develop and enrich their coding skills and also acts as a platform through which they can exhibit their skills to the technical world as talented programmers..</p>
         </div>
-        <div className="flex flex-col gap-4">
-          <p className="text-3xl font-medium text-center mt-4">MISSION</p>
-          <Divider></Divider>
-          <div className="flex flex-col gap-4 m-4">
-            <p>To elevate the programming skills of future engineers which will help them learn new tactics to deal with dynamic technologies.</p>
-            <p>To enrich the competitive programming skills of students by participating in renowned competitions.</p>
-            <p>To enhance the coding skills of budding developers by encouraging and guiding them to build applications.</p>
+        <div className="flex flex-col gap-4 md:w-1/2 ml-4">
+          <p className="text-3xl font-medium text-center mt-4 text-subtext0">MISSION</p>
+          <div className="flex">
+            <div className="flex flex-col gap-12 mt-12 ml-2">
+              <FontAwesomeIcon icon={faCode}></FontAwesomeIcon>
+              <FontAwesomeIcon icon={faCode}></FontAwesomeIcon>
+              <FontAwesomeIcon icon={faCode}></FontAwesomeIcon>
+            </div>
+            <div className="flex flex-col gap-4 m-4">
+              <p>To elevate the programming skills of future engineers which will help them learn new tactics to deal with dynamic technologies.</p>
+              <p>To enrich the competitive programming skills of students by participating in renowned competitions.</p>
+              <p>To enhance the coding skills of budding developers by encouraging and guiding them to build applications.</p>
+            </div>
           </div>
         </div>
       </div>
 
-      <p className="text-4xl md:my-12 mx-2  my-12 md:pt-8 ">Lorem ipsum dolor sit.</p>
+      <p className="text-4xl md:my-12 mx-2  my-12 md:pt-8 text-subtext0">Lorem ipsum dolor sit.</p>
       <Blog />
       {!isMobile && <Services />}
     </div>
