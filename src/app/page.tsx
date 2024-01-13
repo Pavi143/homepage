@@ -32,15 +32,15 @@ export default function Page() {
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam, autem.</p>
         </div>
       </div>
-      <div className="flex flex-col md:flex-row  gap-8 m-4 pt-8 w-full">
-        <div className="flex flex-col gap-4 md:w-1/2">
+      <div className="flex flex-col md:flex-row  gap-8 m-4 pt-8 w-full bg-mantle">
+        <div className="flex flex-col gap-4 md:w-1/2 ml-4">
           <p className="text-3xl text-subtext0 font-medium text-center  mt-4">VISION</p>
           <p className="mt-6">To build a community that serves as a hub for young programmers to learn, develop and enrich their coding skills and also acts as a platform through which they can exhibit their skills to the technical world as talented programmers..</p>
         </div>
         <div className="flex flex-col gap-4 md:w-1/2 ml-4">
           <p className="text-3xl font-medium text-center mt-4 text-subtext0">MISSION</p>
           <div className="flex">
-            <div className="flex flex-col gap-12 mt-12 ml-2">
+            <div className="flex flex-col gap-24 md:gap-12 mt-12 ml-2">
               <FontAwesomeIcon icon={faCode}></FontAwesomeIcon>
               <FontAwesomeIcon icon={faCode}></FontAwesomeIcon>
               <FontAwesomeIcon icon={faCode}></FontAwesomeIcon>

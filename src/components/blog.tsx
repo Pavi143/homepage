@@ -124,10 +124,10 @@ export default function Blog() {
                     <img src={`https://blogs.codingclubgct.in/${blogItem.coverImage}`} className="w-64 object-cover"></img>
                     <Divider className="my-4"></Divider>
                     <p className="text-text text-3xl font-medium">{blogItem.title}</p>
-                    <p className="text-sm text-subtext0">{blogItem.githubData.committer.committed_date}</p>
+                    <p className="text-sm ">{blogItem.githubData.committer.committed_date}</p>
                     <div className="flex gap-2 items-center">
-                        <FontAwesomeIcon icon={faClock} className="w-4"></FontAwesomeIcon>
-                        <p>{blogItem.read} read</p>
+                        <FontAwesomeIcon icon={faClock} className="w-4 text-sm text-subtext0"></FontAwesomeIcon>
+                        <p className="text-sm ">{blogItem.read} read</p>
                         <BlogInfo issueNumber={blogItem.issueNumber}/>
 
                     </div>
@@ -154,13 +154,13 @@ export default function Blog() {
                     <div className="flex gap-4">
                         {blogItem.tags.map((tag, j) => (
                             <div key={j} >
-                                <span className="text-sm font-medium bg-crust rounded p-1" >{tag}</span>
+                                <span className="text-sm text-subtext0 font-medium bg-crust rounded p-1" >{tag}</span>
                             </div>
                         ))}
                     </div>
 
                     <div className="flex  m-2">
-                        <a href={`https://blogs.codingclubgct.in/${blogItem.url}`} className="text-blue no-underline">Read More</a>
+                        <a href={`https://blogs.codingclubgct.in/${blogItem.url}`} className="text-blue no-underline">Read Now</a>
 
                     </div>
                 </div>

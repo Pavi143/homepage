@@ -72,7 +72,7 @@ function Card(props: CardItem) {
         <p>{props.rollNo}</p>
         <p>{props.about}</p>
         <div className="flex gap-4 ">
-            {props.domains.map((domain, i) => <span key={i} className="bg-crust rounded px-2 py-1 text-sm">{domain}</span>)}
+            {props.domains.map((domain, i) => <span key={i} className="bg-crust rounded px-2 py-1 text-sm text-subtext0">{domain}</span>)}
         </div>
         <div className="flex gap-4">
             {props.socials.map((social, j) => <a href={social.href} key={j}><FontAwesomeIcon icon={social.icon} className="w-4 h-4 text-text"></FontAwesomeIcon>
@@ -85,14 +85,16 @@ function Card(props: CardItem) {
 
 export default function Page() {
     return <Container>
-        <p className="text-6xl mb-8 mt-12 text-center">Lorem ipsum dolor sit.</p>
-        <div className="flex flex-col md:flex-row gap-8 ">
-            {aboutItems.map((item, i) => <div key={i} className="flex flex-col w-full md:w-1/3 p-4 items-center gap-4">
-                <img src={item.photo} className="w-24 oject-contain rounded-full" ></img>
-                <p className="font-bold">{item.title}</p>
-                <p>{item.content}</p>
-            </div>)}
+        <div className="flex flex-col items-center bg-mantle">
+            <p className="text-6xl mb-8 text-center pt-32 md:p-12">Lorem ipsum dolor sit.</p>
+            <div className="flex flex-col md:flex-row gap-8 p-1">
+                {aboutItems.map((item, i) => <div key={i} className="flex flex-col w-full md:w-1/3 p-4 items-center gap-4">
+                    <img src={item.photo} className="w-24 oject-contain rounded-full" ></img>
+                    <p className="font-bold">{item.title}</p>
+                    <p>{item.content}</p>
+                </div>)}
 
+            </div>
         </div>
         <div className="flex flex-col items-center gap-10">
             <p className="text-6xl mt-8 font-medium" >Meet Our Team</p>

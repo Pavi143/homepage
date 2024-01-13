@@ -26,7 +26,7 @@ const footerElements = {
 }
 
 export default function Footer() {
-    return <div className=' bg-mantle w-full '>
+    return <div className=' bg-mantle w-full mt-12 '>
         <div className='flex flex-col md:flex-row justify-between p-4 text-sm mb-20 '>
             <div className='flex flex-col md:w-1/5  text-subtext0 my-4 '>
                 <div className='flex'>
@@ -41,8 +41,10 @@ export default function Footer() {
                     <div className='flex flex-col gap-2'>
 
                         {footerItems.items.map(({ label, href, icon }, j) => <div key={j} className='flex justify-between w-28 mr-10 text-sm text-subtext0' >
-                            <Link href={href} className=' text-sm text-subtext0 no-underline'>{label}</Link>
-                            <FontAwesomeIcon icon={icon} className='w-4 text-subtext0'></FontAwesomeIcon>
+                            <Link href={href} className=' text-sm text-subtext0 no-underline'>
+                                <span>{label}</span>
+                                <FontAwesomeIcon icon={icon} className='w-4 text-subtext0'></FontAwesomeIcon>
+                            </Link>
                         </div>)}
                     </div>
                 </div>
@@ -50,7 +52,7 @@ export default function Footer() {
 
             <div className='flex md:justify-center md:w-1/5 '>
                 <div>
-                    <p className='my-4 '>Services</p>
+                    <p className='my-4 '>Domains</p>
                     <div className='flex flex-col gap-2 text-sm text-subtext0'>
                         <p>Fullstack Developement</p>
                         <p>App Developement</p>
@@ -65,8 +67,10 @@ export default function Footer() {
                 <div className='flex flex-col'>
                     <p className='my-4'>Community</p>
                     <div className='flex justify-between w-28 mr-10 text-sm text-subtext0'>
-                        <Link href='https://github.com/coding-club-gct' className='text-subtext0 no-underline md:ml-2'>Github</Link>
-                        <FontAwesomeIcon icon={faGithub} className='w-4 '></FontAwesomeIcon>
+                        <Link href='https://github.com/coding-club-gct' className='text-subtext0 no-underline md:ml-2'>
+                            <span>Github</span>
+                            <FontAwesomeIcon icon={faGithub} className='w-4 '></FontAwesomeIcon>
+                        </Link>
                     </div>
                 </div>
             </div>
