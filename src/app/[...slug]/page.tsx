@@ -74,7 +74,7 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
             <div className="hidden md:flex gap-4">
                 <Divider orientation="vertical"></Divider>
                 <div className="relative">
-                    <div className="w-[300px] flex flex-col gap-4 py-4 overflow-y-scroll scrollbar-hide sticky top-0">
+                    <div className="w-[300px] h-screen flex flex-col gap-4 py-4 overflow-y-scroll scrollbar-hide sticky top-0">
                         <p> Table of Contents </p>
                         {blog.headings.map(({ text, slug }: { text: string, slug: string }, i: number) =>
                             <a key={i} className="text-sm no-underline" href={`#${slug}`}>{text}</a>

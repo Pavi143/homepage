@@ -60,7 +60,7 @@ export default function View({ tree, children }: { tree: FolderNode | null, chil
         <div className='flex flex-col md:flex-row justify-center relative w-full'>
             <div style={{ height: (open || !isMobile) ? "100dvh" : "4rem" }} className="w-full md:w-[300px] mr-4 flex md:sticky top-0 left-0 overflow-y-scroll scrollbar-hide">
                 <div className="flex flex-col w-full md:w-[300px] h-full">
-                    <div style={{ height: (open || !isMobile) ? "calc(100% - 10rem)" : undefined }} className='w-full overflow-y-scroll srollbar-hide p-4 flex flex-col gap-4'>
+                    <div style={{ height: (open || !isMobile) ? "calc(100% - 10rem)" : undefined }} className='w-full overflow-y-scroll scrollbar-hide p-4 flex flex-col gap-4'>
                         <div className='flex items-center justify-between'>
                             <div className="flex gap-4">
                                 <FontAwesomeIcon icon={open ? faClose : faBars} className="text-text cursor-pointer md:hidden" onClick={toggleOpen} />
