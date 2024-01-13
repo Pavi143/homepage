@@ -8,7 +8,7 @@ import imgSoftware from "@/assets/software.svg";
 import { AnimatePresence, motion } from "framer-motion";
 import Image from 'next/image';
 import { useEffect, useState } from "react";
-import { Button } from "@mui/material";
+import { Button, Container } from "@mui/material";
 
 type AllItems = { category: string; title: string; photo: string };
 
@@ -128,11 +128,13 @@ export default function Filter() {
   }, [])
 
   return (
-    <div className="flex flex-col w-full gap-2 md:my-12">
-      <div className="flex flex-col gap-4 md:ml-4 p-4  md:p-1 ">
-        <p className="text-4xl  text-subtext0 ">Lorem ipsum dolor sit amet.</p>
-        <p className="text-text max-w-[700px]">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ducimus sit necessitatibus cum quam tempora explicabo odio excepturi, ratione quod! Sequi.</p>
-      </div>
+    <div >
+      <Container className="flex flex-col w-full gap-2 md:my-12">
+        <div className="flex flex-col gap-4 md:ml-4 p-4  md:p-1 ">
+          <p className="text-4xl  text-subtext0 ">Lorem ipsum dolor sit amet.</p>
+          <p className="text-text max-w-[700px]">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ducimus sit necessitatibus cum quam tempora explicabo odio excepturi, ratione quod! Sequi.</p>
+        </div>
+      </Container>
       <div className="flex flex-wrap gap-4 m-2 p-1">
         <Button onClick={() => filterItems('All')} >All</Button>
         {Array.from(new Set(all.map((val) => val.category))).map((val, i) => (

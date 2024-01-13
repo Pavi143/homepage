@@ -16,21 +16,23 @@ export default function Page() {
   return <div className="flex">
     {/* <Sidebar open={open} setOpen={setOpen} /> */}
     <div >
-      <div className="flex flex-col md:flex-row justify-around md:mt-28  md:ml-10">
-        <div className="w-full mt-12 md:mt-0 md:w-1/3 md:h-1/3">
-          <img src={logo.src} className="object-contain w-full">
-          </img>
-        </div>
-        <div className="h-full md:w-2/3 md:ml-10 w-full flex flex-col gap-4 p-4">
-          <p className="text-6xl">Not a <span className="text-yellow">Rocket</span> Science</p>
-          <p className="text-lg md:w-3/4">Lorem ipsum dolor sit amet consectetur adipisicing elit. At, similique!</p>
-          <div className="flex justify-center  md:w-3/4  gap-4 my-4">
-            <Button variant="contained" >Collab on GitHub </Button>
-            <Button variant="outlined"  >Join with Discord</Button>
+      <div >
+        <Container className="flex flex-col md:flex-row justify-around md:mt-28  md:ml-10">
+          <div className="w-full mt-12 md:mt-0 md:w-1/3 md:h-1/3">
+            <img src={logo.src} className="object-contain w-full">
+            </img>
           </div>
-          <Divider></Divider>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam, autem.</p>
-        </div>
+          <div className="h-full md:w-2/3 md:ml-10 w-full flex flex-col gap-4 p-4">
+            <p className="text-6xl">Not a <span className="text-yellow">Rocket</span> Science</p>
+            <p className="text-lg md:w-3/4">Lorem ipsum dolor sit amet consectetur adipisicing elit. At, similique!</p>
+            <div className="flex justify-center  md:w-3/4  gap-4 my-4">
+              <Button variant="contained" >Collab on GitHub </Button>
+              <Button variant="outlined"  >Join with Discord</Button>
+            </div>
+            <Divider></Divider>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam, autem.</p>
+          </div>
+        </Container>
       </div>
       <div className="flex flex-col md:flex-row  gap-8 m-4 pt-8 w-full bg-mantle p-4">
         <div className="flex flex-col gap-4 md:w-1/2 ml-4">
