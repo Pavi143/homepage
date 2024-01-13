@@ -66,8 +66,9 @@ export default function Services() {
     }, [activeItem]);
 
     return (
-        <div className="flex  items-center justify-center mb-16">
-            <div className="w-full ">
+        <div className="flex flex-col justify-center mb-16 gap-8">
+            <p className='text-4xl  text-subtext0 m-4'>Lorem ipsum dolor sit amet.</p>
+            <div className="w-full items-center ">
                 <ul
                     ref={wrapperRef}
                     className="group flex flex-col gap-3 h-[300px] md:flex-row md:gap-[1.5%]"

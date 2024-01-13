@@ -54,7 +54,9 @@ export default function Page() {
         </div>
       </div>
 
-      <p className="text-4xl md:my-12 mx-2  my-12 md:pt-8 text-subtext0">Lorem ipsum dolor sit.</p>
+      <p className="text-4xl md:my-8 mx-2  my-12 md:pt-8 text-subtext0">Lorem ipsum dolor sit.</p>
+      <p className="text-sm text-subtext0 mb-12 ml-2 max-w-[500px]">Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum dolore qui doloribus ea hic sunt enim tenetur autem sequi numquam.
+      </p>
       <Blog />
       {!isMobile && <Services />}
     </div>
