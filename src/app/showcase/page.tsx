@@ -129,7 +129,7 @@ export default function Filter() {
 
   return (
     <div className="flex flex-col w-full gap-2 md:my-12">
-      <div className="flex flex-col gap-4 md:ml-8 p-1 ">
+      <div className="flex flex-col gap-4 md:ml-4 p-4  md:p-1 ">
         <p className="text-4xl  text-subtext0 ">Lorem ipsum dolor sit amet.</p>
         <p className="text-text max-w-[700px]">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ducimus sit necessitatibus cum quam tempora explicabo odio excepturi, ratione quod! Sequi.</p>
       </div>

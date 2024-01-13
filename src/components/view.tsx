@@ -15,7 +15,7 @@ export default function View({ children }: { children: ReactNode }) {
     return <div className="flex w-full justify-center relative md:flex-row flex-col">
         <Sidebar open={open} setOpen={setOpen} />
         {isMobile && open ? <></> : <div className='flex w-full flex-col'>
-            <div style={{ paddingTop: isMobile ? '56px' : '0rem' }} className='px-0 w-full'>
+            <div style={{}} className='px-0 w-full'>
                 <div>
                     {children}
                 </div>

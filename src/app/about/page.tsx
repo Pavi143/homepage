@@ -85,25 +85,28 @@ function Card(props: CardItem) {
 
 export default function Page() {
     return <div>
-        <div className="flex flex-col items-center bg-mantle ">
-            <p className="text-3xl md:mt-4 ">Lorem ipsum dolor sit.</p>
-            <div className="flex flex-col md:flex-row gap-8 p-1 ">
-                {aboutItems.map((item, i) => <div key={i} className="flex flex-col w-full md:w-1/3 p-4 items-center gap-4">
-                    <img src={item.photo} className="w-24 oject-contain rounded-full" ></img>
-                    <p className="font-bold">{item.title}</p>
-                    <p>{item.content}</p>
-                </div>)}
-
-            </div>
+        <div>
+            <Container className="flex flex-col items-center bg-mantle ">
+                <p className="text-3xl md:mt-4 p-4">Lorem ipsum dolor sit.</p>
+                <div className="flex flex-col md:flex-row gap-8 p-1 ">
+                    {aboutItems.map((item, i) => <div key={i} className="flex flex-col w-full md:w-1/3 p-4 items-center gap-4">
+                        <img src={item.photo} className="w-24 oject-contain rounded-full" ></img>
+                        <p className="font-bold">{item.title}</p>
+                        <p>{item.content}</p>
+                    </div>)}
+                </div>
+            </Container>
         </div>
-        <div className="flex flex-col items-center gap-10">
-            <p className="text-6xl mt-8 font-medium" >Meet Our Team</p>
-            <p className="max-w-[800px]">Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus placeat debitis facilis ex deserunt dolor. Enim ratione minus nemo ad?</p>
-            <div className="md:grid grid-rows-2 grid-cols-3 w-full gap-4 p-4  ">
-                {cardItems.map((item, i) => <div key={i} className="w-full my-4 md:my-0 ">
-                    <Card {...item} />
-                </div>)}
-            </div>
+     <div >
+            <Container className="flex flex-col items-center gap-10">
+                <p className="text-6xl mt-8 font-medium" >Meet Our Team</p>
+                <p className="max-w-[800px]">Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus placeat debitis facilis ex deserunt dolor. Enim ratione minus nemo ad?</p>
+                <div className="md:grid grid-rows-2 grid-cols-3 w-full gap-4 p-4  ">
+                    {cardItems.map((item, i) => <div key={i} className="w-full my-4 md:my-0 ">
+                        <Card {...item} />
+                    </div>)}
+                </div>
+            </Container>
         </div>
-    </div>
+    </div >
 }
