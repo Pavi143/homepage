@@ -129,12 +129,12 @@ export default function Filter() {
 
   return (
     <div >
-      <Container className="flex flex-col w-full gap-2 md:my-12">
-        <div className="flex flex-col gap-4 md:ml-4 p-4  md:p-1 ">
+      <div className="flex flex-col w-full gap-2 md:my-12">
+        <Container className="flex flex-col gap-4 md:ml-4 p-4  md:p-1 ">
           <p className="text-4xl  text-subtext0 ">Lorem ipsum dolor sit amet.</p>
           <p className="text-text max-w-[700px]">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ducimus sit necessitatibus cum quam tempora explicabo odio excepturi, ratione quod! Sequi.</p>
-        </div>
-      </Container>
+        </Container>
+      </div>
       <div className="flex flex-wrap gap-4 m-2 p-1">
         <Button onClick={() => filterItems('All')} >All</Button>
         {Array.from(new Set(all.map((val) => val.category))).map((val, i) => (
@@ -145,7 +145,9 @@ export default function Filter() {
       </div>
       < motion.div layout >
         <AnimatePresence>
-          <div className="md:grid grid-cols-3 gap-4 p-4">
+          <div >
+
+          <Container className="md:grid grid-cols-4 gap-4 p-4 md:m-0 w-full ">
             {items.map((item, i) => (
               <motion.div animate={{ opacity: 1 }} initial={{ opacity: 0 }} exit={{ opacity: 0 }} layout key={getKey(item)} className="flex justify-center">
                 <div className="flex flex-col items-center bg-mantle p-2 m-4">
@@ -154,7 +156,8 @@ export default function Filter() {
                 </div>
               </motion.div>
             ))}
-          </div >
+          </Container >
+            </div>
         </AnimatePresence>
       </motion.div>
     </div >

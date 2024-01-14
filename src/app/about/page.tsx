@@ -1,4 +1,4 @@
-import { IconDefinition, faGithub, faInstagram } from "@fortawesome/free-brands-svg-icons"
+import { IconDefinition, faGithub, faInstagram, faLinkedin } from "@fortawesome/free-brands-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { Container } from "@mui/material"
 import { join } from "path/win32"
@@ -22,43 +22,49 @@ const aboutItems = [
 const cardItems: CardItem[] = [
     {
         photo: 'https://imgs.search.brave.com/AOHPYtc-nxMtVikm6okEDNtpYb60nRxcZ5Jw_v5k8ac/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9pbWcu/ZnJlZXBpay5jb20v/ZnJlZS1waG90by9z/bWlsaW5nLXdvbWFu/XzExNDktMjg1Lmpw/Zz9zaXplPTYyNiZl/eHQ9anBn', name: 'pavithra', designation: 'executive member', about: 'Lorem ipsum dolor sit amet.', socials: [
-            { icon: faInstagram, href: 'www.instagram.com' },
-            { icon: faGithub, href: 'www.github.com' }
+            { icon: faGithub, href: 'www.github.com' },
+            { icon: faLinkedin, href: 'www.linkedIn.com'},
+            { icon: faInstagram, href: 'www.instagram.com' }
 
         ], domains: ['fullStack', 'Software Engineering'], rollNo: '2018131'
     },
     {
         photo: 'https://imgs.search.brave.com/AOHPYtc-nxMtVikm6okEDNtpYb60nRxcZ5Jw_v5k8ac/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9pbWcu/ZnJlZXBpay5jb20v/ZnJlZS1waG90by9z/bWlsaW5nLXdvbWFu/XzExNDktMjg1Lmpw/Zz9zaXplPTYyNiZl/eHQ9anBn', name: 'pavithra', designation: 'executive member', about: 'Lorem ipsum dolor sit amet.', socials: [
-            { icon: faInstagram, href: 'www.instagram.com' },
-            { icon: faGithub, href: 'www.github.com' }
+            { icon: faGithub, href: 'www.github.com' },
+            { icon: faLinkedin, href: 'www.linkedIn.com'},
+            { icon: faInstagram, href: 'www.instagram.com' }
 
         ], domains: ['fullStack', 'Software Engineering'], rollNo: '2018131'
     },
     {
         photo: 'https://imgs.search.brave.com/AOHPYtc-nxMtVikm6okEDNtpYb60nRxcZ5Jw_v5k8ac/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9pbWcu/ZnJlZXBpay5jb20v/ZnJlZS1waG90by9z/bWlsaW5nLXdvbWFu/XzExNDktMjg1Lmpw/Zz9zaXplPTYyNiZl/eHQ9anBn', name: 'pavithra', designation: 'executive member', about: 'Lorem ipsum dolor sit amet.', socials: [
-            { icon: faInstagram, href: 'www.instagram.com' },
-            { icon: faGithub, href: 'www.github.com' }
+            { icon: faGithub, href: 'www.github.com' },
+            { icon: faLinkedin, href: 'www.linkedIn.com'},
+            { icon: faInstagram, href: 'www.instagram.com' }
 
         ], domains: ['fullStack', 'Software Engineering'], rollNo: '2018131'
     },
     {
         photo: 'https://imgs.search.brave.com/AOHPYtc-nxMtVikm6okEDNtpYb60nRxcZ5Jw_v5k8ac/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9pbWcu/ZnJlZXBpay5jb20v/ZnJlZS1waG90by9z/bWlsaW5nLXdvbWFu/XzExNDktMjg1Lmpw/Zz9zaXplPTYyNiZl/eHQ9anBn', name: 'pavithra', designation: 'executive member', about: 'Lorem ipsum dolor sit amet.', socials: [
-            { icon: faInstagram, href: 'www.instagram.com' },
-            { icon: faGithub, href: 'www.github.com' }
+            { icon: faGithub, href: 'www.github.com' },
+            { icon: faLinkedin, href: 'www.linkedIn.com'},
+            { icon: faInstagram, href: 'www.instagram.com' }
 
         ], domains: ['fullStack', 'Software Engineering'], rollNo: '2018131'
     },
     {
         photo: 'https://imgs.search.brave.com/AOHPYtc-nxMtVikm6okEDNtpYb60nRxcZ5Jw_v5k8ac/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9pbWcu/ZnJlZXBpay5jb20v/ZnJlZS1waG90by9z/bWlsaW5nLXdvbWFu/XzExNDktMjg1Lmpw/Zz9zaXplPTYyNiZl/eHQ9anBn', name: 'pavithra', designation: 'executive member', about: 'Lorem ipsum dolor sit amet.', socials: [
-            { icon: faInstagram, href: 'www.instagram.com' },
-            { icon: faGithub, href: 'www.github.com' }
+            { icon: faGithub, href: 'www.github.com' },
+            { icon: faLinkedin, href: 'www.linkedIn.com'},
+            { icon: faInstagram, href: 'www.instagram.com' }
 
         ], domains: ['fullStack', 'Software Engineering'], rollNo: '2018131'
     },
     {
         photo: 'https://imgs.search.brave.com/AOHPYtc-nxMtVikm6okEDNtpYb60nRxcZ5Jw_v5k8ac/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9pbWcu/ZnJlZXBpay5jb20v/ZnJlZS1waG90by9z/bWlsaW5nLXdvbWFu/XzExNDktMjg1Lmpw/Zz9zaXplPTYyNiZl/eHQ9anBn', name: 'pavithra', designation: 'executive member', about: 'Lorem ipsum dolor sit amet.', socials: [
-            { icon: faInstagram, href: 'www.instagram.com' },
-            { icon: faGithub, href: 'www.github.com' }
+            { icon: faGithub, href: 'www.github.com' },
+            { icon: faLinkedin, href: 'www.linkedIn.com'},
+            { icon: faInstagram, href: 'www.instagram.com' }
 
         ], domains: ['fullStack', 'Software Engineering'], rollNo: '2018131'
     }

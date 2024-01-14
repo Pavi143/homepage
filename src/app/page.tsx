@@ -4,15 +4,33 @@ import Footer from "@/components/footer"
 import Blog from "@/components/blog";
 import logo from "@/assets/codingclublogo.png"
 import { Button, Divider, Container, useMediaQuery } from "@mui/material";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Services from "@/components/services";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCode } from "@fortawesome/free-solid-svg-icons";
+import axios from 'axios';
+import AnimatedNumber from 'react-animated-numbers';
 
 
 export default function Page() {
   const [open, setOpen] = useState(true)
   const isMobile = useMediaQuery("(max-width:640px)")
+  const [repoCount, setRepoCount] = useState(null);
+
+  useEffect(() => {
+    const username ='coding-club-gct'
+    const fetchRepoCount = async () => {
+      try {
+        const response = await axios.get(`https://api.github.com/users/${username}`);
+        setRepoCount(response.data.public_repos);
+      } catch (error) {
+        console.error('Error fetching repository count:', error);
+      }
+    };
+
+    fetchRepoCount();
+  }, []);
+
   return <div className="flex">
     {/* <Sidebar open={open} setOpen={setOpen} /> */}
     <div >
@@ -31,6 +49,17 @@ export default function Page() {
             </div>
             <Divider></Divider>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam, autem.</p>
+            <div>
+              {repoCount !== null ? (
+                <p>
+                  {'coding-club-gct'} has{' '}
+                  <AnimatedNumber value={repoCount} duration={2000} formatValue={(val) => Math.round(val)} /> public repositories
+                  on GitHub.
+                </p>
+              ) : (
+                <p>Loading...</p>
+              )}
+            </div>
           </div>
         </Container>
       </div>

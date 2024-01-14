@@ -40,7 +40,7 @@ export default function Footer() {
             </div>
             <div className=' flex md:justify-center md:w-1/5'>
                 <div>
-                    <p className='my-4'> {footerItems.title}</p>
+                    <p className='my-4 font-bold'> {footerItems.title}</p>
                     <div className='flex flex-col gap-2'>
 
                         {footerItems.items.map(({ label, href, icon }, j) => <div key={j} className='flex justify-between w-28 mr-10 text-sm text-subtext0 ' >
@@ -55,7 +55,7 @@ export default function Footer() {
 
             <div className='flex md:justify-center md:w-1/5 '>
                 <div>
-                    <p className='my-4 '>Domains</p>
+                    <p className='my-4  font-bold'>Domains</p>
                     <div className='flex flex-col gap-2 text-sm text-subtext0'>
                         <p>Fullstack Developement</p>
                         <p>App Developement</p>
@@ -68,7 +68,7 @@ export default function Footer() {
 
             <div className='flex md:justify-center  md:w-1/5 '>
                 <div className='flex flex-col'>
-                    <p className='my-4'>Community</p>
+                    <p className='my-4 font-bold'>Community</p>
                     <div className='flex justify-between w-28 mr-10 text-sm text-subtext0'>
                         <Link href='https://github.com/coding-club-gct' className=' flex justify-between text-subtext0 no-underline md:ml-2 w-28'>
                             <span>Github</span>
@@ -80,7 +80,7 @@ export default function Footer() {
 
             <div className=' flex md:justify-center md:w-1/5'>
                 <div className='flex flex-col'>
-                    <p className='my-4'> {footerElements.title}</p>
+                    <p className='my-4 font-bold'> {footerElements.title}</p>
                     <div className='flex text-sm text-subtext0'>
                         {footerElements.items.map(({ label, href, icon }, j) => <div key={j} className=' flex justify-center' >
                             <Link href={href} className='text-subtext0 no-underline p-1 '>{<FontAwesomeIcon icon={icon} className='w-4 text-subtext0'></FontAwesomeIcon>}</Link>
