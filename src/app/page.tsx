@@ -27,7 +27,7 @@ export default function Page() {
         try {
           const response = await axios.get(`https://api.github.com/orgs/${'coding-club-gct'}`);
           setRepoCount(response.data.public_repos);
-          console.log(response)
+          console.log(`response is ${response}`)
         } catch (error) {
           console.error('Error fetching organization repository count:', error);
         }
