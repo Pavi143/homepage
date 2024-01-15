@@ -9,7 +9,7 @@ import Services from "@/components/services";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCode } from "@fortawesome/free-solid-svg-icons";
 import axios from 'axios';
-import AnimatedNumber from 'react-animated-numbers';
+
 
 
 interface AnimatedNumberProps {
@@ -25,7 +25,7 @@ export default function Page() {
     useEffect(() => {
       const fetchRepoCount = async () => {
         try {
-          const response = await axios.get(`https://api.github.com/orgs/${'coding-club-gct'}`);
+          const response = await axios.get(`https://api.github.com/orgs/coding-club-gct`);
           setRepoCount(response.data.public_repos);
           console.log(`response is ${response}`)
         } catch (error) {
@@ -43,7 +43,7 @@ export default function Page() {
             <img src={logo.src} className="object-contain w-full">
             </img>
           </div>
-          <div className="h-full md:w-2/3 md:ml-10 w-full flex flex-col gap-4 p-4">
+          <div className="h-full md:w-2/3 md:ml-10 w-full flex flex-col gap-4">
             <p className="text-6xl">Not a <span className="text-yellow">Rocket</span> Science</p>
             <p className="text-lg md:w-3/4">Lorem ipsum dolor sit amet consectetur adipisicing elit. At, similique!</p>
             <div className="flex justify-center  md:w-3/4  gap-4 my-4">
@@ -52,12 +52,11 @@ export default function Page() {
             </div>
             <Divider></Divider>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam, autem.</p>
-            <div>
+            <div className=" flex flex-col items-center m-4 gap-2 bg-mantle">
+              <p className="text-2xl font-medium text-subtext0 m-4">Repositories in GitHub</p>
               {repoCount !== null ? (
-                <p>
-                  {'coding-club-gct'} has{' '}
-                  <AnimatedNumber value={repoCount} duration={2000} formatValue={(val) => Math.round(val)} /> public repositories
-                  on GitHub.
+                <p className="text-5xl m-4 text-subtext0">
+                  {repoCount} 
                 </p>
               ) : (
                 <p>Loading...</p>
