@@ -22,12 +22,12 @@ export default function Page() {
   const [open, setOpen] = useState(true)
   const isMobile = useMediaQuery("(max-width:640px)")
   const [repoCount, setRepoCount] = useState<number | null>(null);
-  const GitHubOrgRepos = () => {
     useEffect(() => {
       const fetchRepoCount = async () => {
         try {
           const response = await axios.get(`https://api.github.com/orgs/${'coding-club-gct'}`);
           setRepoCount(response.data.public_repos);
+          console.log(response)
         } catch (error) {
           console.error('Error fetching organization repository count:', error);
         }
@@ -35,7 +35,6 @@ export default function Page() {
 
       fetchRepoCount();
     }, []);
-  };
   return <div className="flex">
     <div >
       <div >
