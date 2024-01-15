@@ -12,27 +12,31 @@ import axios from 'axios';
 import AnimatedNumber from 'react-animated-numbers';
 
 
+interface AnimatedNumberProps {
+  value: number;
+  duration: number;
+  formatValue: (val: any) => number;
+}
+
 export default function Page() {
   const [open, setOpen] = useState(true)
   const isMobile = useMediaQuery("(max-width:640px)")
-  const [repoCount, setRepoCount] = useState(null);
+  const [repoCount, setRepoCount] = useState<number | null>(null);
+  const GitHubOrgRepos = () => {
+    useEffect(() => {
+      const fetchRepoCount = async () => {
+        try {
+          const response = await axios.get(`https://api.github.com/orgs/${'coding-club-gct'}`);
+          setRepoCount(response.data.public_repos);
+        } catch (error) {
+          console.error('Error fetching organization repository count:', error);
+        }
+      };
 
-  useEffect(() => {
-    const username ='coding-club-gct'
-    const fetchRepoCount = async () => {
-      try {
-        const response = await axios.get(`https://api.github.com/users/${username}`);
-        setRepoCount(response.data.public_repos);
-      } catch (error) {
-        console.error('Error fetching repository count:', error);
-      }
-    };
-
-    fetchRepoCount();
-  }, []);
-
+      fetchRepoCount();
+    }, []);
+  };
   return <div className="flex">
-    {/* <Sidebar open={open} setOpen={setOpen} /> */}
     <div >
       <div >
         <Container className="flex flex-col md:flex-row justify-around md:mt-28  md:ml-10">
