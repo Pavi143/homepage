@@ -11,7 +11,6 @@ import { faCode } from "@fortawesome/free-solid-svg-icons";
 import axios from 'axios';
 
 
-
 interface AnimatedNumberProps {
   value: number;
   duration: number;
@@ -37,17 +36,12 @@ export default function Page() {
     fetchRepoCount();
   }, []);
 
-  // useEffect( () => {
-  //   async function fetchMemberCount() {
-  //    await fetch(`https://discord.com/api/guilds/1008950812778704897?with_counts=true`,{
-  //     method : 'GET',
-  //     headers : {
-  //       "Authorization" : `Bot ${process.env.NEXT_PUBLIC_DISCORD_TOKEN}`
-  //     }
-  //    }).then(res => res.json()).then(data => console.log(data));
-  //   }
-  //   fetchMemberCount()
-  // }, [])
+  useEffect( () => {
+    async function fetchMemberCount() {
+     await fetch("/api").then(res => res.json()).then(data => setMembersCount(data.approximate_memeber_count));
+    }
+    fetchMemberCount()
+  }, [])
 
 
 
@@ -80,7 +74,7 @@ export default function Page() {
                   <p>Loading...</p>
                 )}
               </div>
-              {/* <div className=" flex flex-col items-center m-4 bg-mantle">
+              <div className=" flex flex-col items-center m-4 bg-mantle">
                 <p className="text-xl font-medium text-subtext0 m-4">Members in our Discord Server</p>
                 {membersCount !== null ? (
                   <p className="text-xl m-4 text-subtext0">
@@ -89,7 +83,7 @@ export default function Page() {
                 ) : (
                   <p>Loading...</p>
                 )}
-              </div> */}
+              </div>
             </div>
 
           </div>
