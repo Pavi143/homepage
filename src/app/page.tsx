@@ -22,19 +22,36 @@ export default function Page() {
   const [open, setOpen] = useState(true)
   const isMobile = useMediaQuery("(max-width:640px)")
   const [repoCount, setRepoCount] = useState<number | null>(null);
-    useEffect(() => {
-      const fetchRepoCount = async () => {
-        try {
-          const response = await axios.get(`https://api.github.com/orgs/coding-club-gct`);
-          setRepoCount(response.data.public_repos);
-          console.log(`response is ${response}`)
-        } catch (error) {
-          console.error('Error fetching organization repository count:', error);
-        }
-      };
+  const [membersCount, setMembersCount] = useState<number | null>(null);
+  useEffect(() => {
+    const fetchRepoCount = async () => {
+      try {
+        const response = await axios.get(`https://api.github.com/orgs/coding-club-gct`);
+        setRepoCount(response.data.public_repos);
+        console.log(`response is ${response}`)
+      } catch (error) {
+        console.error('Error fetching organization repository count:', error);
+      }
+    };
 
-      fetchRepoCount();
-    }, []);
+    fetchRepoCount();
+  }, []);
+
+  // useEffect( () => {
+  //   async function fetchMemberCount() {
+  //    await fetch(`https://discord.com/api/guilds/1008950812778704897?with_counts=true`,{
+  //     method : 'GET',
+  //     headers : {
+  //       "Authorization" : `Bot ${process.env.NEXT_PUBLIC_DISCORD_TOKEN}`
+  //     }
+  //    }).then(res => res.json()).then(data => console.log(data));
+  //   }
+  //   fetchMemberCount()
+  // }, [])
+
+
+
+
   return <div className="flex">
     <div >
       <div >
@@ -52,16 +69,29 @@ export default function Page() {
             </div>
             <Divider></Divider>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam, autem.</p>
-            <div className=" flex flex-col items-center m-4 gap-2 bg-mantle">
-              <p className="text-2xl font-medium text-subtext0 m-4">Repositories in GitHub</p>
-              {repoCount !== null ? (
-                <p className="text-5xl m-4 text-subtext0">
-                  {repoCount} 
-                </p>
-              ) : (
-                <p>Loading...</p>
-              )}
+            <div className="flex">
+              <div className=" flex flex-col m-4  bg-mantle">
+                <p className="text-xl font-medium text-subtext0 m-4">Repositories in our GitHub</p>
+                {repoCount !== null ? (
+                  <p className="text-xl m-4 text-subtext0">
+                    {repoCount}+
+                  </p>
+                ) : (
+                  <p>Loading...</p>
+                )}
+              </div>
+              {/* <div className=" flex flex-col items-center m-4 bg-mantle">
+                <p className="text-xl font-medium text-subtext0 m-4">Members in our Discord Server</p>
+                {membersCount !== null ? (
+                  <p className="text-xl m-4 text-subtext0">
+                    {membersCount}+
+                  </p>
+                ) : (
+                  <p>Loading...</p>
+                )}
+              </div> */}
             </div>
+
           </div>
         </Container>
       </div>
