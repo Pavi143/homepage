@@ -38,7 +38,7 @@ export default function Page() {
 
   useEffect( () => {
     async function fetchMemberCount() {
-     await fetch("/api").then(res => res.json()).then(data => setMembersCount(data.approximate_memeber_count));
+     await fetch("/api").then(res => res.json()).then(data => setMembersCount(data.approximate_member_count));
     }
     fetchMemberCount()
   }, [])
@@ -74,7 +74,7 @@ export default function Page() {
                   <p>Loading...</p>
                 )}
               </div>
-              <div className=" flex flex-col items-center m-4 bg-mantle">
+              <div className=" flex flex-col  m-4 bg-mantle">
                 <p className="text-xl font-medium text-subtext0 m-4">Members in our Discord Server</p>
                 {membersCount !== null ? (
                   <p className="text-xl m-4 text-subtext0">

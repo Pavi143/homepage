@@ -4,6 +4,7 @@ import "./globals.css"
 import { DarkModeProvider } from "@/context/darkmode";
 import { CatppuccinProvider } from "@/context/catppuccin";
 import View from "@/components/view"
+import { OpenProvider } from "@/context/open";
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -12,9 +13,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <DarkModeProvider>
           <ThemeProvider>
             <CatppuccinProvider>
-              <View>
-                {children}
-              </View>
+              <OpenProvider>
+                <View>
+                  {children}
+                </View>
+              </OpenProvider>
             </CatppuccinProvider>
           </ThemeProvider>
         </DarkModeProvider>
