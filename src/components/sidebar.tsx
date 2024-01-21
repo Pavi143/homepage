@@ -9,10 +9,10 @@ import { start } from "repl";
 
 
 const sidebarItems = [
-    { label: 'Home', href: 'home', icon: faHome },
+    { label: 'Home', href: '/', icon: faHome },
     { label: 'Activities', href: 'activities', icon: faPersonChalkboard },
-    { label: 'Teams', href: 'teams', icon: faPeopleGroup },
-    { label: 'Blogs', href: 'blogs', icon: faBlog },
+    { label: 'Teams', href: '/about', icon: faPeopleGroup },
+    { label: 'Blogs', href: 'https://blogs.codingclubgct.in', icon: faBlog },
     { label: 'Contact', href: 'contact', icon: faPhone },
     { label: 'Join Us', href: 'join', icon: faUserPlus }
 
@@ -26,12 +26,12 @@ export default function Sidebar({ open, setOpen }: { open: boolean, setOpen: Dis
                 <DarkModeSwitcher />
             </div>
             {(!isMobile || open) && <div className="flex flex-col gap-4 mt-12">
-                {sidebarItems.map((item, i) => <div key={i} className=" flex h-8  items-center gap-2  hover:bg-crust p-1 rounded cursor-pointer">
+                {sidebarItems.map((item, i) => <Link key={i} href={item.href} onClick={() => isMobile ? setOpen(false) : undefined} className=" flex h-8 text-text no-underline px-2 items-center gap-2  hover:bg-crust py-2 rounded cursor-pointer">
                     <FontAwesomeIcon icon={item.icon} className="text-sm" ></FontAwesomeIcon>
-                    {open && <Link href={item.href} className="text-text text-sm no-underline  "> {item.label}</Link>}
-                </div>)}
+                    {open && <p className="text-text text-sm no-underline  "> {item.label}</p>}
+                </Link>)}
             </div>}
         </div>
-        <Divider style={{height: "100%"}} orientation="vertical" />
+        <Divider style={{ height: "100%" }} orientation="vertical" />
     </div>
 }

@@ -4,11 +4,13 @@ import Footer from "@/components/footer"
 import Blog from "@/components/blog";
 import logo from "@/assets/codingclublogo.png"
 import { Button, Divider, Container, useMediaQuery } from "@mui/material";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import Services from "@/components/services";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCode } from "@fortawesome/free-solid-svg-icons";
-import axios from 'axios';
+import dark from "@/assets/dark.png"
+import light from "@/assets/light.png"
+import { DarkModeContext } from "@/context/darkmode"
 
 
 interface AnimatedNumberProps {
@@ -22,6 +24,7 @@ export default function Page() {
   const isMobile = useMediaQuery("(max-width:640px)")
   const [repoCount, setRepoCount] = useState<number | null>(null);
   const [membersCount, setMembersCount] = useState<number | null>(null);
+  const { darkMode } = useContext(DarkModeContext)
 
   useEffect(() => {
     const fetchRepoCount = async () => {
@@ -48,13 +51,16 @@ export default function Page() {
     <div>
       <div className="flex justify-center md:my-12 mb-12" >
         <Container className="flex flex-col md:flex-row justify-around p-0">
-          <div className="w-full mt-12 md:mt-0 md:w-1/3 md:h-1/3">
-            <img src={logo.src} className="object-contain w-full">
-            </img>
+
+          <div className="flex  justify-center w-full mt-12 md:mt-0 md:w-1/3 md:h-full ">
+            <div className="w-3/4 h-full"> 
+              <img src={darkMode ? dark.src : light.src} className="object-contain w-full ">
+              </img>
+            </div>
           </div>
-          <div className="h-full md:w-2/3 md:ml-10 w-full flex flex-col gap-4">
+          <div className="h-full md:w-2/3 md:ml-10 w-full flex flex-col gap-4 p-4">
             <p className="text-6xl">Not a <span className="text-yellow">Rocket</span> Science</p>
-            <p className="text-lg md:w-3/4">Lorem ipsum dolor sit amet consectetur adipisicing elit. At, similique!</p> 
+            <p className="text-lg md:w-3/4">Lorem ipsum dolor sit amet consectetur adipisicing elit. At, similique!</p>
             <div className="flex justify-center  md:w-3/4  gap-4 my-4">
               <Button variant="contained" >Collab on GitHub </Button>
               <Button variant="outlined"  >Join with Discord</Button>

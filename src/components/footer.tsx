@@ -1,9 +1,15 @@
+"use client"
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars, faH, faHome, faBlog, faPeopleGroup, faPhone, faUserPlus, faPersonChalkboard } from "@fortawesome/free-solid-svg-icons";
 import { faTwitter, faDiscord, faInstagram, faGithub, faYoutube, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import Link from 'next/link';
 import logo from "@/assets/codingclublogo.png"
 import { Divider } from '@mui/material';
+import dark from "@/assets/dark.png"
+import light from "@/assets/light.png"
+import { DarkModeContext } from "@/context/darkmode"
+import { useContext } from 'react';
 
 
 
@@ -28,15 +34,17 @@ const footerElements = {
 }
 
 export default function Footer() {
+    const { darkMode } = useContext(DarkModeContext)
     return <div className=' bg-mantle w-full mt-12'>
         <Divider />
-        <div className='flex flex-col md:flex-row justify-between p-4 text-sm mb-20 '>
-            <div className='flex flex-col md:w-1/5  text-subtext0 my-4 '>
+        <div className='flex flex-col md:flex-row justify-between p-4 text-sm  '>
+            <div className='flex flex-col p-4 md:items-center gap-4 md:w-1/5  text-subtext0  '>
                 <div className='flex'>
                     <p className=''>Coding Club GCT</p>
                 </div>
-                <p >Rudra Block first floor,<br></br>GCT Coimbatore - 641 013, Tamil Nadu.</p>
-                <a href='mailto:codingclubgct@gmail.com' className='text-subtext0 no-underline mt-8' >codingclubgct@gmail.com</a>
+                <div className='w-1/2'>
+                    <img src={darkMode ? dark.src : light.src} className="object-contain w-full "></img>
+                </div>
             </div>
             <div className=' flex md:justify-center md:w-1/5'>
                 <div>
