@@ -46,7 +46,7 @@ export default function Page() {
 
   return <div>
     <div>
-      <div className="flex justify-center pt-12" >
+      <div className="flex justify-center my-12" >
         <Container className="flex flex-col md:flex-row justify-around ">
           <div className="w-full mt-12 md:mt-0 md:w-1/3 md:h-1/3">
             <img src={logo.src} className="object-contain w-full">
@@ -54,32 +54,32 @@ export default function Page() {
           </div>
           <div className="h-full md:w-2/3 md:ml-10 w-full flex flex-col gap-4">
             <p className="text-6xl">Not a <span className="text-yellow">Rocket</span> Science</p>
-            <p className="text-lg md:w-3/4">Lorem ipsum dolor sit amet consectetur adipisicing elit. At, similique!</p>
+            <p className="text-lg md:w-3/4">Lorem ipsum dolor sit amet consectetur adipisicing elit. At, similique!</p> 
             <div className="flex justify-center  md:w-3/4  gap-4 my-4">
               <Button variant="contained" >Collab on GitHub </Button>
               <Button variant="outlined"  >Join with Discord</Button>
             </div>
             <Divider></Divider>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam, autem.</p>
-            <div className="flex">
-              <div className=" flex flex-col m-4  bg-mantle">
-                <p className="text-xl font-medium text-subtext0 m-4">Repositories in our GitHub</p>
+            <div className="flex gap-4">
+              <div className=" flex flex-col p-4 gap-4 bg-mantle">
+                <p className="text-xl font-medium text-subtext0 ">Repositories in our GitHub</p>
                 {repoCount !== null ? (
-                  <p className="text-xl m-4 text-subtext0">
+                  <p className="text-xl  text-subtext0">
                     {repoCount}+
                   </p>
                 ) : (
-                  <p>Loading...</p>
+                  <p className="text-xl  text-subtext0 ">Loading...</p>
                 )}
               </div>
-              <div className=" flex flex-col  m-4 bg-mantle">
-                <p className="text-xl font-medium text-subtext0 m-4">Members in our Discord Server</p>
+              <div className=" flex flex-col gap-4  p-4 bg-mantle">
+                <p className="text-xl font-medium text-subtext0 ">Members in our Discord Server</p>
                 {membersCount !== null ? (
-                  <p className="text-xl m-4 text-subtext0">
+                  <p className="text-xl  text-subtext0">
                     {membersCount}+
                   </p>
                 ) : (
-                  <p>Loading...</p>
+                  <p className="text-xl  text-subtext0">Loading...</p>
                 )}
               </div>
             </div>
@@ -92,35 +92,34 @@ export default function Page() {
         <Container className="flex flex-col md:flex-row  gap-8  ">
           <div className="flex flex-col gap-4 md:w-1/2 ml-4">
             <p className="text-3xl text-subtext0 font-medium text-center  mt-4">VISION</p>
-            <p className="mt-6">To build a community that serves as a hub for young programmers to learn, develop and enrich their coding skills and also acts as a platform through which they can exhibit their skills to the technical world as talented programmers..</p>
+            <p className="mt-8">To build a community that serves as a hub for young programmers to learn, develop and enrich their coding skills and also acts as a platform through which they can exhibit their skills to the technical world as talented programmers..</p>
           </div>
           <div className="flex flex-col gap-4 md:w-1/2 ml-4 mb-4 ">
             <p className="text-3xl font-medium text-center mt-4 text-subtext0">MISSION</p>
-            <div className="flex">
-              <div className="flex flex-col gap-16 md:gap-8 mt-8 ml-2">
-                <div className="flex ">
-                  <FontAwesomeIcon icon={faCode} className="m-1"></FontAwesomeIcon>
-                  <p className="pl-4">To elevate the programming skills of future engineers which will help them learn new tactics to deal with dynamic technologies.</p>
-                </div>
-                <div className="flex">
-                  <FontAwesomeIcon icon={faCode} className="m-1"></FontAwesomeIcon>
-                  <p className="pl-4">To enrich the competitive programming skills of students by participating in renowned competitions.</p>
-                </div>
-                <div className="flex ">
-                  <FontAwesomeIcon icon={faCode} className="m-1"></FontAwesomeIcon>
-                  <p className="pl-4">To enrich the competitive programming skills of students by participating in renowned competitions.</p>
-                </div>
+            <div className="flex flex-col gap-16 md:gap-8 mt-8 ml-2">
+              <div className="flex ">
+                <FontAwesomeIcon icon={faCode} className="m-1 text-mauve"></FontAwesomeIcon>
+                <p className="pl-4">To elevate the programming skills of future engineers which will help them learn new tactics to deal with dynamic technologies.</p>
+              </div>
+              <div className="flex">
+                <FontAwesomeIcon icon={faCode} className="m-1 text-mauve"></FontAwesomeIcon>
+                <p className="pl-4">To enrich the competitive programming skills of students by participating in renowned competitions.</p>
+              </div>
+              <div className="flex ">
+                <FontAwesomeIcon icon={faCode} className="m-1 text-mauve"></FontAwesomeIcon>
+                <p className="pl-4">To enrich the competitive programming skills of students by participating in renowned competitions.</p>
               </div>
             </div>
           </div>
         </Container>
       </div>
-
-      <p className="text-4xl md:my-8 mx-4  my-12 md:pt-8 text-subtext0">Lorem ipsum dolor sit.</p>
-      <p className="text-sm text-subtext0 mb-12 mx-4 max-w-[500px]">Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum dolore qui doloribus ea hic sunt enim tenetur autem sequi numquam.
-      </p>
-      <Blog />
-      {!isMobile && <Services />}
+      <Container>
+        <p className="text-4xl md:my-8 mx-4  my-12 md:pt-8 text-subtext0">Lorem ipsum dolor sit.</p>
+        <p className="text-sm text-subtext0 mb-12 mx-4 max-w-[500px]">Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum dolore qui doloribus ea hic sunt enim tenetur autem sequi numquam.
+        </p>
+        <Blog />
+        {!isMobile && <Services />}
+      </Container>
     </div>
   </div>
 }

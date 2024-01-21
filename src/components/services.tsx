@@ -96,10 +96,7 @@ export default function Services() {
                                 />
                                 <div
                                     className={classnames(
-                                        "via-transparent left-0 top-0 bottom-0 right-0 transition-[transform,opacity] absolute bg-gradient-to-t from-black to-transparent z-10 flex items-end p-4",
-                                        activeItem === i
-                                            ? "md:translate-x-0 "
-                                            : "md:translate-x-4 "
+                                        "via-transparent left-0 top-0 bottom-0 right-0 transition-[transform,opacity] absolute bg-gradient-to-t from-black to-transparent z-10 flex items-end p-4"
                                     )}
                                 >
                                     <p className=" text-white text-lg font-bold md:text-4xl" style={{ opacity: activeItem === i ? "100%" : "0%"}}>{item.name}</p>

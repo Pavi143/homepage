@@ -127,7 +127,7 @@ export default function Blog() {
                     <p className="text-sm ">{blogItem.githubData.committer.committed_date}</p>
                     <div className="flex gap-2 items-center">
                         <FontAwesomeIcon icon={faClock} className="w-4 text-sm text-subtext0"></FontAwesomeIcon>
-                        <p className="text-sm ">{blogItem.read} read</p>
+                        <p className="text-sm mr-2 ">{blogItem.read} read</p>
                         <BlogInfo issueNumber={blogItem.issueNumber}/>
 
                     </div>
