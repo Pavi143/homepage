@@ -35,7 +35,7 @@ const footerElements = {
 
 export default function Footer() {
     const { darkMode } = useContext(DarkModeContext)
-    return <div className=' bg-mantle w-full mt-12'>
+    return <div className=' bg-mantle w-full '>
         <Divider />
         <div className='flex flex-col md:flex-row justify-between p-4 text-sm  '>
             <div className='flex flex-col p-4 md:items-center gap-4 md:w-1/5  text-subtext0  '>

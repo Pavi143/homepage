@@ -12,16 +12,18 @@ export default function View({ children }: { children: ReactNode }) {
             setOpen(false)
         }
     }, [isMobile])
-    return <div className="flex w-full justify-center relative md:flex-row flex-col">
-        <Sidebar open={open} setOpen={setOpen} />
-        {isMobile && open ? <></> : <div className='flex w-full flex-col'>
-            <div style={{}} className='px-0 w-full'>
-                <div>
-                    {children}
+    return <div>
+        <div className="flex w-full justify-center relative md:flex-row flex-col">
+            <Sidebar open={open} setOpen={setOpen} />
+            {isMobile && open ? <></> : <div className='flex w-full flex-col pb-12'>
+                <div className='w-full'>
+                    <div>
+                        {children}
+                    </div>
                 </div>
             </div>
-            <Footer />
+            }
         </div>
-        }
+        {isMobile && open ? <></> : <Footer />}
     </div>
 }
