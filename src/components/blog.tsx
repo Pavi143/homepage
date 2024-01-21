@@ -118,7 +118,7 @@ export default function Blog() {
         fetchBlogs()
     }, [])
     return (
-        <div className=" flex  flex-col md:flex-row justify-between gap-12  pl-4  mb-12 w-full ">
+        <div className=" flex  flex-col md:flex-row justify-between gap-12   mb-12 w-full ">
             {blogItems.map((blogItem, i) => (
                 <div key={i} className="flex flex-col   p-4 md:w-1/3 gap-2 bg-mantle rounded ">
                     <img src={`https://blogs.codingclubgct.in/${blogItem.coverImage}`} className="w-64 object-cover"></img>

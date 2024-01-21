@@ -46,8 +46,8 @@ export default function Page() {
 
   return <div>
     <div>
-      <div className="flex justify-center my-12" >
-        <Container className="flex flex-col md:flex-row justify-around ">
+      <div className="flex justify-center md:my-12 mb-12" >
+        <Container className="flex flex-col md:flex-row justify-around p-0">
           <div className="w-full mt-12 md:mt-0 md:w-1/3 md:h-1/3">
             <img src={logo.src} className="object-contain w-full">
             </img>
@@ -89,7 +89,7 @@ export default function Page() {
 
       </div>
       <div className="flex justify-center w-full bg-mantle p-4" >
-        <Container className="flex flex-col md:flex-row  gap-8  ">
+        <Container className="flex flex-col md:flex-row  gap-8 p-0 ">
           <div className="flex flex-col gap-4 md:w-1/2 ml-4">
             <p className="text-3xl text-subtext0 font-medium text-center  mt-4">VISION</p>
             <p className="mt-8">To build a community that serves as a hub for young programmers to learn, develop and enrich their coding skills and also acts as a platform through which they can exhibit their skills to the technical world as talented programmers..</p>
@@ -113,7 +113,7 @@ export default function Page() {
           </div>
         </Container>
       </div>
-      <Container>
+      <Container className="p-0">
         <p className="text-4xl md:my-8 mx-4  my-12 md:pt-8 text-subtext0">Lorem ipsum dolor sit.</p>
         <p className="text-sm text-subtext0 mb-12 mx-4 max-w-[500px]">Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum dolore qui doloribus ea hic sunt enim tenetur autem sequi numquam.
         </p>
