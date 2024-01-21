@@ -31,7 +31,7 @@ const sidebarItems = [
     { label: 'Activities', href: 'activities', icon: faPersonChalkboard },
     { label: 'Teams', href: '/about', icon: faPeopleGroup },
     { label: 'Blogs', href: 'https://blogs.codingclubgct.in', icon: faBlog },
-    { label: 'Contact', href: 'contact', icon: faPhone },
+    { label: 'Contact', href: '/contact', icon: faPhone },
     { label: 'Join Us', href: 'join', icon: faUserPlus }
 
 ]
@@ -45,9 +45,9 @@ export default function Sidebar({ open, setOpen }: { open: boolean, setOpen: Dis
                 <DarkModeSwitcher />
             </div>
             {(!isMobile || open) && <div className="flex flex-col gap-4 mt-12">
-                {sidebarItems.map((item, i) => <Link key={i} href={item.href} onClick={() => isMobile ? setOpen(false) : undefined} className={`flex ${checkActivePath(item.href) ? "text-mauve" : 'text-text'} h-8 text-text no-underline px-2 items-center gap-2  hover:bg-crust py-2 rounded cursor-pointer`}>
-                    <FontAwesomeIcon icon={item.icon} className="text-sm" ></FontAwesomeIcon>
-                    {open && <p className="text-text text-sm no-underline  "> {item.label}</p>}
+                {sidebarItems.map((item, i) => <Link key={i} href={item.href} onClick={() => isMobile ? setOpen(false) : undefined} className={`flex ${checkActivePath(item.href) ? "text-mauve" : 'text-text'} h-8 no-underline px-2 items-center gap-2  hover:bg-crust py-2 rounded cursor-pointer`}>
+                    <FontAwesomeIcon icon={item.icon} className="text-sm text-inherit" ></FontAwesomeIcon>
+                    {open && <p className=" text-sm no-underline  "> {item.label}</p>}
                 </Link>)}
             </div>}
         </div>
