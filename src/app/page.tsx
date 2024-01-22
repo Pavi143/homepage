@@ -59,13 +59,15 @@ export default function Page() {
           </div>
           <div className="h-full md:w-2/3 md:ml-10 w-full flex flex-col gap-4 p-4">
             <p className="text-6xl">Not a <span className="text-yellow">Rocket</span> Science</p>
-            <p className="text-lg md:w-3/4">Lorem ipsum dolor sit amet consectetur adipisicing elit. At, similique!</p>
+            <div className="flex justify-center">
+              <p className=" text-lg md:w-3/4  ">Learn • Code • Develop • Share • Repeat</p>
+            </div>
             <div className="flex justify-center  md:w-3/4  gap-4 my-4">
               <Button variant="contained" >Collab on GitHub </Button>
               <Button variant="outlined"  >Join with Discord</Button>
             </div>
             <Divider></Divider>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam, autem.</p>
+            <p>Unlocking possibilities with every keystroke in our coding adventure!</p>
             <div className="flex gap-4">
               <div className=" flex flex-col p-4 gap-4 bg-mantle">
                 <p className="text-xl font-medium text-subtext0 ">Repositories in our GitHub</p>
@@ -119,8 +121,8 @@ export default function Page() {
         </Container>
       </div>
       <Container className="p-0">
-        <p className="text-4xl md:my-8 mx-4  my-12 md:pt-8 text-subtext0">Lorem ipsum dolor sit.</p>
-        <p className="text-sm text-subtext0 mb-12 mx-4 max-w-[500px]">Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum dolore qui doloribus ea hic sunt enim tenetur autem sequi numquam.
+        <p className="text-4xl md:my-8 mx-4  my-12 md:pt-8 text-subtext0">Dive into the Blogosphere</p>
+        <p className="text-sm text-subtext0 mb-12 mx-4 max-w-[500px]">Embark on a read adventure  journey of knowledge with our blog series. 
         </p>
         <Blog />
         {!isMobile && <Services />}

@@ -21,52 +21,52 @@ const aboutItems = [
 
 const cardItems: CardItem[] = [
     {
-        photo: 'https://imgs.search.brave.com/AOHPYtc-nxMtVikm6okEDNtpYb60nRxcZ5Jw_v5k8ac/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9pbWcu/ZnJlZXBpay5jb20v/ZnJlZS1waG90by9z/bWlsaW5nLXdvbWFu/XzExNDktMjg1Lmpw/Zz9zaXplPTYyNiZl/eHQ9anBn', name: 'pavithra', designation: 'executive member', about: 'Lorem ipsum dolor sit amet.', socials: [
+        photo: 'https://imgs.search.brave.com/AOHPYtc-nxMtVikm6okEDNtpYb60nRxcZ5Jw_v5k8ac/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9pbWcu/ZnJlZXBpay5jb20v/ZnJlZS1waG90by9z/bWlsaW5nLXdvbWFu/XzExNDktMjg1Lmpw/Zz9zaXplPTYyNiZl/eHQ9anBn', name: 'Devi R', designation: 'Club Advisor', about: 'Assistant Professor at GCT Coimbatore', socials: [
             { icon: faGithub, href: 'www.github.com' },
             { icon: faLinkedin, href: 'www.linkedIn.com'},
             { icon: faInstagram, href: 'www.instagram.com' }
 
-        ], domains: ['fullStack', 'Software Engineering'], rollNo: '2018131'
+        ], domains: [""], rollNo: ''
     },
     {
-        photo: 'https://imgs.search.brave.com/AOHPYtc-nxMtVikm6okEDNtpYb60nRxcZ5Jw_v5k8ac/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9pbWcu/ZnJlZXBpay5jb20v/ZnJlZS1waG90by9z/bWlsaW5nLXdvbWFu/XzExNDktMjg1Lmpw/Zz9zaXplPTYyNiZl/eHQ9anBn', name: 'pavithra', designation: 'executive member', about: 'Lorem ipsum dolor sit amet.', socials: [
+        photo: 'https://imgs.search.brave.com/AOHPYtc-nxMtVikm6okEDNtpYb60nRxcZ5Jw_v5k8ac/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9pbWcu/ZnJlZXBpay5jb20v/ZnJlZS1waG90by9z/bWlsaW5nLXdvbWFu/XzExNDktMjg1Lmpw/Zz9zaXplPTYyNiZl/eHQ9anBn', name: 'Adithya R', designation: 'President', about: 'Lorem ipsum dolor sit amet.', socials: [
             { icon: faGithub, href: 'www.github.com' },
             { icon: faLinkedin, href: 'www.linkedIn.com'},
             { icon: faInstagram, href: 'www.instagram.com' }
 
-        ], domains: ['fullStack', 'Software Engineering'], rollNo: '2018131'
+        ], domains: ['fullStack', 'Software Engineering'], rollNo: '2017102'
     },
     {
-        photo: 'https://imgs.search.brave.com/AOHPYtc-nxMtVikm6okEDNtpYb60nRxcZ5Jw_v5k8ac/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9pbWcu/ZnJlZXBpay5jb20v/ZnJlZS1waG90by9z/bWlsaW5nLXdvbWFu/XzExNDktMjg1Lmpw/Zz9zaXplPTYyNiZl/eHQ9anBn', name: 'pavithra', designation: 'executive member', about: 'Lorem ipsum dolor sit amet.', socials: [
+        photo: 'https://imgs.search.brave.com/AOHPYtc-nxMtVikm6okEDNtpYb60nRxcZ5Jw_v5k8ac/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9pbWcu/ZnJlZXBpay5jb20v/ZnJlZS1waG90by9z/bWlsaW5nLXdvbWFu/XzExNDktMjg1Lmpw/Zz9zaXplPTYyNiZl/eHQ9anBn', name: 'Joel Samuel Raj A', designation: 'Secretary', about: 'Lorem ipsum dolor sit amet.', socials: [
             { icon: faGithub, href: 'www.github.com' },
             { icon: faLinkedin, href: 'www.linkedIn.com'},
             { icon: faInstagram, href: 'www.instagram.com' }
 
-        ], domains: ['fullStack', 'Software Engineering'], rollNo: '2018131'
+        ], domains: ['fullStack', 'Software Engineering'], rollNo: '2018119'
     },
     {
-        photo: 'https://imgs.search.brave.com/AOHPYtc-nxMtVikm6okEDNtpYb60nRxcZ5Jw_v5k8ac/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9pbWcu/ZnJlZXBpay5jb20v/ZnJlZS1waG90by9z/bWlsaW5nLXdvbWFu/XzExNDktMjg1Lmpw/Zz9zaXplPTYyNiZl/eHQ9anBn', name: 'pavithra', designation: 'executive member', about: 'Lorem ipsum dolor sit amet.', socials: [
+        photo: 'https://imgs.search.brave.com/AOHPYtc-nxMtVikm6okEDNtpYb60nRxcZ5Jw_v5k8ac/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9pbWcu/ZnJlZXBpay5jb20v/ZnJlZS1waG90by9z/bWlsaW5nLXdvbWFu/XzExNDktMjg1Lmpw/Zz9zaXplPTYyNiZl/eHQ9anBn', name: 'Jeremy Ashirwad P', designation: 'Treasurer', about: 'Lorem ipsum dolor sit amet.', socials: [
             { icon: faGithub, href: 'www.github.com' },
             { icon: faLinkedin, href: 'www.linkedIn.com'},
             { icon: faInstagram, href: 'www.instagram.com' }
 
-        ], domains: ['fullStack', 'Software Engineering'], rollNo: '2018131'
+        ], domains: ['fullStack', 'Software Engineering'], rollNo: '2018118'
     },
     {
-        photo: 'https://imgs.search.brave.com/AOHPYtc-nxMtVikm6okEDNtpYb60nRxcZ5Jw_v5k8ac/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9pbWcu/ZnJlZXBpay5jb20v/ZnJlZS1waG90by9z/bWlsaW5nLXdvbWFu/XzExNDktMjg1Lmpw/Zz9zaXplPTYyNiZl/eHQ9anBn', name: 'pavithra', designation: 'executive member', about: 'Lorem ipsum dolor sit amet.', socials: [
+        photo: 'https://imgs.search.brave.com/AOHPYtc-nxMtVikm6okEDNtpYb60nRxcZ5Jw_v5k8ac/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9pbWcu/ZnJlZXBpay5jb20v/ZnJlZS1waG90by9z/bWlsaW5nLXdvbWFu/XzExNDktMjg1Lmpw/Zz9zaXplPTYyNiZl/eHQ9anBn', name: 'Noufal Rahman', designation: 'Web Developement Lead', about: 'Lorem ipsum dolor sit amet.', socials: [
             { icon: faGithub, href: 'www.github.com' },
             { icon: faLinkedin, href: 'www.linkedIn.com'},
             { icon: faInstagram, href: 'www.instagram.com' }
 
-        ], domains: ['fullStack', 'Software Engineering'], rollNo: '2018131'
+        ], domains: ['fullStack', 'Software Engineering'], rollNo: '2017313'
     },
     {
-        photo: 'https://imgs.search.brave.com/AOHPYtc-nxMtVikm6okEDNtpYb60nRxcZ5Jw_v5k8ac/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9pbWcu/ZnJlZXBpay5jb20v/ZnJlZS1waG90by9z/bWlsaW5nLXdvbWFu/XzExNDktMjg1Lmpw/Zz9zaXplPTYyNiZl/eHQ9anBn', name: 'pavithra', designation: 'executive member', about: 'Lorem ipsum dolor sit amet.', socials: [
+        photo: 'https://imgs.search.brave.com/AOHPYtc-nxMtVikm6okEDNtpYb60nRxcZ5Jw_v5k8ac/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9pbWcu/ZnJlZXBpay5jb20v/ZnJlZS1waG90by9z/bWlsaW5nLXdvbWFu/XzExNDktMjg1Lmpw/Zz9zaXplPTYyNiZl/eHQ9anBn', name: 'Harithaa s', designation: 'Operations and HR lead', about: 'Lorem ipsum dolor sit amet.', socials: [
             { icon: faGithub, href: 'www.github.com' },
             { icon: faLinkedin, href: 'www.linkedIn.com'},
             { icon: faInstagram, href: 'www.instagram.com' }
 
-        ], domains: ['fullStack', 'Software Engineering'], rollNo: '2018131'
+        ], domains: ['fullStack', 'Software Engineering'], rollNo: '2018116'
     }
 ]
 
