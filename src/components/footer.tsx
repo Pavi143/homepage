@@ -2,7 +2,7 @@
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars, faH, faHome, faBlog, faPeopleGroup, faPhone, faUserPlus, faPersonChalkboard } from "@fortawesome/free-solid-svg-icons";
-import { faTwitter, faDiscord, faInstagram, faGithub, faYoutube, faLinkedin } from '@fortawesome/free-brands-svg-icons';
+import { faTwitter, faDiscord, faInstagram, faGithub, faYoutube, faLinkedin, faWhatsapp, faTelegram } from '@fortawesome/free-brands-svg-icons';
 import Link from 'next/link';
 import logo from "@/assets/codingclublogo.png"
 import { Divider } from '@mui/material';
@@ -27,9 +27,12 @@ const footerItems = {
 
 const footerElements = {
     title: 'Social Media', items: [
-        { label: 'Discord', href: 'home', icon: faDiscord },
-        { label: 'Instagram', href: 'activities', icon: faInstagram },
-        { label: 'LinkedIn', href: 'blogs', icon: faLinkedin }
+        { label: 'Instagram', href: 'https://www.instagram.com/codingclub.gct', icon: faInstagram },
+        { label: 'YouTube', href: 'https://www.youtube.com/channel/UCeq-w-ypo1_hoyT9OuIjB6g', icon: faYoutube },
+        { label: 'WhatsApp', href: 'https://api.whatsapp.com/send?phone=919655775678', icon: faWhatsapp },
+        { label: 'Telegram', href: 'https://t.me/VinsmokeStark', icon: faTelegram },
+        { label: 'LinkedIn', href: 'https://www.linkedin.com/company/coding-club-gct/', icon: faLinkedin },
+        { label: 'Discord', href: 'https://discord.gg/fMqUwkjQqB', icon: faDiscord }
     ]
 }
 
@@ -43,7 +46,7 @@ export default function Footer() {
                     <p className=''>Coding Club GCT</p>
                 </div>
                 <div className='w-1/2'>
-                    <img src={darkMode ? dark.src : light.src} className="object-contain w-full "></img>
+                    <img src={darkMode ? dark.src : light.src} className="w-24 h-24 "></img>
                 </div>
             </div>
             <div className=' flex md:justify-center md:w-1/5'>
@@ -98,7 +101,7 @@ export default function Footer() {
             </div>
         </div>
         <Divider></Divider>
-        <p className='text-center text-sm p-4'>Made with ❤️ by <a href='https://pavithra.tech' target='_blank' className='text-blue no-underline'>Pavithra </a>
+        <p className='text-center text-sm p-4'>Made with ❤️ by <a href='https://github.com/Pavi143' target='_blank' className='text-blue no-underline'>Pavithra </a>
             (Executive member second gen)
         </p>
     </div>

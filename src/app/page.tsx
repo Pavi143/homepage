@@ -102,14 +102,14 @@ export default function Page() {
           </div>
           <div className="flex flex-col gap-4 md:w-1/2 ml-4 mb-4 ">
             <p className="text-3xl font-medium text-center mt-4 text-subtext0">MISSION</p>
-            <div className="flex flex-col gap-16 md:gap-8 mt-8 ml-2">
+            <div className="flex flex-col gap-16 md:gap-8 mt- ">
               <div className="flex ">
                 <FontAwesomeIcon icon={faCode} className="m-1 text-mauve"></FontAwesomeIcon>
                 <p className="pl-4">To elevate the programming skills of future engineers which will help them learn new tactics to deal with dynamic technologies.</p>
               </div>
               <div className="flex">
                 <FontAwesomeIcon icon={faCode} className="m-1 text-mauve"></FontAwesomeIcon>
-                <p className="pl-4">To enrich the competitive programming skills of students by participating in renowned competitions.</p>
+                <p className="pl-4 ">To enrich the competitive programming skills of students by participating in renowned competitions.</p>
               </div>
               <div className="flex ">
                 <FontAwesomeIcon icon={faCode} className="m-1 text-mauve"></FontAwesomeIcon>
