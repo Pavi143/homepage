@@ -40,7 +40,7 @@ export default function Page() {
       }
     };
     async function fetchMemberCount() {
-      await fetch("/api").then(res => res.json()).then(data => setMembersCount(data.approximate_member_count));
+      await fetch("/api/discord/members").then(res => res.json()).then(data => setMembersCount(data.approximate_member_count));
     }
 
     fetchRepoCount();
@@ -51,9 +51,8 @@ export default function Page() {
     <div>
       <div className="flex justify-center md:my-12 mb-12" >
         <Container className="flex flex-col md:flex-row justify-around p-0">
-
           <div className="flex  justify-center w-full mt-12 md:mt-0 md:w-1/3 md:h-full ">
-            <div className="w-3/4 h-full"> 
+            <div className="w-3/4 h-full">
               <img src={darkMode ? dark.src : light.src} className="object-contain w-full ">
               </img>
             </div>

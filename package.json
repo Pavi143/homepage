@@ -25,7 +25,6 @@
     "react": "18.2.0",
     "react-animated-numbers": "^0.17.1",
     "react-dom": "^18",
-    "react-stepper-horizontal": "^1.0.11",
     "react-toggle-dark-mode": "^1.1.1",
     "stepper": "^0.0.4",
     "use-local-storage-state": "^19.1.0"

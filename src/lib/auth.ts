@@ -21,7 +21,7 @@ export const authOptions: NextAuthOptions = {
         },
         jwt: async ({ token, account, profile }) => {
             if (account) {
-                token = Object.assign({}, token, { acess_token: account.access_token, provider: account.provider })
+                token = Object.assign({}, token, { access_token: account.access_token, provider: account.provider })
             }
             return token
         }
@@ -33,8 +33,12 @@ export const authOptions: NextAuthOptions = {
         }),
         DiscordProvider({
             clientId: process.env.DISCORD_CLIENT_ID!,
-            clientSecret: process.env.DISCORD_CLIENT_SECRET!
-
+            clientSecret: process.env.DISCORD_CLIENT_SECRET!,
+            authorization: {
+                params: {
+                    scope: "identify guilds.join"
+                }
+            }
         })
     ],
 
