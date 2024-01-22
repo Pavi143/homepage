@@ -67,7 +67,7 @@ export default function Services() {
 
     return (
         <div className="flex flex-col justify-center mb-16 gap-8">
-            <p className='text-4xl  text-subtext0 m-4'>Lorem ipsum dolor sit amet.</p>
+            <p className='text-4xl  text-subtext0 m-4'>Tech services Hub</p>
             <div className="w-full items-center ">
                 <ul
                     ref={wrapperRef}
