@@ -122,7 +122,7 @@ export default function Page() {
         </Container>
       </div>
       <Container className="p-0">
-        <p className="text-4xl md:my-8 mx-4  my-12 md:pt-8 text-subtext0">Dive into the Blogosphere: </p>
+        <p className="text-4xl md:my-8 mx-4  my-12 md:pt-8 text-subtext0">Dive into the Blogosphere</p>
         <p className="text-sm text-subtext0 mb-12 mx-4 max-w-[500px]">Embark on a read adventure  journey of knowledge with our blog series. 
         </p>
         <Blog />
