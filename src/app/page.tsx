@@ -1,26 +1,15 @@
 "use client"
-import Sidebar from "@/components/sidebar";
-import Footer from "@/components/footer"
 import Blog from "@/components/blog";
-import logo from "@/assets/codingclublogo.png"
 import { Button, Divider, Container, useMediaQuery } from "@mui/material";
 import { useState, useEffect, useContext } from "react";
 import Services from "@/components/services";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCode } from "@fortawesome/free-solid-svg-icons";
+import { faArrowRight, faCode } from "@fortawesome/free-solid-svg-icons";
 import dark from "@/assets/dark.png"
 import light from "@/assets/light.png"
 import { DarkModeContext } from "@/context/darkmode"
 
-
-interface AnimatedNumberProps {
-  value: number;
-  duration: number;
-  formatValue: (val: any) => number;
-}
-
 export default function Page() {
-  const [open, setOpen] = useState(true)
   const isMobile = useMediaQuery("(max-width:640px)")
   const [repoCount, setRepoCount] = useState<number | null>(null);
   const [membersCount, setMembersCount] = useState<number | null>(null);
@@ -42,7 +31,6 @@ export default function Page() {
     async function fetchMemberCount() {
       await fetch("/api/discord/members").then(res => res.json()).then(data => setMembersCount(data.approximate_member_count));
     }
-
     fetchRepoCount();
     fetchMemberCount()
   }, []);
@@ -50,14 +38,14 @@ export default function Page() {
   return <div>
     <div>
       <div className="flex justify-center md:my-12 mb-12" >
-        <Container className="flex flex-col md:flex-row justify-around p-0">
-          <div className="flex  justify-center w-full mt-12 md:mt-0 md:w-1/3 md:h-full ">
+        <Container className="gap-4 flex flex-col md:flex-row justify-around p-0">
+          <div className="flex justify-center w-full mt-12 md:mt-0 md:w-1/3 md:h-full ">
             <div className="w-3/4 h-full">
               <img src={darkMode ? dark.src : light.src} className="object-contain w-full ">
               </img>
             </div>
           </div>
-          <div className="h-full md:w-2/3 md:ml-10 w-full flex flex-col gap-4 p-4">
+          <div className="h-full md:w-2/3 w-full flex flex-col gap-4 p-4">
             <p className="text-6xl">Not a <span className="text-yellow">Rocket</span> Science</p>
             <div className="flex justify-center">
               <p className=" text-lg md:w-3/4  ">Learn • Code • Develop • Share • Repeat</p>
@@ -70,20 +58,20 @@ export default function Page() {
             <p>Unlocking possibilities with every keystroke in our coding adventure!</p>
             <div className="flex gap-4">
               <div className=" flex flex-col p-4 gap-4 bg-mantle">
-                <p className="text-xl font-medium text-subtext0 ">Repositories in our GitHub</p>
+                <p className="text-xl font-medium">Repositories in our GitHub</p>
                 {repoCount !== null ? (
-                  <p className="text-xl  text-subtext0">
-                    {repoCount}+
+                  <p className="text-3xl text-subtext0">
+                    {repoCount} <span className="text-lg">+</span>
                   </p>
                 ) : (
                   <p className="text-xl  text-subtext0 ">Loading...</p>
                 )}
               </div>
               <div className=" flex flex-col gap-4  p-4 bg-mantle">
-                <p className="text-xl font-medium text-subtext0 ">Members in our Discord Server</p>
+                <p className="text-xl font-medium">Members in our Discord Server</p>
                 {membersCount !== null ? (
-                  <p className="text-xl  text-subtext0">
-                    {membersCount}+
+                  <p className="text-3xl text-subtext0">
+                    {membersCount} <span className="text-lg">+</span>
                   </p>
                 ) : (
                   <p className="text-xl  text-subtext0">Loading...</p>
@@ -121,9 +109,12 @@ export default function Page() {
         </Container>
       </div>
       <Container className="p-0">
-        <p className="text-4xl md:my-8 mx-4  my-12 md:pt-8 text-subtext0">Dive into the Blogosphere</p>
-        <p className="text-sm text-subtext0 mb-12 mx-4 max-w-[500px]">Embark on a read adventure  journey of knowledge with our blog series. 
-        </p>
+        <div className="flex flex-col gap-4 my-12 px-4">
+          <p className="text-4xl text-subtext0">Dive into the Blogosphere</p>
+          <p className="text-sm text-subtext0 max-w-[500px]">Embark on a read adventure journey of knowledge with our blog series.
+          </p>
+          <p> Find our dedicated blog site <a className="text-blue no-underline" href="https://blogs.codingclubgct.in">here <FontAwesomeIcon icon={faArrowRight} /></a> </p>
+        </div>
         <Blog />
         {!isMobile && <Services />}
       </Container>
