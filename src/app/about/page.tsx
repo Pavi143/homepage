@@ -8,13 +8,13 @@ type CardItem = { photo: string, name: string, designation: string, about: strin
 
 const aboutItems = [
     {
-        photo: 'https://imgs.search.brave.com/AOHPYtc-nxMtVikm6okEDNtpYb60nRxcZ5Jw_v5k8ac/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9pbWcu/ZnJlZXBpay5jb20v/ZnJlZS1waG90by9z/bWlsaW5nLXdvbWFu/XzExNDktMjg1Lmpw/Zz9zaXplPTYyNiZl/eHQ9anBn', title: 'Lorem, ipsum dolor.', content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, modi fuga doloribus illo corporis debitis, repudiandae numquam ullam nemo dolores nihil eius corrupti blanditiis perferendis consequatur quibusdam voluptatibus molestiae consectetur!'
+        photo: 'https://imgs.search.brave.com/AOHPYtc-nxMtVikm6okEDNtpYb60nRxcZ5Jw_v5k8ac/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9pbWcu/ZnJlZXBpay5jb20v/ZnJlZS1waG90by9z/bWlsaW5nLXdvbWFu/XzExNDktMjg1Lmpw/Zz9zaXplPTYyNiZl/eHQ9anBn', title: 'Software developement division', content: 'Fueled by innovation, dynamic applications tailored to user needs are specialized in by our team.Through continuous exploration and adaptability, it is ensured that our applications remain ahead of the curve in the rapidly changing digital landscape, providing users with cutting-edge and relevant experiences.'
     },
     {
-        photo: 'https://imgs.search.brave.com/AOHPYtc-nxMtVikm6okEDNtpYb60nRxcZ5Jw_v5k8ac/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9pbWcu/ZnJlZXBpay5jb20v/ZnJlZS1waG90by9z/bWlsaW5nLXdvbWFu/XzExNDktMjg1Lmpw/Zz9zaXplPTYyNiZl/eHQ9anBn', title: 'Lorem, ipsum dolor.', content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, modi fuga doloribus illo corporis debitis, repudiandae numquam ullam nemo dolores nihil eius corrupti blanditiis perferendis consequatur quibusdam voluptatibus molestiae consectetur!'
+        photo: 'https://imgs.search.brave.com/AOHPYtc-nxMtVikm6okEDNtpYb60nRxcZ5Jw_v5k8ac/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9pbWcu/ZnJlZXBpay5jb20v/ZnJlZS1waG90by9z/bWlsaW5nLXdvbWFu/XzExNDktMjg1Lmpw/Zz9zaXplPTYyNiZl/eHQ9anBn', title: 'HR division', content: 'Competitions and hackathons are meticulously organized, emphasizing seamless execution and engaging experiences. Strategic planning ensures these events foster team collaboration and innovation. Our commitment to professional growth is reflected in these initiatives, contributing to our teams success and technological prowess.'
     },
     {
-        photo: 'https://imgs.search.brave.com/AOHPYtc-nxMtVikm6okEDNtpYb60nRxcZ5Jw_v5k8ac/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9pbWcu/ZnJlZXBpay5jb20v/ZnJlZS1waG90by9z/bWlsaW5nLXdvbWFu/XzExNDktMjg1Lmpw/Zz9zaXplPTYyNiZl/eHQ9anBn', title: 'Lorem, ipsum dolor.', content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, modi fuga doloribus illo corporis debitis, repudiandae numquam ullam nemo dolores nihil eius corrupti blanditiis perferendis consequatur quibusdam voluptatibus molestiae consectetur!'
+        photo: 'https://imgs.search.brave.com/AOHPYtc-nxMtVikm6okEDNtpYb60nRxcZ5Jw_v5k8ac/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9pbWcu/ZnJlZXBpay5jb20v/ZnJlZS1waG90by9z/bWlsaW5nLXdvbWFu/XzExNDktMjg1Lmpw/Zz9zaXplPTYyNiZl/eHQ9anBn', title: 'og divison', content: 'Our alumni, advisors, and well-wishers form an integral part of our community. Alumni provide insights and mentorship,advisors contribute expertise and shaping initiatives with a wealth of experience,and well-wishers offer support. Together, they create a robust network,enriching our community with diverse experiences and fostering collaborative growth.'
     },
 
 ]
@@ -93,7 +93,7 @@ export default function Page() {
     return <div>
         <div>
             <Container className="flex flex-col items-center bg-mantle ">
-                <p className="text-3xl md:mt-4 p-4">Lorem ipsum dolor sit.</p>
+                <p className="text-3xl md:mt-4 p-4">Divisions under Coding Club GCT</p>
                 <div className="flex flex-col md:flex-row gap-8 p-1 ">
                     {aboutItems.map((item, i) => <div key={i} className="flex flex-col w-full md:w-1/3 p-4 items-center gap-4">
                         <img src={item.photo} className="w-24 oject-contain rounded-full" ></img>
