@@ -25,7 +25,6 @@ export function useActivePath(): (path: string) => boolean {
 
 
 
-
 const sidebarItems = [
     { label: 'Home', href: '/', icon: faHome },
     { label: 'Activities', href: 'activities', icon: faPersonChalkboard },
