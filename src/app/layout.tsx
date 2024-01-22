@@ -5,22 +5,25 @@ import { DarkModeProvider } from "@/context/darkmode";
 import { CatppuccinProvider } from "@/context/catppuccin";
 import View from "@/components/view"
 import { OpenProvider } from "@/context/open";
+import SessionProvider from "@/components/session";
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" id="__next">
       <body>
-        <DarkModeProvider>
-          <ThemeProvider>
-            <CatppuccinProvider>
-              <OpenProvider>
-                <View>
-                  {children}
-                </View>
-              </OpenProvider>
-            </CatppuccinProvider>
-          </ThemeProvider>
-        </DarkModeProvider>
+        <SessionProvider>
+          <DarkModeProvider>
+            <ThemeProvider>
+              <CatppuccinProvider>
+                <OpenProvider>
+                  <View>
+                    {children}
+                  </View>
+                </OpenProvider>
+              </CatppuccinProvider>
+            </ThemeProvider>
+          </DarkModeProvider>
+        </SessionProvider>
       </body>
     </html>
   );

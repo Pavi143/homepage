@@ -21,10 +21,13 @@
     "classnames": "^2.5.1",
     "framer-motion": "^10.18.0",
     "next": "14.0.3",
+    "next-auth": "^4.24.5",
     "react": "18.2.0",
     "react-animated-numbers": "^0.17.1",
     "react-dom": "^18",
+    "react-stepper-horizontal": "^1.0.11",
     "react-toggle-dark-mode": "^1.1.1",
+    "stepper": "^0.0.4",
     "use-local-storage-state": "^19.1.0"
   },
   "devDependencies": {
