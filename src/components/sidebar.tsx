@@ -27,11 +27,11 @@ export function useActivePath(): (path: string) => boolean {
 
 const sidebarItems = [
     { label: 'Home', href: '/', icon: faHome },
-    { label: 'Activities', href: 'activities', icon: faPersonChalkboard },
+    { label: 'Activities', href: '/activities', icon: faPersonChalkboard },
     { label: 'Teams', href: '/about', icon: faPeopleGroup },
     { label: 'Blogs', href: 'https://blogs.codingclubgct.in', icon: faBlog },
     { label: 'Contact', href: '/contact', icon: faPhone },
-    { label: 'Join Us', href: 'join', icon: faUserPlus }
+    { label: 'Join Us', href: '/join', icon: faUserPlus }
 
 ]
 export default function Sidebar({ open, setOpen }: { open: boolean, setOpen: Dispatch<SetStateAction<boolean>> }) {
