@@ -115,7 +115,7 @@ export default function Page() {
       <Container className="p-0">
         <div className="flex flex-col gap-4 my-12 px-4">
           <p className="text-4xl">Dive into the Blogosphere</p>
-          <p className="text-sm text-subtext0 max-w-[500px]">Embark on a read adventure journey of knowledge with our blog series.
+          <p className="text-subtext0 max-w-[500px]">Embark on a read adventure journey of knowledge with our blog series.
           </p>
           <p> Find our dedicated blog site <a className="text-blue no-underline" href="https://blogs.codingclubgct.in">here <FontAwesomeIcon icon={faArrowRight} /></a> </p>
         </div>
