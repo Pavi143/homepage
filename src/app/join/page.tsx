@@ -1,7 +1,7 @@
 "use client"
 import { SessionType } from "@/lib/auth";
 import { Button, Container, Step, StepButton, StepConnector, StepContent, StepLabel, Stepper } from "@mui/material";
-import { signIn, useSession } from "next-auth/react"
+import { signIn, signOut, useSession } from "next-auth/react"
 import { useEffect, useState } from "react";
 import useLocalStorageState from "use-local-storage-state";
 
@@ -9,10 +9,9 @@ export default function Join() {
     const { data: session } = useSession() as { data: SessionType | null }
     const [nick, setNick] = useLocalStorageState("nick", { defaultValue: "" })
     const [activeStep, setActiveStep] = useState(0)
-    const [status, setStatus] = useState("")
+    const [status, setStatus] = useState<number>()
 
     useEffect(() => {
-        console.log(session)
         if (!session) return setActiveStep(0)
         if (session?.provider === "google") {
             setNick(session.user?.name!)
@@ -29,7 +28,8 @@ export default function Join() {
                     access_token: session.access_token,
                     nick
                 })
-            }).then(res => res.json()).then(res => {
+            }).then(res => {
+                setStatus(res.status)
                 setActiveStep(2)
             })
             return
@@ -52,16 +52,19 @@ export default function Join() {
             label: "Authenticate with Discord"
         },
         {
-            component: (<div>
+            component: (<div className="bg-mantle max-w-[500px] p-4 rounded flex flex-col gap-4">
+                {status === 202 ? <p> <span className="text-green"> {nick}, </span> you are already present in our server, we might have given you the verified role by now, if you haven't had it. </p> : <p> Welcome to our Discord Server! <span> {nick}! </span> Bugs are just unexpected features waiting to be discovered </p>}
+                <p> You can sign out now if you wish. </p>
+                <Button className="w-24" variant="outlined" onClick={() => signOut()}> Sign Out </Button>
             </div>),
-            label: "Voila"
-        },
+            label: "Voila !"
+        }
     ]
 
-    return <Container className="p-4">
-        <div className="flex flex-col my-4 gap-4">
-            <p className="text-3xl"> Lorem ipsum dolor sit. </p>
-            <p> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nesciunt, vel! </p>
+    return <Container className="px-4">
+        <div className="flex flex-col my-12 gap-4">
+            <p className="text-3xl"> Join our Discord Server </p>
+            <p className="md:max-w-[500px]"> Dive into the coding realm with our vibrant community! Join our Coding Club Discord server for collaborative programming sessions, knowledge exchange, and a supportive environment. Elevate your coding skills and connect with like-minded enthusiasts today! </p>
         </div>
         <div className="my-4">
             <Stepper orientation="vertical" activeStep={activeStep}>

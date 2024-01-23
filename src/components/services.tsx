@@ -9,6 +9,7 @@ import devops from '@/assets/devops.svg'
 import { useState, useEffect, useRef } from 'react'
 import classnames from 'classnames'
 import Image from 'next/image';
+import { useMediaQuery } from '@mui/material'
 
 const service = [
     {
@@ -43,7 +44,7 @@ export default function Services() {
     const [activeItem, setActiveItem] = useState(3);
     const wrapperRef = useRef<HTMLUListElement | null>(null);
     const timeoutRef = useRef<NodeJS.Timeout | null>(null);
-
+    const isMobile = useMediaQuery("(max-width:640px)")
     useEffect(() => {
         if (!wrapperRef.current) return;
         if (timeoutRef.current) {
@@ -66,40 +67,40 @@ export default function Services() {
     }, [activeItem]);
 
     return (
-        <div className="flex flex-col justify-center mb-16 gap-8">
-            <p className='text-4xl  text-subtext0 m-4'>Tech services Hub</p>
-            <div className="w-full items-center ">
+        <div className="">
+            <div className='my-12 flex flex-col px-4 gap-4'>
+                <p className='text-4xl'>Tech services Hub</p>
+                <p className='text-subtext0'> Our Software Development Team specializes in various niches mainly: </p>
+            </div>
+            <div className="w-full">
                 <ul
                     ref={wrapperRef}
-                    className="group flex flex-col gap-3 h-[300px] md:flex-row md:gap-[1.5%]"
+                    className="px-4 group flex flex-col gap-4 h-[500px] md:h-[300px] md:flex-row md:gap-[1.5%] w-full md:w-auto"
                 >
                     {service.map((item, i) => (
                         <li
                             onClick={() => setActiveItem(i)}
                             aria-current={activeItem === i}
                             className={classnames(
-                                "relative cursor-pointer md:w-[10%] md:first:w-[5%] md:last:w-[5%] md:[&[aria-current='true']]:w-[60%]",
+                                "relative cursor-pointer md:h-full h-[10%] md:w-[10%] first:h-[5%] md:first:h-full md:last:h-full last:h-[5%] md:first:w-[5%] md:last:w-[5%] md:[&[aria-current='true']]:w-[60%] [&[aria-current='true']]:h-[60%] md:[&[aria-current='true']]:h-full",
                                 "md:[transition:width_var(--transition,200ms_ease-in)]",
                                 "md:before-block before:absolute before:bottom-0 before:left-[-10px] before:right-[-10px] before:top-0 before:hidden before:bg-white",
-                                "md:[&:not(:hover),&:not(:first),&:not(:last)]:group-hover:w-[7%] md:hover:w-[12%]",
-
+                                "md:[&:not(:hover),&:not(:first),&:not(:last)]:group-hover:w-[7%] md:hover:w-[12%] list-none", {"transition-[height]": isMobile}
                             )}
                             key={i}
                         >
-                            <div className="relative h-full w-full overflow-hidden rounded-2xl bg-mantle ">
-
+                            <div className="relative h-full w-full overflow-hidden rounded bg-mantle ">
                                 <Image
-                                    className="absolute  right-0 top-1/2 h-auto w-24 max-w-none -translate-y-1/2 object-contain md:left-1/2 md:h-[640px] md:w-[590px] md:-translate-x-1/2"
-                                    style={{ filter: activeItem !== i ? "grayscale(100%)" : undefined }}
+                                    className={classnames("absolute right-0 top-1/2 h-auto w-full md:max-w-none -translate-y-1/2 object-contain md:left-1/2 md:h-[640px] md:w-[590px] md:-translate-x-1/2")}
                                     src={item.photo}
                                     alt='item.name'
                                 />
                                 <div
                                     className={classnames(
-                                        "via-transparent left-0 top-0 bottom-0 right-0 transition-[transform,opacity] absolute bg-gradient-to-t from-black to-transparent z-10 flex items-end p-4"
+                                        "via-transparent left-0 top-0 bottom-0 right-0 transition-[transform,opacity] absolute bg-gradient-to-t from-black to-transparent z-10 flex items-end p-4", { "before:content-[''] before:top-0 before:left-0 before:right-0 before:bottom-0 before:absolute before:bg-base before:bg-opacity-90": activeItem !== i }
                                     )}
                                 >
-                                    <p className=" text-white text-lg font-bold md:text-4xl" style={{ opacity: activeItem === i ? "100%" : "0%"}}>{item.name}</p>
+                                    <p className=" text-white text-lg font-bold md:text-4xl" style={{ opacity: activeItem === i ? "100%" : "0%" }}>{item.name}</p>
 
                                 </div>
                             </div>

@@ -107,11 +107,11 @@ export default function Page() {
         <div className="bg-mantle py-4">
             <Container>
                 <p className="text-4xl my-8">Teams under Coding Club GCT</p>
-                <div className="flex flex-col md:flex-row gap-4 md:p-4 flex-wrap">
-                    {aboutItems.map((item, i) => <div key={i} className="flex flex-col w-full md:w-1/3 items-center gap-4">
+                <div className="flex flex-col md:flex-row gap-4 md:p-4 flex-wrap justify-between">
+                    {aboutItems.map((item, i) => <div key={i} className="flex flex-col w-full md:w-[32%] items-center gap-4">
                         <img src={darkMode ? item.photos.dark.src : item.photos.light.src} className="w-24 oject-contain rounded-full" ></img>
                         <p className="font-bold">{item.title}</p>
-                        <p>{item.content}</p>
+                        <p className="">{item.content}</p>
                     </div>)}
                 </div>
             </Container>
@@ -119,8 +119,8 @@ export default function Page() {
         <div >
             <Container className="flex flex-col gap-4">
                 <div className="flex flex-col gap-4 my-12">
-                    <p className="text-4xl font-medium" >Meet Our Team</p>
-                    <p className="max-w-[500px]">Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus placeat debitis facilis ex deserunt dolor. Enim ratione minus nemo ad?</p>
+                    <p className="text-4xl font-medium" >Meet Our Board</p>
+                    <p className="max-w-[500px] text-subtext0">Unlike other clubs in our college, our board members are elected from students in their 6th semester.</p>
                 </div>
                 <div className="md:grid grid-rows-2 grid-cols-3 w-full gap-4">
                     {cardItems.map((item, i) => <div key={i} className="w-full my-4 md:my-0 ">

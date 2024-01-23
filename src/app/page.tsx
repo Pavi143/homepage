@@ -8,9 +8,9 @@ import { faArrowRight, faCode } from "@fortawesome/free-solid-svg-icons";
 import dark from "@/assets/dark.png"
 import light from "@/assets/light.png"
 import { DarkModeContext } from "@/context/darkmode"
+import Link from "next/link";
 
 export default function Page() {
-  const isMobile = useMediaQuery("(max-width:640px)")
   const [repoCount, setRepoCount] = useState<number | null>(null);
   const [membersCount, setMembersCount] = useState<number | null>(null);
   const { darkMode } = useContext(DarkModeContext)
@@ -51,8 +51,12 @@ export default function Page() {
               <p className=" text-lg md:w-3/4  ">Learn • Code • Develop • Share • Repeat</p>
             </div>
             <div className="flex justify-center  md:w-3/4  gap-4 my-4">
-              <Button variant="contained" >Collab on GitHub </Button>
-              <Button variant="outlined"  >Join with Discord</Button>
+              <Link href="https://github.com/coding-club-gct">
+                <Button variant="contained" >Collab on GitHub </Button>
+              </Link>
+              <Link href="/join">
+                <Button variant="outlined"  >Join with Discord</Button>
+              </Link>
             </div>
             <Divider></Divider>
             <p>Unlocking possibilities with every keystroke in our coding adventure!</p>
@@ -110,13 +114,13 @@ export default function Page() {
       </div>
       <Container className="p-0">
         <div className="flex flex-col gap-4 my-12 px-4">
-          <p className="text-4xl text-subtext0">Dive into the Blogosphere</p>
+          <p className="text-4xl">Dive into the Blogosphere</p>
           <p className="text-sm text-subtext0 max-w-[500px]">Embark on a read adventure journey of knowledge with our blog series.
           </p>
           <p> Find our dedicated blog site <a className="text-blue no-underline" href="https://blogs.codingclubgct.in">here <FontAwesomeIcon icon={faArrowRight} /></a> </p>
         </div>
         <Blog />
-        {!isMobile && <Services />}
+        <Services />
       </Container>
     </div>
   </div>

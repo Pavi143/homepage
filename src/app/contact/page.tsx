@@ -30,17 +30,16 @@ const contactItems = [
     }
 ]
 
-
 export default function Page() {
     return <Container>
-        <div className="flex flex-col gap-4 my-12">
-            <p className="text-4xl max-w-[500px]">Get in touch with us to get more information </p>
-            <p >"Unlocking possibilities, one connection at a time. Get in touch and let's create something extraordinary together."</p>
+        <div className="flex flex-col gap-4 my-12 max-w-[500px]">
+            <p className="text-4xl">Get in touch with us to get more information </p>
+            <p className="text-subtext0">Unlocking possibilities, one connection at a time. Get in touch and let's create something extraordinary together.</p>
         </div>
         <div className="flex flex-col md:flex-row w-full justify-center gap-4">
             {contactItems.map((contactItem, i) => <div key={i} className="md:w-1/3 flex flex-col gap-4">
                 <img src={contactItem.photo} className="w-full h-[100px] object-cover" ></img>
-                <p className="text-2xl text-center">{contactItem.title}</p>
+                <p className="text-2xl bg-mantle -mt-4 mb-4 p-2 text-center">{contactItem.title}</p>
                 {contactItem.items.map((item, i) => <div key={i} className="flex flex-col gap-2">
                     <p className="font-semibold">{item.name}</p>
                     <p className="text-yellow">{item.designation}</p>

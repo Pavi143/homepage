@@ -11,9 +11,6 @@ import light from "@/assets/light.png"
 import { DarkModeContext } from "@/context/darkmode"
 import { useContext } from 'react';
 
-
-
-
 const footerItems = {
     title: 'Quick links', items: [
         { label: 'Home', href: 'home', icon: faHome },
@@ -27,9 +24,9 @@ const footerItems = {
 
 const footerElements = {
     title: 'Social Media', items: [
-        { label: 'Instagram', href: 'https://www.instagram.com/codingclub.gct', icon: faInstagramSquare },
+        { label: 'Instagram', href: 'https://www.instagram.com/codingclub.gct', icon: faInstagram },
         { label: 'YouTube', href: 'https://www.youtube.com/channel/UCeq-w-ypo1_hoyT9OuIjB6g', icon: faYoutube },
-        { label: 'WhatsApp', href: 'https://api.whatsapp.com/send?phone=919655775678', icon: faWhatsappSquare },
+        { label: 'WhatsApp', href: 'https://api.whatsapp.com/send?phone=919655775678', icon: faWhatsapp },
         { label: 'Telegram', href: 'https://t.me/+ztnWAjnsY9FiZjk1', icon: faTelegram },
         { label: 'LinkedIn', href: 'https://www.linkedin.com/company/coding-club-gct/', icon: faLinkedin },
         { label: 'Discord', href: 'https://discord.gg/fMqUwkjQqB', icon: faDiscord }
@@ -40,14 +37,13 @@ export default function Footer() {
     const { darkMode } = useContext(DarkModeContext)
     return <div className=' bg-mantle w-full '>
         <Divider />
-        <div className='flex flex-col md:flex-row justify-between p-4 text-sm  '>
-            <div className='flex flex-col p-4 md:items-center gap-4 md:w-1/5  text-subtext0  '>
-                <div className='flex'>
-                    <p className=''>Coding Club GCT</p>
+        <div className='flex flex-col md:flex-row justify-between p-4 text-sm gap-4'>
+            <div className='my-4 flex flex-col gap-2 md:items-center md:w-1/5'>
+                <div className='flex flex-col gap-2'>
+                    <p className='text-yellow'>Coding Club GCT</p>
+                    <p> Not a <span className='text-yellow'> Rocket </span> Science </p>
                 </div>
-                <div className='w-1/2'>
-                    <img src={darkMode ? dark.src : light.src} className="w-24 h-24 "></img>
-                </div>
+                <img src={darkMode ? dark.src : light.src} className="w-20 h-20"></img>
             </div>
             <div className=' flex md:justify-center md:w-1/5'>
                 <div>
@@ -102,9 +98,9 @@ export default function Footer() {
         </div>
         <Divider></Divider>
         <p className='text-center text-sm p-4'>Made with ❤️ by <a href='https://github.com/Pavi143' target='_blank' className='text-blue no-underline'>Pavithra </a>
-            (Executive member second gen)
+            (Executive member, Gen II)
         </p>
-    </div>
+    </div >
 
 
 
