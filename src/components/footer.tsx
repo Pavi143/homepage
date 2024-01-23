@@ -13,12 +13,12 @@ import { useContext } from 'react';
 
 const footerItems = {
     title: 'Quick links', items: [
-        { label: 'Home', href: 'home', icon: faHome },
-        { label: 'Activities', href: 'activities', icon: faPersonChalkboard },
-        { label: 'Teams', href: 'teams', icon: faPeopleGroup },
-        { label: 'Blogs', href: 'blogs', icon: faBlog },
-        { label: 'Contact', href: 'contact', icon: faPhone },
-        { label: 'Join Us', href: 'join', icon: faUserPlus }
+        { label: 'Home', href: '/', icon: faHome },
+        { label: 'Activities', href: '/activities', icon: faPersonChalkboard },
+        { label: 'Teams', href: '/about', icon: faPeopleGroup },
+        { label: 'Blogs', href: 'https://blogs.codingclubgct.in', icon: faBlog },
+        { label: 'Contact', href: '/contact', icon: faPhone },
+        { label: 'Join Us', href: '/join', icon: faUserPlus }
     ]
 }
 
