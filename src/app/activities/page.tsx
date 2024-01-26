@@ -32,7 +32,7 @@ export default function Activities() {
         <div className="flex flex-col gap-4 my-12">
             <p className="text-4xl"> Innovate & Collaborate: The CodeCrafters Collective </p>
             <p> Embark on a coding journey where creativity thrives, events unfold seamlessly, and human resources are empowered. Join our Coding Club's specialized teams for Operations and HR – where code meets excellence in every aspect. </p>
-            <p> Explore diverse roles within our club, where you can contribute your unique skills and talents, even if coding isn't your primary focus - because in our coding club, everyone has a place to shine. </p>
+            <p> Explore diverse roles within our club, where you can contribute your unique skills and talents, even if coding isn't your primary focus - because in our coding club, everyone has a place to shin. </p>
         </div>
         <div className="flex flex-col md:flex-row gap-4 md:p-4">
             <div className="md:w-1/3">
