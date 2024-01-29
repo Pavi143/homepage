@@ -1,6 +1,7 @@
 "use client"
 
 import { IconDefinition, faGithub, faInstagram, faLinkedin } from "@fortawesome/free-brands-svg-icons"
+import { faGlobe } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { Container } from "@mui/material"
 import sdLight from "@/assets/logos/sd/light.png"
@@ -11,6 +12,13 @@ import ogLight from "@/assets/logos/og/light.png"
 import ogDark from "@/assets/logos/og/dark.png"
 import { useContext } from "react"
 import { DarkModeContext } from "@/context/darkmode"
+
+import devimam from "@/assets/team/devimam.webp"
+import adithya from "@/assets/team/adithya.webp"
+import joel from "@/assets/team/joel.webp"
+import jeremy from "@/assets/team/jeremy.webp"
+import noufal from "@/assets/team/noufal.webp"
+import harithaa from "@/assets/team/harithaa.webp"
 
 type CardItem = { photo: string, name: string, designation: string, about: string, socials: { icon: IconDefinition, href: string }[], domains: string[], rollNo: string }
 
@@ -33,51 +41,48 @@ const aboutItems = [
 
 const cardItems: CardItem[] = [
     {
-        photo: 'https://imgs.search.brave.com/AOHPYtc-nxMtVikm6okEDNtpYb60nRxcZ5Jw_v5k8ac/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9pbWcu/ZnJlZXBpay5jb20v/ZnJlZS1waG90by9z/bWlsaW5nLXdvbWFu/XzExNDktMjg1Lmpw/Zz9zaXplPTYyNiZl/eHQ9anBn', name: 'Devi R', designation: 'Club Advisor', about: 'Assistant Professor', socials: [
-            { icon: faGithub, href: 'www.github.com' },
-            { icon: faLinkedin, href: 'www.linkedIn.com' },
-            { icon: faInstagram, href: 'www.instagram.com' }
+        photo: devimam.src, name: 'Devi R', designation: 'Club Advisor', about: 'Assistant Professor', socials: [
+            { icon: faLinkedin, href: 'https://www.linkedin.com/in/devi-r-b659a6122/' }
 
         ], domains: [], rollNo: ''
     },
     {
-        photo: 'https://imgs.search.brave.com/AOHPYtc-nxMtVikm6okEDNtpYb60nRxcZ5Jw_v5k8ac/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9pbWcu/ZnJlZXBpay5jb20v/ZnJlZS1waG90by9z/bWlsaW5nLXdvbWFu/XzExNDktMjg1Lmpw/Zz9zaXplPTYyNiZl/eHQ9anBn', name: 'Adithya R', designation: 'President', about: 'Lorem ipsum dolor sit amet.', socials: [
+        photo: adithya.src, name: 'Adithya R', designation: 'President', about: 'Lorem ipsum dolor sit amet.', socials: [
             { icon: faGithub, href: 'www.github.com' },
-            { icon: faLinkedin, href: 'www.linkedIn.com' },
+            { icon: faLinkedin, href: 'https://www.linkedin.com/in/sakthisaravanan-v/' },
             { icon: faInstagram, href: 'www.instagram.com' }
 
         ], domains: ['fullStack', 'Software Engineering'], rollNo: '2017102'
     },
     {
-        photo: 'https://imgs.search.brave.com/AOHPYtc-nxMtVikm6okEDNtpYb60nRxcZ5Jw_v5k8ac/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9pbWcu/ZnJlZXBpay5jb20v/ZnJlZS1waG90by9z/bWlsaW5nLXdvbWFu/XzExNDktMjg1Lmpw/Zz9zaXplPTYyNiZl/eHQ9anBn', name: 'Joel Samuel Raj A', designation: 'Secretary', about: 'Lorem ipsum dolor sit amet.', socials: [
-            { icon: faGithub, href: 'www.github.com' },
-            { icon: faLinkedin, href: 'www.linkedIn.com' },
-            { icon: faInstagram, href: 'www.instagram.com' }
+        photo: joel.src, name: 'Joel Samuel Raj A', designation: 'Secretary', about: 'Lorem ipsum dolor sit amet.', socials: [
+            { icon: faGithub, href: 'https://github.com/useEffects' },
+            { icon: faLinkedin, href: 'https://www.linkedin.com/in/joel-samuel-369355206' },
+            { icon: faInstagram, href: 'https://www.instagram.com/_joel.24samuel' }
 
         ], domains: ['fullStack', 'Software Engineering'], rollNo: '2018119'
     },
     {
-        photo: 'https://imgs.search.brave.com/AOHPYtc-nxMtVikm6okEDNtpYb60nRxcZ5Jw_v5k8ac/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9pbWcu/ZnJlZXBpay5jb20v/ZnJlZS1waG90by9z/bWlsaW5nLXdvbWFu/XzExNDktMjg1Lmpw/Zz9zaXplPTYyNiZl/eHQ9anBn', name: 'Jeremy Ashirwad P', designation: 'Treasurer', about: 'Lorem ipsum dolor sit amet.', socials: [
-            { icon: faGithub, href: 'www.github.com' },
-            { icon: faLinkedin, href: 'www.linkedIn.com' },
-            { icon: faInstagram, href: 'www.instagram.com' }
+        photo: jeremy.src, name: 'Jeremy Ashirwad P', designation: 'Treasurer', about: 'Lorem ipsum dolor sit amet.', socials: [
+            { icon: faGithub, href: 'https://github.com/jeremyasirwaad' },
+            { icon: faLinkedin, href: 'https://www.linkedin.com/in/jeremy-asirwaad-182b93192' },
+            { icon: faInstagram, href: 'https://www.instagram.com/..jeremy._' }
 
         ], domains: ['fullStack', 'Software Engineering'], rollNo: '2018118'
     },
     {
-        photo: 'https://imgs.search.brave.com/AOHPYtc-nxMtVikm6okEDNtpYb60nRxcZ5Jw_v5k8ac/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9pbWcu/ZnJlZXBpay5jb20v/ZnJlZS1waG90by9z/bWlsaW5nLXdvbWFu/XzExNDktMjg1Lmpw/Zz9zaXplPTYyNiZl/eHQ9anBn', name: 'Noufal Rahman', designation: 'Web Developement Lead', about: 'Lorem ipsum dolor sit amet.', socials: [
-            { icon: faGithub, href: 'www.github.com' },
-            { icon: faLinkedin, href: 'www.linkedIn.com' },
-            { icon: faInstagram, href: 'www.instagram.com' }
+        photo: noufal.src, name: 'Noufal Rahman', designation: 'Web Developement Lead', about: 'Lorem ipsum dolor sit amet.', socials: [
+            { icon: faGithub, href: 'https://github.com/iamnoufal' },
+            { icon: faLinkedin, href: 'https://linkedIn.com/in/iamnoufal' },
+            { icon: faInstagram, href: 'https://instagram.com/_iam_noufal' },
+            { icon: faGlobe, href: "https://noufal.dev" }
 
-        ], domains: ['fullStack', 'Software Engineering'], rollNo: '2017313'
+        ], domains: ['Developer', 'Engineer'], rollNo: '2017313'
     },
     {
-        photo: 'https://imgs.search.brave.com/AOHPYtc-nxMtVikm6okEDNtpYb60nRxcZ5Jw_v5k8ac/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9pbWcu/ZnJlZXBpay5jb20v/ZnJlZS1waG90by9z/bWlsaW5nLXdvbWFu/XzExNDktMjg1Lmpw/Zz9zaXplPTYyNiZl/eHQ9anBn', name: 'Harithaa s', designation: 'Operations and HR lead', about: 'Lorem ipsum dolor sit amet.', socials: [
-            { icon: faGithub, href: 'www.github.com' },
-            { icon: faLinkedin, href: 'www.linkedIn.com' },
-            { icon: faInstagram, href: 'www.instagram.com' }
-
+        photo: harithaa.src, name: 'Harithaa S', designation: 'Operations and HR lead', about: 'Lorem ipsum dolor sit amet.', socials: [
+            { icon: faLinkedin, href: 'https://www.linkedin.com/in/harithaa-s-665a78201' },
+            { icon: faInstagram, href: 'https://www.instagram.com/_.hari.thaa._/' }
         ], domains: ['fullStack', 'Software Engineering'], rollNo: '2018116'
     }
 ]
@@ -89,7 +94,7 @@ function Card(props: CardItem) {
         <p className="text-yellow">{props.designation}</p>
         <p>{props.rollNo}</p>
         <p>{props.about}</p>
-        <div className="flex gap-4 ">
+        <div className="flex gap-4">
             {props.domains.map((domain, i) => <span key={i} className="bg-crust rounded px-2 py-1 text-sm text-subtext0">{domain}</span>)}
         </div>
         <div className="flex gap-4">
