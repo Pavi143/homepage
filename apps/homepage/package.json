@@ -1,5 +1,5 @@
 {
-  "name": "coding-club-website",
+  "name": "homepage",
   "version": "2.1.0",
   "private": true,
   "scripts": {
@@ -9,6 +9,8 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@coding-club-gct/theme": "workspace:*",
+    "@emotion/cache": "^11.11.0",
     "@emotion/react": "11.11.3",
     "@emotion/styled": "11.11.0",
     "@fortawesome/fontawesome-svg-core": "^6.5.1",
@@ -16,7 +18,8 @@
     "@fortawesome/free-regular-svg-icons": "^6.5.1",
     "@fortawesome/free-solid-svg-icons": "^6.5.1",
     "@fortawesome/react-fontawesome": "^0.2.0",
-    "@mui/material": "5.15.2",
+    "@mui/material": "5.15.6",
+    "@mui/material-nextjs": "^5.15.6",
     "axios": "^1.6.5",
     "classnames": "^2.5.1",
     "framer-motion": "^10.18.0",

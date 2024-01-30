@@ -5,7 +5,7 @@ import { ThemeProvider as MuiThemeProvider } from "@mui/material/styles";
 import { CssBaseline, Theme } from "@mui/material";
 import { createTheme } from "@mui/material/styles";
 import { DarkModeContext } from "./darkmode";
-import { muiDarkThemeConfig, muiLightThemeConfig } from "@/theme/src";
+import { muiDarkThemeConfig, muiLightThemeConfig } from "@coding-club-gct/theme/src";
 
 export const ThemeContext = createContext<Theme | null>(null);
 
