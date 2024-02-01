@@ -2,7 +2,7 @@ name: (main) push to external repo
 on:
   push:
     branches:
-      - turbo
+      - main
 jobs:
   push-to-external-repo:
     runs-on: ubuntu-latest
