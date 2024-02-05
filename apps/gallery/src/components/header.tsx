@@ -9,7 +9,7 @@ const navItems = [
 
 
 export default function Header() {
-  return <div>
+  return <div className='h-[4rem] flex flex-col justify-between bg-mantle'>
     <div className='flex items-center p-4'>
       <DarkModeSwitcher></DarkModeSwitcher>
       <div className='flex gap-4 w-full justify-end'>
@@ -18,5 +18,4 @@ export default function Header() {
     </div>
     <Divider></Divider>
   </div>
-
 }
