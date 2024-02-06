@@ -16,6 +16,5 @@ export default function Header() {
         {navItems.map((navItem, i) => <div key={i}><a href={navItem.href} className='text-blue no-underline'>{navItem.label}</a></div>)}
       </div>
     </div>
-    <Divider></Divider>
   </div>
 }

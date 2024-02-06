@@ -68,7 +68,7 @@ export default function Home() {
     <div className="flex flex-col md:flex-row justify-between p-0 md:h-[calc(100vh-4rem)]">
       <div className="flex flex-col h-[calc(100vh-4rem)] md:h-full md:w-[24rem]">
         <div className="flex w-full">
-          <div className="w-1/2 bg-mantle flex justify-end items-center pt-12 pb-[24px]">
+          <div className="w-1/2 bg-mantle flex justify-end items-center py-[24px]">
             <div className="relative w-[15vh] h-[30vh]">
               <div className="w-full h-full border-solid border-8 border-pink border-r-transparent rounded-tl-[30vh] rounded-bl-[30vh] outline outline-[24px] outline-base bg-base">
               </div>
@@ -82,7 +82,7 @@ export default function Home() {
         </div>
         <div className="flex flex-grow relative">
           <div className="absolute left-8 top-1/2 -translate-y-1/2 flex flex-col gap-4">
-            <p className="text-xl"> From Operations and HR Team </p>
+            <p className="text-xl"> From the Operations and HR Team </p>
             <div className="w-20 bg-pink h-1"> </div>
             <p className="text-subtext0 w-4/5"> Application developed and being maintained independently from the Software Development Team.</p>
           </div>
