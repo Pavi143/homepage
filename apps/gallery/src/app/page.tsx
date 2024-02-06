@@ -4,7 +4,7 @@ import cover from "@/assests/img.png";
 import { Avatar, AvatarGroup, Button, Container, Divider } from "@mui/material";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faDiscord, faInstagram, faYoutube, faLinkedin, faWhatsapp } from '@fortawesome/free-brands-svg-icons';
-import { faArrowRight, faBookmark, faComment, faEnvelope, faHeart, faSave, faTag, faUpload } from "@fortawesome/free-solid-svg-icons"
+import { faArrowRight, faBookmark, faCalendar, faComment, faEarth, faEnvelope, faHeart, faPeopleGroup, faSave, faTag, faUpload } from "@fortawesome/free-solid-svg-icons"
 import Header from "@/components/header"
 import { team } from "@/lib/team"
 import { useContext, useEffect, useState } from "react";
@@ -46,7 +46,11 @@ const quickLinkItems = [
   { label: 'Join us', href: "https://codingclubgct.in/join" },
   { label: 'GitHub', href: "https://github.com/coding-club-gct" },
 ]
-
+const serviceItems = [
+  { icon: faCalendar, heading: "Event Management", content: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum aliquid tempora voluptatum modi ab ducimus? Iusto temporibus nulla, illum deserunt amet cum aut unde repudiandae totam adipisci voluptatum iure voluptate numquam neque! Fugiat, voluptate saepe. Delectus inventore sit quisquam, nesciunt neque adipisci explicabo, magnam officiis vel accusantium, odit eum numquam?" },
+  { icon: faPeopleGroup, heading: "Internal Affairs and Coordination ", content: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione impedit sit dolorem eius eligendi harum quas. Alias harum porro in ad suscipit necessitatibus a accusamus ipsum nobis, exercitationem, quam deleniti nihil. Hic sed quam et quae quia quod iusto incidunt ducimus consectetur dolores distinctio culpa quo facere, repellendus voluptatem! Optio." },
+  { icon: faEarth, heading: "External Relaation and Networking", content: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repudiandae iusto laudantium repellat, voluptas quam dolorum nihil illum eligendi dicta reiciendis vero quod tenetur doloribus accusamus ex doloremque harum. Dolor nisi labore voluptatibus quidem, assumenda modi quae fuga doloribus quasi alias magnam facere delectus sunt nesciunt eum dicta iste vitae dolores." }
+]
 
 
 export default function Home() {
@@ -56,8 +60,8 @@ export default function Home() {
   const catppuccinColors = useContext(CatppuccinContext)
 
   useEffect(() => {
-    async function fetchMemberCount() { 
-      const resp = await fetch("https://codingclubgct.in/api/discord/members").then(res=>res.json())
+    async function fetchMemberCount() {
+      const resp = await fetch("https://codingclubgct.in/api/discord/members").then(res => res.json())
       setCount(resp.approximate_member_count)
     }
     fetchMemberCount()
@@ -65,6 +69,32 @@ export default function Home() {
 
   return <div>
     <Header />
+    <div className="p-4 gap-4">
+      <p className="text-3xl p-4 "> Operation and HR team</p>
+      <Divider></Divider>
+      <div className="flex flex-col md:flex-row w-full">
+        <div className="w-1/2 p-20 ">
+          <div className="flex h-[600px] gap-6">
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Adipisci assumenda iure ad neque nobis repudiandae officia magnam in commodi, esse ab deleniti nulla ea voluptates sed nemo expedita quod necessitatibus voluptatem, sequi suscipit placeat fugit perferendis? Quas quisquam minima temporibus sapiente repellendus ducimus dolorem libero quidem, voluptatum dolor nesciunt veniam.</p>
+            <Divider orientation="vertical" className=" h-0  md:h-full "></Divider>
+          </div>
+        </div >
+        <div className="w-1/2">
+          {serviceItems.map((item, i) => <div className="flex ">
+            <div className="p-8">
+              <FontAwesomeIcon icon={item.icon} className="h-16 w-16 text-pink justify-center my-2" ></FontAwesomeIcon>
+            </div>
+            <div className="flex flex-col mt-8 gap-4 ml-8">
+              <p className="text-2xl p-2 text-pink">{item.heading}</p>
+              <p className="text-subtext0  p-2">{item.content}</p>
+              <Divider className=""></Divider>
+            </div>
+          </div>
+          )}
+        </div>
+      </div>
+    </div>
+    {/* <Divider></Divider> */}
     <div className="">
       <Container className="flex gap-2 p-4 h-[850px]">
         <div className="w-1/4 h-full flex flex-col gap-2">
@@ -103,7 +133,8 @@ export default function Home() {
                 <p className="text-subtext0 text-lg text-center"> Lorem ipsum dolor sit amet. </p>
               </div>
               <div className="w-1/2 bg-crust rounded-tl-xl rounded-tr-xl h-full flex flex-col p-4 justify-evenly">
-                <p className="text-3xl text-subtext0">Maintaining</p>
+                <img src={cartoon.src} alt="try later" className="w-full object-contain"></img>
+                {/* <p className="text-3xl text-subtext0">Maintaining</p> */}
                 <p className="text-4xl font-bold">{count}+<span className="text-xl font-normal">members</span></p>
               </div>
             </div>
@@ -122,21 +153,21 @@ export default function Home() {
                   <p>codingclub.gct</p>
                   <p className="text-subtext0 text-sm">Follow us</p>
                 </div>
-                <a href="" className="text-blue"><Button className="text-sm "  >View Profile</Button></a>
+                <a href="" className="text-blue"><Button className="text-sm " >View Profile</Button></a>
               </div>
               <div >
                 <img src={cartoon.src} className="w-full object-contain"></img>
               </div>
-              <a className="p-2 text-blue">View more on Instagram</a>
+              <a href=" " className="p-2 text-blue no-underline"><Button className="text-blue">View more on Instagram</Button></a>
               <Divider></Divider>
               <div className="flex justify-between px-4" >
                 <div className="flex  gap-4 " >
-                  <a href=" "><FontAwesomeIcon icon={faHeart} className="w-6 h-6"></FontAwesomeIcon></a>
-                  <a href="  "><FontAwesomeIcon icon={faComment} className="w-6 h-6"></FontAwesomeIcon></a>
-                  <a href=" "><FontAwesomeIcon icon={faUpload} className="w-6 h-6"></FontAwesomeIcon></a>
+                  <FontAwesomeIcon icon={faHeart} className="w-6 h-6"></FontAwesomeIcon>
+                  <FontAwesomeIcon icon={faComment} className="w-6 h-6"></FontAwesomeIcon>
+                  <FontAwesomeIcon icon={faUpload} className="w-6 h-6"></FontAwesomeIcon>
                 </div>
                 <div className="flex ">
-                  <a href=" "><FontAwesomeIcon icon={faBookmark} className="w-6 h-6"></FontAwesomeIcon></a>
+                  <FontAwesomeIcon icon={faBookmark} className="w-6 h-6"></FontAwesomeIcon>
                 </div>
               </div>
               <Divider></Divider>
@@ -161,7 +192,7 @@ export default function Home() {
           <p className="text-3xl">Meet Our Team</p>
           <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ea, pariatur.</p>
         </div>
-        <div className="flex h-[500px]">
+        <div className=" flex h-[500px] ">
           <div className="w-1/2 flex flex-col gap-4 overflow-y-scroll h-[500px]">
             {team.map((item, i) => <div onClick={() => setCurrent(item)} key={i} className="flex  bg-mantle p-8 rounded-xl h-[500px]">
               <div className="w-2/3 flex flex-col justify-evenly h-[500px]">
@@ -180,19 +211,22 @@ export default function Home() {
         </div>
       </div>
     </Container>
-    <div className="bg-mantle my-12">
-      <Container>
-        <div className="flex flex-col gap-4 py-12">
-          <p className="text-3xl">Our Events</p>
-          <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ea, pariatur.</p>
+    <div className="w-full p-4 ">
+      <Divider></Divider>
+      <p className="text-4xl p-4">Recent Events</p>
+      <Divider></Divider>
+    </div>
+    <div className="grid grid-rows-2 grid-cols-2 gap-8 m-4 ">
+        {events.map((item,i)=><div key={i} >
+          <div className="flex flex-col gap-8">
+          <img src = {item.photo} className=" h-[50vw]"></img>
+          <div className="flex flex-col md:flex justify-around">
+            <p className="text-4xl">{item.name}</p>
+            <Link href={item.slug}><Button>see more</Button></Link>
+          </div>
+          </div>
         </div>
-        <div className=" grid grid-cols-2 gap-4">
-          {events.map((item, i) => <div key={i} className="w-full h-full">
-            <img src={item.photo} className="w-full object-contain"></img>
-            <Link href={item.slug}><Button>See Photos</Button></Link>
-          </div>)}
-        </div>
-      </Container>
+          )}
     </div>
   </div>
 }
