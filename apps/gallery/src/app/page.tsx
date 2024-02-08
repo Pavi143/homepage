@@ -34,7 +34,7 @@ const quickLinkItems = [
 const serviceItems = [
   { icon: faCalendar, heading: "Event Management", content: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum aliquid tempora voluptatum modi ab ducimus? Iusto temporibus nulla, illum deserunt amet cum aut unde repudiandae totam adipisci voluptatum iure voluptate numquam neque! Fugiat, voluptate saepe. Delectus inventore sit quisquam, nesciunt neque adipisci explicabo, magnam officiis vel accusantium, odit eum numquam?" },
   { icon: faPeopleGroup, heading: "Internal Affairs and Coordination ", content: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione impedit sit dolorem eius eligendi harum quas. Alias harum porro in ad suscipit necessitatibus a accusamus ipsum nobis, exercitationem, quam deleniti nihil. Hic sed quam et quae quia quod iusto incidunt ducimus consectetur dolores distinctio culpa quo facere, repellendus voluptatem! Optio." },
-  { icon: faEarth, heading: "External Relaation and Networking", content: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repudiandae iusto laudantium repellat, voluptas quam dolorum nihil illum eligendi dicta reiciendis vero quod tenetur doloribus accusamus ex doloremque harum. Dolor nisi labore voluptatibus quidem, assumenda modi quae fuga doloribus quasi alias magnam facere delectus sunt nesciunt eum dicta iste vitae dolores." }
+  { icon: faEarth, heading: "External Relation and Networking", content: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repudiandae iusto laudantium repellat, voluptas quam dolorum nihil illum eligendi dicta reiciendis vero quod tenetur doloribus accusamus ex doloremque harum. Dolor nisi labore voluptatibus quidem, assumenda modi quae fuga doloribus quasi alias magnam facere delectus sunt nesciunt eum dicta iste vitae dolores." }
 ]
 
 
@@ -238,8 +238,8 @@ export default function Home() {
           </div>
           <Divider></Divider>
         </div>
-        <div className="md:flex-row flex flex-col  p-8  gap-4 h-[600px] ">
-          <div className="md:w-1/2  flex flex-col justify-center gap-8 h-full  ">
+        <div className="md:flex-row flex flex-col  p-6  gap-4 h-[600px] ">
+          <div className="md:w-1/2  flex flex-col justify-center gap-8 h-full">
             <p className="md:text-5xl text-2xl font-bold uppercase"> {team[current].name} </p>
             <p className="md:text-5xl text-2xl font-bold "> {team[current].roll} </p>
             <p className="md:text-5xl text-2xl font-bold text-pink"> {team[current].designation} </p>
