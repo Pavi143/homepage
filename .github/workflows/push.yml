@@ -17,3 +17,16 @@ jobs:
           external_repository: codingclubgct/website
           publish_branch: master
           allow_empty_commit: true
+  push-to-external-repo-2:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout repository
+        uses: actions/checkout@v3   
+      - name: push to external repository
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          deploy_key: ${{ secrets.SSH_DEPLOY_KEY_SECONDARY }}
+          publish_dir: .
+          external_repository: codingclubgct/website-1
+          publish_branch: master
+          allow_empty_commit: true
