@@ -2,12 +2,10 @@ import { defineDocumentType, makeSource } from 'contentlayer/source-files'
 import GithubSlugger from "github-slugger"
 import rehypeSlug from "rehype-slug"
 import remarkGfm from "remark-gfm"
-import rehypePrettyCode from "rehype-pretty-code"
 import { getTimeString } from './src/lib/getTimeString'
 import { Issue } from './src/types/issues'
 import { Blog as BlogType } from 'contentlayer/generated'
 import { githubPat, owner, repo } from './src/lib/constants'
-import { visit } from 'unist-util-visit';
 
 async function getProfileFromUsername(username: string) {
     const profile = await fetch(`https://api.github.com/users/${username}`, {
@@ -62,6 +60,7 @@ export type GithubDataForBlog = {
         html_url: string,
         email: string,
         avatar_url: string
+        date: string
     }, committer: {
         name: string,
         avatar_url: string
@@ -72,6 +71,7 @@ export type GithubDataForBlog = {
 async function getGithubDataforBlog(pathname: string): Promise<GithubDataForBlog | undefined> {
     const filePathName = `apps/blogs/src/blogs/${pathname}.mdx`
     const apiUrl = `https://api.github.com/repos/${owner}/${repo}/commits?path=${filePathName}`
+    console.log(apiUrl)
     const resp = await fetch(apiUrl, {
         method: "GET",
         headers: {
@@ -84,13 +84,13 @@ async function getGithubDataforBlog(pathname: string): Promise<GithubDataForBlog
         console.log(resp)
         return undefined
     }
-    const { author } = resp[0]
-    const { committer } = resp[resp.length - 1]
+    const { committer } = resp[0]
+    const { author, commit: initialCommit } = resp[resp.length - 1]
     const { name, blog, html_url, email } = await getProfileFromUsername(author.login)
     const { name: committerName } = await getProfileFromUsername(committer.login)
     return {
-        author: { name, blog, html_url, email, avatar_url: author.avatar_url },
-        committer: { name: committerName, avatar_url: committer.avatar_url, committed_date: getTimeString(resp[resp.length - 1].commit.committer.date) }
+        author: { name, blog, html_url, email, avatar_url: author.avatar_url, date: getTimeString(initialCommit.author.date) },
+        committer: { name: committerName, avatar_url: committer.avatar_url, committed_date: getTimeString(resp[0].commit.committer.date) }
     }
 }
 
@@ -113,6 +113,9 @@ export const Blog = defineDocumentType(() => ({
         }, hideAuthor: {
             type: "boolean"
         }, read: {
+            type: "string",
+            required: true
+        }, description: {
             type: "string",
             required: true
         }
@@ -161,38 +164,6 @@ export default makeSource({
     mdx: {
         rehypePlugins: [
             rehypeSlug,
-            () => (tree) => {
-                visit(tree, (node) => {
-                    if (node?.type === "element" && node?.tagName === "pre") {
-                        const [codeEl] = node.children;
-
-                        if (codeEl.tagName !== "code") return;
-
-                        node.raw = codeEl.children?.[0].value;
-                    }
-                });
-            },
-            [(rehypePrettyCode as any), {
-                theme: {
-                    dark: "one-dark-pro",
-                    light: "github-light"
-                }
-            }],
-            () => (tree) => {
-                visit(tree, (node) => {
-                    if (node?.type === "element" && node?.tagName === "div") {
-                        if (!("data-rehype-pretty-code-fragment" in node.properties)) {
-                            return;
-                        }
-
-                        for (const child of node.children) {
-                            if (child.tagName === "pre") {
-                                child.properties["raw"] = node.raw;
-                            }
-                        }
-                    }
-                });
-            },
         ],
         remarkPlugins: [remarkGfm]
     },

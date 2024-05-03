@@ -1,13 +1,17 @@
 import CommentBox from "@/components/commentBox";
+import Pre from "@/components/mdx-components/pre";
 import ReactReactions from "@/components/reactReactions";
 import { faArrowUpRightFromSquare, faClock } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Divider } from "@mui/material";
-import { CommandPaster } from "@stianlarsen/react-package-paster";
 import { Blog, allBlogs } from "contentlayer/generated";
 import { MDXComponents } from "mdx/types";
 import { getMDXComponent } from "next-contentlayer/hooks";
 import { notFound } from "next/navigation";
+
+const components: MDXComponents = {
+    pre: Pre
+}
 
 function Chip({ textColor, text, href }: { textColor: string, href: string, text: string }) {
     return <div className={`${textColor} text-sm rounded flex gap-2 items-center bg-mantle p-1 cursor-pointer`}>
@@ -31,7 +35,7 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
                     <p className="text-6xl font-bold"> {blog.title} </p>
                     <div className="flex gap-2 items-center">
                         <FontAwesomeIcon className="" icon={faClock}></FontAwesomeIcon>
-                        <p className="text-sm text-subtext0"> {blog.read} Read</p>
+                        <p className="text-sm text-subtext0"> {`${blog.read} Read`}</p>
                         <ReactReactions slug={`issues/${issueNumber}`} />
                     </div>
                     {blog.tags ? <div className="flex gap-2 items-center">
@@ -41,13 +45,14 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
                 {githubData ? <div className="w-full flex flex-col gap-4">
                     {!Boolean(blog.hideAuthor) && <div className="w-full flex flex-col md:flex-row md:items-center gap-4">
                         <img className="rounded-full w-20 h-20 object-contain" src={githubData.author.avatar_url} alt="" />
-                        <div className="flex flex-col justify-between">
+                        <div className="flex flex-col justify-between gap-1">
                             <p> {githubData.author.name} </p>
                             <div className="flex gap-2">
                                 <Chip textColor="text-yellow" text="GitHub" href={githubData.author.html_url} />
                                 {githubData.author.blog && <Chip textColor="text-pink" text="Website" href={githubData.author.blog} />}
                                 {githubData.author.email && <Chip textColor="text-rosewater" text="Email" href={githubData.author.email} />}
                             </div>
+                            <p className="text-sm text-subtext0">{githubData.author.date}</p>
                         </div>
                     </div>}
                     <div className="flex justify-end items-center">
@@ -60,9 +65,9 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
                             <p className="text-subtext1"> {githubData.committer.committed_date} </p>
                         </div>
                     </div>
-                    <div className="relative md:hidden">
+                    <div className="relative md:hidden w-full">
                         <Divider />
-                        <div className="w-[300px] flex flex-col gap-4 py-4 overflow-y-scroll scrollbar-hide sticky top-0">
+                        <div className="flex flex-col gap-4 py-4 overflow-y-scroll scrollbar-hide sticky top-0">
                             <p> Table of Contents </p>
                             {blog.headings.map(({ text, slug }: { text: string, slug: string }, i: number) =>
                                 <a key={i} className="text-sm no-underline" href={`#${slug}`}>{text}</a>
@@ -70,15 +75,15 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
                         </div>
                     </div>
                 </div> : <></>}
-                <div className="prose mx-auto mt-12">
-                    <MDXContent />
+                <div className="mt-12 !max-w-[calc(100%-1rem)] mx-auto prose">
+                    <MDXContent components={components} />
                 </div>
                 <CommentBox slug={`issues/${issueNumber}`} />
             </div>
-            <div className="hidden md:flex gap-4">
-                <Divider orientation="vertical"></Divider>
+            <div className="hidden md:flex gap-4 w-[300px] md:pr-4">
+                <Divider orientation="vertical" className="m-0"></Divider>
                 <div className="relative">
-                    <div className="w-[300px] h-screen flex flex-col gap-4 py-4 overflow-y-scroll scrollbar-hide sticky top-0">
+                    <div className="h-screen flex flex-col gap-4 py-4 overflow-y-scroll scrollbar-hide sticky top-0">
                         <p> Table of Contents </p>
                         {blog.headings.map(({ text, slug }: { text: string, slug: string }, i: number) =>
                             <a key={i} className="text-sm no-underline" href={`#${slug}`}>{text}</a>
