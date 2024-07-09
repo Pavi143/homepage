@@ -1,10 +1,9 @@
+import lookup from "@/data/lookup.json";
 import { Issue, Reaction } from "@/types/issues";
+import { Blog, Profile } from "@/types/types";
+import * as yup from "yup";
 import { githubPat, owner, repo } from "./constants";
 import { getTimeString } from "./getTimeString";
-import lookup from "@/data/lookup.json"
-import * as yup from "yup";
-import { Blogs as Blog, Profile } from "@/types/types";
-import { GetResponseDataTypeFromEndpointMethod } from "@octokit/types"
 import { octokit } from "./octokit";
 
 export const getIssueNumberFromString = (slug: string) => slug.match(/\d+/)?.[0];
@@ -132,7 +131,6 @@ export const blogEntrySchema = yup.object<Entry>().shape({
         avatar: yup.string()
     }),
     blogs: yup.array().of(yup.object().shape({
-        title: yup.string().required(),
         folderName: yup.string().required(),
         folderSlug: yup.string().matches(/^[A-Za-z0-9]+(?:-[A-Za-z0-9]+)*$/, "Incorrect format for a slug").required(),
         hidden: yup.boolean().default(false),
@@ -157,7 +155,7 @@ export const fetchRepo = async (url: string) => {
 }
 
 export const getBlogData = async (pathname: string) => {
-    const [nameSlug, folderSlug] = pathname.split("/")
+    const [nameSlug, folderSlug] = pathname.split("/").filter(Boolean)
     const blogs = await getAllBlogs()
     const user = blogs.find(entry => entry.profile.nameSlug === nameSlug)
     const blog = user?.blogs.find(blog => blog.folderSlug === folderSlug)
