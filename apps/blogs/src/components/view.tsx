@@ -54,7 +54,7 @@ export default async function View({ children }: { children: ReactNode }) {
 
     return <div className="w-full">
         <div className="flex min-h-screen">
-            <div className="flex-1 min-w-[300px]">
+            <div className="flex-1 max-w-[300px]">
                 <Navbar />
             </div>
             <Divider className="self-stretch h-auto" orientation="vertical" />

@@ -13,6 +13,7 @@ import { Divider } from "@mui/material";
 import Image from "next/image";
 import Link from "next/link";
 import { Blog, Profile } from "@/types/types";
+import CommentBox from "@/components/commentBox";
 
 const components: MDXComponents = {
     pre: Pre,
@@ -71,31 +72,40 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
 
     const rootLevelHeadings = toc?.filter(item => item.parent === "root") ?? []
 
-    return <>
-        <div className="container flex flex-row justify-center">
-            <div className="w-full">
-                {isFrontMatterData(frontmatter) ? <BlogHeader frontmatter={frontmatter} repo={repo} /> : <div className="h-8" />}
-                <div className="mx-auto prose my-4 px-4">
-                    <MDXRemote
-                        source={markdown}
-                        components={components}
-                        options={{
-                            mdxOptions: {
-                                ...plugins({
-                                    format: "md"
-                                })
-                            },
-                            parseFrontmatter: true
-                        }}
-                    />
+    return <div>
+        <div className="flex">
+            <div className="container flex flex-row justify-center">
+                <div className="w-full">
+                    {isFrontMatterData(frontmatter) ? <BlogHeader frontmatter={frontmatter} repo={repo} /> : <div className="h-8" />}
+                    <div className="mx-auto prose my-4 px-4">
+                        <MDXRemote
+                            source={markdown}
+                            components={components}
+                            options={{
+                                mdxOptions: {
+                                    ...plugins({
+                                        format: "md"
+                                    })
+                                },
+                                parseFrontmatter: true
+                            }}
+                        />
+                    </div>
                 </div>
             </div>
+            <Divider orientation="vertical" className="self-stretch h-auto" />
+            <div className="flex-1 max-w-[300px] my-4">
+                <TOC toc={rootLevelHeadings} />
+            </div>
         </div>
-        <Divider orientation="vertical" className="self-stretch h-auto" />
-        <div className="flex-1 min-w-[300px] my-4">
-            <TOC toc={rootLevelHeadings} />
-        </div>
-    </>
+        {blog.issuesUrl &&
+            <div className="">
+                <Divider className="mb-12" />
+                <div className="p-4">
+                    <CommentBox issuesUrl={blog.issuesUrl} />
+                </div>
+            </div>}
+    </div>
 }
 
 const TOC = ({ toc }: { toc: TocItem[] }) => {
