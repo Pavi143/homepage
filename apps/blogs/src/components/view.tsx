@@ -1,4 +1,4 @@
-import { fetchRepo, getAllBlogs } from "@/lib/helpers"
+import { fetchAllFilesForAllUsers, fetchRepo, getAllBlogs } from "@/lib/helpers"
 import { octokit } from "@/lib/octokit"
 import { Blog, Profile } from "@/types/types"
 import { faDiscord, faInstagram, faLinkedin } from "@fortawesome/free-brands-svg-icons"
@@ -6,6 +6,8 @@ import { Divider } from "@mui/material"
 import { GetResponseDataTypeFromEndpointMethod } from "@octokit/types"
 import { headers } from "next/headers"
 import { ReactNode } from "react"
+import Accordion, { AccordionLabel } from "./accordion"
+
 
 const links = [
     {
@@ -49,13 +51,6 @@ const howTo = [
 export default async function View({ children }: { children: ReactNode }) {
     const headersList = headers()
     const url = new URL(headersList.get("x-url")!)
-    // if (url.pathname.split("/").length >= 2) {
-    //     const blogData = await getBlogData(url.pathname)
-    //     if (blogData) {
-    //         const files = await fetchAllFiles(blogData.repo)
-    //         console.log(files)
-    //     }
-    // }
 
     return <div className="w-full">
         <div className="flex min-h-screen">
@@ -72,82 +67,19 @@ export default async function View({ children }: { children: ReactNode }) {
 }
 
 const Navbar = async () => {
-    return <>
-    </>
-}
+    const allFiles = await fetchAllFilesForAllUsers()
+    const allVisibleFiles = allFiles.map(entry => ({
+        profile: entry.profile,
+        blogs: entry.blogs.filter(blog => !blog.hidden)
+    })).filter(entry => entry.blogs.length > 0)
 
-export type FileNode = {
-    type: "file",
-    name: string,
-    download_url: string | null,
-    path: string,
-    level: number
-}
-
-export type DirectoryNode = {
-    type: "dir",
-    name: string,
-    children: (FileNode | DirectoryNode)[],
-    path: string,
-    level: number,
-}
-
-export const fetchAllFilesForAllUsers = async () => {
-    const allFilesPromise = await getAllBlogs().then(allBlogs => allBlogs.map(async entry => {
-        const { profile, blogs } = entry
-        const data = []
-        for (const blog of blogs) {
-            const repo = await fetchRepo(blog.remoteSource)
-            if (!repo) return null
-            const files = await fetchAllFiles(repo)
-            data.push({
-                ...blog,
-                files: files
-            })
-        }
-        return { profile, blogs: data }
-
-    }))
-    return Promise.all(allFilesPromise).then(res => res.filter(Boolean) as { profile: Profile, blogs: (Blog & { files: DirectoryNode })[] }[])
-}
-
-const fetchAllFiles = async (repo: GetResponseDataTypeFromEndpointMethod<typeof octokit.repos.get>) => {
-    const dfs = async (path: string = "", level: number = 0): Promise<DirectoryNode> => {
-        const { data } = await octokit.repos.getContent({
-            owner: repo.owner.login,
-            repo: repo.name,
-            path
-        })
-
-        const node: DirectoryNode = {
-            type: "dir",
-            name: path.split('/').pop() || "",
-            children: [],
-            level,
-            path
-        }
-
-        if (Array.isArray(data)) {
-            for (const file of data) {
-                if (file.type === "file" && file.name.endsWith(".md")) {
-                    node.children.push({
-                        type: "file",
-                        name: file.name,
-                        download_url: file.download_url,
-                        path: file.path,
-                        level: level + 1
-                    } as FileNode)
-                } else if (file.type === "dir") {
-                    const childNode = await dfs(file.path, level + 1)
-                    if (childNode.children.length > 0) {
-                        node.children.push(childNode)
-                    }
-                }
-            }
-        }
-
-        return node
-    }
-
-    return dfs()
+    return <div className="flex flex-col gap-8 p-4">
+        {allVisibleFiles.map((entry, i) => <div key={i} className="flex flex-col gap-4">
+            <AccordionLabel node={entry.blogs[0].files} useFolderSlug />
+            <Divider />
+            {entry.blogs.map((blog, j) => <div key={j} className="flex flex-col gal-4">
+                {blog.files.children.map((node, k) => <Accordion key={k} node={node} />)}
+            </div>)}
+        </div>)}
+    </div>
 }

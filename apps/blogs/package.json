@@ -29,6 +29,7 @@
     "@stianlarsen/react-package-paster": "^1.0.10",
     "@types/mdx": "^2.0.10",
     "@uiw/react-md-editor": "^4.0.3",
+    "cn-func": "^1.0.1",
     "colorsea": "^1.2.1",
     "directory-tree": "^3.5.1",
     "framer-motion": "^11.1.7",

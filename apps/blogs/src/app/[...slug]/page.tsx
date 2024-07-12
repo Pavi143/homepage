@@ -1,5 +1,5 @@
 import Pre from "@/components/mdx-components/pre";
-import { getAllBlogs, fetchRepo } from "@/lib/helpers";
+import { getAllBlogs, fetchRepo, fetchAllFilesForAllUsers, DirectoryNode, FileNode } from "@/lib/helpers";
 import { octokit } from "@/lib/octokit";
 import { GetResponseDataTypeFromEndpointMethod, GetResponseTypeFromEndpointMethod } from "@octokit/types";
 import { MDXComponents } from "mdx/types";
@@ -12,7 +12,6 @@ import { NextResponse } from "next/server";
 import { Divider } from "@mui/material";
 import Image from "next/image";
 import Link from "next/link";
-import { DirectoryNode, FileNode, fetchAllFilesForAllUsers } from "@/components/view";
 import { Blog, Profile } from "@/types/types";
 
 const components: MDXComponents = {

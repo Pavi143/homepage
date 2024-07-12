@@ -32,7 +32,6 @@ export const metadata: Metadata = {
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
   const headersList = headers()
   const url = new URL(headersList.get("x-url")!)
-  const author = url.searchParams.get("author")
 
   return (
     <html lang="en" id="__next">
