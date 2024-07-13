@@ -83,6 +83,9 @@ const muiLightThemeConfig: ThemeOptions = {
 export function ThemeProvider({ children }: { children: ReactNode }) {
     const { darkMode } = useContext(DarkModeContext);
     const theme = darkMode ? createTheme({ ...muiDarkThemeConfig as ThemeOptions }) : createTheme(muiLightThemeConfig as ThemeOptions );
+
+    console.log(theme)
+
     return (
         <ThemeContext.Provider value={theme}>
             <MuiThemeProvider theme={theme}>
