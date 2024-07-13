@@ -11,7 +11,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <DarkModeProvider>
           <ThemeProvider>
             <CatppuccinProvider>
-                {children}
+              {children}
             </CatppuccinProvider>
           </ThemeProvider>
         </DarkModeProvider>
