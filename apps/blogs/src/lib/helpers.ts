@@ -116,11 +116,12 @@ export const getAllBlogs = async () => {
         try {
             const { profile, blogs } = await fetch(`${url}/data/${entry}`).then(res => res.json())
             return blogEntrySchema.validateSync({ profile, blogs })
-        } catch (e) {
-            console.error(e)
+        } catch (error) {
+            console.error({error})
             return null
         }
     })
+    Promise.all(promises).then(console.log)
     return Promise.all(promises).then(res => res.filter(Boolean)) as Promise<Entry[]>
 }
 
