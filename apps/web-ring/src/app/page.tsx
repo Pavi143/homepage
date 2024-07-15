@@ -16,8 +16,8 @@ export default function Home() {
         )
     }
     <div className="flex justify-center gap-8 m-8">
-      <Button>Next</Button>
-      <Button>Previous</Button>
+      <Button href="https://webring.codingclubgct.in/webring/back" >Back</Button>
+      <Button href="https://webring.codingclubgct.in/webring/next">Next</Button>
     </div>
     
   </div>
