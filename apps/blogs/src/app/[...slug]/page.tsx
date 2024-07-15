@@ -162,9 +162,9 @@ const BlogHeader = async ({ frontmatter, repo }: { frontmatter: FrontMatterData,
     const finalCoverImage = cover.startsWith("http") ? cover : `https://raw.githubusercontent.com/${repo.owner.login}/${repo.name}/main/${cover}`
 
     return <div className="w-full py-4 flex flex-col gap-8">
-        <div className="flex flex-col gap-8 [&>*]:px-4  max-w-4xl mx-auto">
+        <div className="flex flex-col gap-8 [&>*]:px-4 max-w-6xl mx-auto">
             <p className="text-3xl md:text-5xl font-bold">{title}</p>
-            <img src={finalCoverImage} className="w-full object-contain !px-0" />
+            <img src={finalCoverImage} className="w-full object-contain !px-0"/>
             <div className="flex flex-wrap gap-4 items-center">
                 {finalTags.map((tag, i) => <span key={i} className="bg-surface0 px-2 py-1 rounded-xl">{tag}</span>)}
             </div>
